@@ -14,15 +14,13 @@ namespace PlayMatch.Core.Data
         public PlayMatchDbContext(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath, Flags);
-            InitializeAsync().Wait();
+            _ = InitializeAsync();
         }
 
         private async Task InitializeAsync()
         {
             try
             {
-                if (Database is not null)
-                    return;
                 var result = await _database.CreateTableAsync<Jogador>();
             }
             catch (Exception ex)

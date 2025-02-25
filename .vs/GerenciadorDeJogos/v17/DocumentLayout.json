@@ -1,94 +1,66 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\",
+  "WorkspaceRootPath": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\gerenciarjogadorespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\gerenciarjogadorespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\gerenciarjogadorespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\gerenciarjogadorespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\gerenciarjogadorespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\viewmodels\\gerenciarjogadoresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\viewmodels\\gerenciarjogadoresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\gerenciadordejogos.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\gerenciadordejogos.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\services\\jogadorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\services\\jogadorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\playmatch.core\\data\\playmatchdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|solutionrelative:playmatch.core\\data\\playmatchdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\navigation\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\navigation\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\navigation\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\navigation\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\gerenciadordejogos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\gerenciadordejogos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\gerenciadordejogos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\playmatch.core\\playmatch.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|solutionrelative:playmatch.core\\playmatch.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\platforms\\android\\androidmanifest.xml||{4E01A4BC-CFCF-452C-8C08-51352512D197}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\platforms\\android\\androidmanifest.xml||{4E01A4BC-CFCF-452C-8C08-51352512D197}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\henri\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.100\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\platforms\\android\\mainapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\platforms\\android\\mainapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\henri\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\platforms\\android\\mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\platforms\\android\\mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.406\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.ImportWorkloads.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\packs\\Microsoft.Android.Sdk.Windows\\34.0.95\\targets\\Microsoft.Android.Sdk.Tooling.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\models\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\models\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\gerenciarjogadorespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\gerenciarjogadorespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\playmatch.core\\data\\sqliterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|solutionrelative:playmatch.core\\data\\sqliterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\playmatch.core\\data\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|solutionrelative:playmatch.core\\data\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\navigation\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\navigation\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\playmatch.core\\models\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\viewmodels\\gerenciarjogadoresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\viewmodels\\gerenciarjogadoresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\services\\jogadorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\services\\jogadorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\playmatch.core\\models\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|solutionrelative:playmatch.core\\models\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henri\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\resources\\appicon\\appiconfg.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\resources\\appicon\\appiconfg.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\models\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\models\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -98,20 +70,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 12,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -122,294 +82,195 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GerenciarJogadoresPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs*",
-              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T09:46:42.217Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "PlayMatch.Core",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
-              "RelativeDocumentMoniker": "PlayMatch.Core\\PlayMatch.Core.csproj",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
-              "RelativeToolTip": "PlayMatch.Core\\PlayMatch.Core.csproj",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAABSAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-25T09:37:56.442Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Microsoft.Maui.Resizetizer.After.targets",
-              "DocumentMoniker": "C:\\Users\\henri\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.100\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.100\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
-              "ToolTip": "C:\\Users\\henri\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.100\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
-              "RelativeToolTip": "..\\..\\..\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.100\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
-              "ViewState": "AQIAAJUBAAAAAAAAAAAnwKQBAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-02-25T09:29:53.869Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Microsoft.NET.Sdk.ImportWorkloads.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.406\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.ImportWorkloads.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.406\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.ImportWorkloads.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.406\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.ImportWorkloads.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.406\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.ImportWorkloads.targets",
-              "ViewState": "AQIAABgAAAAAAAAAAAAEwCUAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-02-25T02:10:45.542Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Microsoft.Android.Sdk.Tooling.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\packs\\Microsoft.Android.Sdk.Windows\\34.0.95\\targets\\Microsoft.Android.Sdk.Tooling.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\packs\\Microsoft.Android.Sdk.Windows\\34.0.95\\targets\\Microsoft.Android.Sdk.Tooling.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\packs\\Microsoft.Android.Sdk.Windows\\34.0.95\\targets\\Microsoft.Android.Sdk.Tooling.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\dotnet\\packs\\Microsoft.Android.Sdk.Windows\\34.0.95\\targets\\Microsoft.Android.Sdk.Tooling.targets",
-              "ViewState": "AQIAACwAAAAAAAAAAAArwDkAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-02-25T02:02:35.869Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "GerenciadorDeJogos.csproj",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
-              "RelativeToolTip": "GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-25T01:32:55.391Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CommunityToolkit.Mvvm.WindowsSdk.targets",
-              "DocumentMoniker": "C:\\Users\\henri\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets",
-              "ToolTip": "C:\\Users\\henri\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets",
-              "RelativeToolTip": "..\\..\\..\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAEwFcAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-02-25T01:26:29.901Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GerenciarJogadoresPage.xaml",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
-              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-25T01:22:13.076Z",
+              "Title": "GerenciadorDeJogos",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
+              "RelativeToolTip": "GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-25T18:05:18.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GerenciarJogadoresViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
-              "RelativeToolTip": "GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAYwBYAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T01:16:04.333Z",
+              "Title": "GerenciadorDeJogos",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
+              "RelativeToolTip": "GerenciadorDeJogos\\GerenciadorDeJogos.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAACDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-25T17:56:03.048Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "JogadorService.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Services\\JogadorService.cs",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Services\\JogadorService.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Services\\JogadorService.cs",
-              "RelativeToolTip": "GerenciadorDeJogos\\Services\\JogadorService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T01:13:55.427Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "SQLiteRepository.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\SQLiteRepository.cs",
-              "RelativeDocumentMoniker": "PlayMatch.Core\\Data\\SQLiteRepository.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\SQLiteRepository.cs",
-              "RelativeToolTip": "PlayMatch.Core\\Data\\SQLiteRepository.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAgwBgAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T01:05:22.703Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IGenericRepository.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\IGenericRepository.cs",
-              "RelativeDocumentMoniker": "PlayMatch.Core\\Data\\IGenericRepository.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\IGenericRepository.cs",
-              "RelativeToolTip": "PlayMatch.Core\\Data\\IGenericRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T01:05:15.904Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PlayMatchDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\PlayMatchDbContext.cs",
-              "RelativeDocumentMoniker": "PlayMatch.Core\\Data\\PlayMatchDbContext.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\PlayMatchDbContext.cs",
-              "RelativeToolTip": "PlayMatch.Core\\Data\\PlayMatchDbContext.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAJAAAA",
+              "Title": "MainApplication.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Platforms\\Android\\MainApplication.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Platforms\\Android\\MainApplication.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Platforms\\Android\\MainApplication.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\Platforms\\Android\\MainApplication.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T01:03:51.887Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Jogador.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Models\\Jogador.cs",
-              "RelativeDocumentMoniker": "PlayMatch.Core\\Models\\Jogador.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Models\\Jogador.cs",
-              "RelativeToolTip": "PlayMatch.Core\\Models\\Jogador.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T00:58:11.01Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Jogador.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Models\\Jogador.cs",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Models\\Jogador.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Models\\Jogador.cs",
-              "RelativeToolTip": "GerenciadorDeJogos\\Models\\Jogador.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T00:53:54.882Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\App.xaml.cs",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\App.xaml.cs",
-              "RelativeToolTip": "GerenciadorDeJogos\\App.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T21:20:41.512Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppShell.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml.cs",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml.cs",
-              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T21:08:22.599Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AppShell.xaml",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
-              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-24T20:51:14.14Z",
+              "WhenOpened": "2025-02-25T17:52:06.491Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\MauiProgram.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\MauiProgram.cs",
-              "RelativeToolTip": "GerenciadorDeJogos\\MauiProgram.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAIwBwAAAAIAAAA",
+              "Title": "MainActivity.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Platforms\\Android\\MainActivity.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Platforms\\Android\\MainActivity.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Platforms\\Android\\MainActivity.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\Platforms\\Android\\MainActivity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T19:39:27.722Z",
+              "WhenOpened": "2025-02-25T17:52:04.85Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 3,
+              "Title": "AndroidManifest.xml",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Platforms\\Android\\AndroidManifest.xml",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Platforms\\Android\\AndroidManifest.xml",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Platforms\\Android\\AndroidManifest.xml",
+              "RelativeToolTip": "GerenciadorDeJogos\\Platforms\\Android\\AndroidManifest.xml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-02-25T17:50:58.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml.cs",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml.cs",
               "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAKAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T19:39:21.15Z",
+              "WhenOpened": "2025-02-25T16:47:08.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
+              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-25T15:41:26.982Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "MainPage.xaml",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
-              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAYAAAA",
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
+              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-24T19:39:09.207Z",
+              "WhenOpened": "2025-02-25T15:41:13.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\MauiProgram.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\MauiProgram.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\MauiProgram.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T13:44:49.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Jogador.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Models\\Jogador.cs",
+              "RelativeDocumentMoniker": "PlayMatch.Core\\Models\\Jogador.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Models\\Jogador.cs",
+              "RelativeToolTip": "PlayMatch.Core\\Models\\Jogador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T13:35:01.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GerenciarJogadoresPage.xaml",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
+              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
+              "ViewState": "AgIAABkAAAAAAAAAAADwvxwAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-25T12:58:51.347Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\App.xaml",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\App.xaml",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\App.xaml",
-              "RelativeToolTip": "GerenciadorDeJogos\\App.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-24T19:36:50.615Z",
+              "Title": "GerenciarJogadoresPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T12:26:37.152Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "appiconfg.svg",
-              "DocumentMoniker": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Resources\\AppIcon\\appiconfg.svg",
-              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Resources\\AppIcon\\appiconfg.svg",
-              "ToolTip": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Resources\\AppIcon\\appiconfg.svg",
-              "RelativeToolTip": "GerenciadorDeJogos\\Resources\\AppIcon\\appiconfg.svg",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKMSURBVDhPjZNLSFRhFMd/3507M/dKPsacsYelWGZZFFJRkdSmNrUoatMiKggSN2YFEUX3MvQiiBYWtFAyggoXPSGyhQuhFrXQFr7GMFOowcZMUO9MM3pPi9Eao6gf/Bcfh3PO/5yPo8jAsqxI5vtvKKXuhMPhK4jInIBlWRH5Bw0NDYOWZUVs264B0DILKEUXCCIpZOIi7uetpHpCxN8GiffU4rrThEIhXzgcXiEidbZtH/5ZQKTV\u002B72oItjSYfG5vxwneoX2/iW80dvxb4ji9D4BIBAIeBsbG4fSOXJWzSR7qpt9D\u002BvWndpTlNXL2HCQ28PXaIuVEB2Dmsp8DiZqyN35FAFiw19IJpPcbmrq0wCq7\u002BvHd5Y\u002B2rMy5y3OcBXmqtccq9rB/uUFKI/GzfZRPhRdBhEQIRgKUlxSAoAm0uqtWNB5Yu\u002Bier5\u002BWOoWbnxAwAwQzDao3lLIobX5ePxemiImroCIzFm\u002BztT7/CPLzi8ej\u002BVxdeyu1nJjgMR3FwDl0fD4dJRHozuWACStjM/TGDlZ50tNqHuxejo\u002B\u002BZPL8wwqCvxUFPhZFfBSbIBMJti0wJjpDpJRQXfjzr6uj9u\u002BtYysCWijA4OPqzeXpVLJtE010zS9cZDM1DTa9ASLmoaOnh4cEYaySsoa30T5Mp5kPD7Ni\u002B5Rtt7qofzqO553jqQHmHExi5p8RcRNsb6y7VWtnm1ecjUdcdM7QClwhQPl8zi3o\u002BiXdREMMwvbtvv0KYfmRJSBtvlVY93O6ujLlc8WdsYcdE1RmutlV3kO20tzcXFRohBFerQ/ccE6c11EJB53xIk7EndmNSnObxIRsSwrMucWUvh2AxiGiWmYGOassjB/0yxzzPzvOWfyAyvlXYiiBFoWAAAAAElFTkSuQmCC",
-              "WhenOpened": "2025-02-24T19:21:11.174Z"
+              "DocumentIndex": 14,
+              "Title": "Jogador.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Models\\Jogador.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Models\\Jogador.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Models\\Jogador.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\Models\\Jogador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T12:07:06.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GerenciarJogadoresViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAA9wDcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T12:05:51.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "JogadorService.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Services\\JogadorService.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Services\\JogadorService.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Services\\JogadorService.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\Services\\JogadorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T12:04:36.712Z",
+              "EditorCaption": ""
             }
           ]
         }

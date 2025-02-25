@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,12 @@ namespace GerenciadorDeJogos.Models
 {
     public class Jogador
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Apelido { get; set; }
 
-        public Jogador(string nome, string apelido)
-        {
-            Nome = nome;
-            Apelido = apelido;
-        }
+        // Adicionando um construtor público sem parâmetros
+        public Jogador() { }
     }
 }
