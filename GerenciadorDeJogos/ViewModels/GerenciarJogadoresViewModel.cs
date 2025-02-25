@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
 using GerenciadorDeJogos.Models;
 using GerenciadorDeJogos.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -10,9 +9,8 @@ namespace GerenciadorDeJogos.ViewModels
     public partial class GerenciarJogadoresViewModel : ObservableObject
     {
         private readonly JogadorService _jogadorService;
-
         [ObservableProperty]
-        private ObservableCollection<Jogador> jogadores;
+        private ObservableCollection<Jogador> jogadores = new();
 
         [ObservableProperty]
         private string novoNome;
@@ -23,14 +21,17 @@ namespace GerenciadorDeJogos.ViewModels
         public GerenciarJogadoresViewModel(JogadorService jogadorService)
         {
             _jogadorService = jogadorService;
-            jogadores = new ObservableCollection<Jogador>();
             CarregarJogadores();
         }
-
+        [RelayCommand]
         private async void CarregarJogadores()
         {
             var lista = await _jogadorService.GetJogadoresAsync();
-            jogadores = new ObservableCollection<Jogador>(lista);
+            jogadores.Clear();
+            foreach (var jogador in lista)
+            {
+                jogadores.Add(jogador);
+            }
         }
 
         [RelayCommand]

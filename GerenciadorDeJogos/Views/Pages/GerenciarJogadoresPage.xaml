@@ -1,37 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GerenciadorDeJogos.Views.Pages.GerenciarJogadoresPage"
-             xmlns:viewModels="clr-namespace:GerenciadorDeJogos.ViewModels"
-             Title="GerenciarJogadoresPage">
+<ContentPage
+    x:Class="GerenciadorDeJogos.Views.Pages.GerenciarJogadoresPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:GerenciadorDeJogos.ViewModels"
+    Title="Jogadores">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Adicionar" Command="{Binding AdicionarJogadorCommand}" />
+        <ToolbarItem Command="{Binding AdicionarJogadorCommand}" Text="Adicionar" />
     </ContentPage.ToolbarItems>
 
     <VerticalStackLayout Padding="10" Spacing="10">
 
-        <!-- Campo para adicionar novo jogador -->
-        <Entry Placeholder="Nome do Jogador" x:Name="NomeEntry" />
-        <Entry Placeholder="Apelido" x:Name="ApelidoEntry" />
-        <Button Text="Adicionar Jogador" Clicked="AdicionarJogador_Clicked" BackgroundColor="LightGreen" TextColor="White"/>
+        <Entry Placeholder="Nome do Jogador" Text="{Binding NovoNome}" />
+        <Entry Placeholder="Apelido" Text="{Binding NovoApelido}" />
 
-        <!-- Lista de jogadores -->
+        <!--  Botão vinculado ao RelayCommand  -->
+        <Button
+            BackgroundColor="LightGreen"
+            Command="{Binding AdicionarJogadorCommand}"
+            Text="Adicionar Jogador"
+            TextColor="White" />
+
+        <!--  Lista de jogadores  -->
         <CollectionView ItemsSource="{Binding Jogadores}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BorderColor="Gray" CornerRadius="10" Padding="10">
+                    <Frame
+                        Padding="10"
+                        BorderColor="Gray"
+                        CornerRadius="10">
                         <HorizontalStackLayout>
                             <VerticalStackLayout>
-                                <Label Text="{Binding Nome}" FontAttributes="Bold" FontSize="Medium"/>
-                                <Label Text="{Binding Apelido}" FontAttributes="Italic" FontSize="Small"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding Nome}" />
+                                <Label
+                                    FontAttributes="Italic"
+                                    FontSize="Small"
+                                    Text="{Binding Apelido}" />
                             </VerticalStackLayout>
 
-                            <Button Text="Remover"
-                                    BackgroundColor="Red"
-                                    TextColor="White"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:GerenciarJogadoresViewModel}}, Path=RemoverJogadorCommand}"
-                                    CommandParameter="{Binding .}" 
-                                    HorizontalOptions="EndAndExpand"/>
+                            <Button
+                                BackgroundColor="Red"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:GerenciarJogadoresViewModel}}, Path=RemoverJogadorCommand}"
+                                CommandParameter="{Binding .}"
+                                HorizontalOptions="EndAndExpand"
+                                Text="Remover"
+                                TextColor="White" />
                         </HorizontalStackLayout>
                     </Frame>
                 </DataTemplate>
