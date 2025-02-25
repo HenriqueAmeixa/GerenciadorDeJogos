@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using GerenciadorDeJogos.Services;
+using GerenciadorDeJogos.ViewModels;
+using GerenciadorDeJogos.Views;
+using Microsoft.Extensions.Logging;
+using PlayMatch.Core.Data;
 
 namespace GerenciadorDeJogos;
 
@@ -14,11 +18,17 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+        string dbPath = Path.Combine(FileSystem.AppDataDirectory, "playmatch.db3");
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+        builder.Services.AddSingleton<JogadorService>();
+        builder.Services.AddSingleton<GerenciarJogadoresViewModel>();
+        builder.Services.AddSingleton(new PlayMatchDbContext(dbPath));
+        builder.Services.AddSingleton(typeof(IGenericRepository<>), typeof(SQLiteRepository<>));
+        builder.Services.AddSingleton<GerenciarJogadoresPage>();
+        return builder.Build();
 	}
 }

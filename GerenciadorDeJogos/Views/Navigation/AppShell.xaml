@@ -10,5 +10,5 @@
 
     <!--  Conteúdo Principal  -->
     <ShellContent Title="Principal" ContentTemplate="{DataTemplate local:MainPage}" />
-
+    <ShellContent Title="Gerenciar Jogadores" ContentTemplate="{DataTemplate local:GerenciarJogadoresPage}" />
 </Shell>

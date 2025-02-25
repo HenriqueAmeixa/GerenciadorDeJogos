@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GerenciadorDeJogos.Views.GerenciarJogadoresPage"
+             Title="GerenciarJogadoresPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Adicionar" Command="{Binding AdicionarJogadorCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+
+        <!-- Campo para adicionar novo jogador -->
+        <Entry Placeholder="Nome do Jogador" Text="{Binding NovoNome}" />
+        <Entry Placeholder="Apelido" Text="{Binding NovoApelido}" />
+        <Button Text="Adicionar Jogador" Command="{Binding AdicionarJogadorCommand}" BackgroundColor="LightGreen" TextColor="White"/>
+
+        <!-- Lista de jogadores -->
+        <CollectionView ItemsSource="{Binding Jogadores}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" CornerRadius="10" Padding="10">
+                        <HorizontalStackLayout>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Nome}" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Text="{Binding Apelido}" FontAttributes="Italic" FontSize="Small"/>
+                            </VerticalStackLayout>
+
+                            <Button Text="Remover"
+                                    BackgroundColor="Red"
+                                    TextColor="White"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:GerenciarJogadoresViewModel}}, Path=RemoverJogadorCommand}"
+                                    CommandParameter="{Binding .}" 
+                                    HorizontalOptions="EndAndExpand"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
