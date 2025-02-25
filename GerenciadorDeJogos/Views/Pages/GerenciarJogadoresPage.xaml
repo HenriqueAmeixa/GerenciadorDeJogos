@@ -4,33 +4,29 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:GerenciadorDeJogos.ViewModels"
+    x:Name="page"
     Title="Jogadores">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding AdicionarJogadorCommand}" Text="Adicionar" />
-    </ContentPage.ToolbarItems>
 
     <VerticalStackLayout Padding="10" Spacing="10">
-
         <Entry Placeholder="Nome do Jogador" Text="{Binding NovoNome}" />
         <Entry Placeholder="Apelido" Text="{Binding NovoApelido}" />
 
-        <!--  Botão vinculado ao RelayCommand  -->
         <Button
             BackgroundColor="LightGreen"
             Command="{Binding AdicionarJogadorCommand}"
             Text="Adicionar Jogador"
             TextColor="White" />
 
-        <!--  Lista de jogadores  -->
         <CollectionView ItemsSource="{Binding Jogadores}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame
                         Padding="10"
                         BorderColor="Gray"
-                        CornerRadius="10">
-                        <HorizontalStackLayout>
-                            <VerticalStackLayout>
+                        CornerRadius="10"
+                        Margin="0,0,0,10">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <VerticalStackLayout Grid.Column="0">
                                 <Label
                                     FontAttributes="Bold"
                                     FontSize="Medium"
@@ -41,18 +37,17 @@
                                     Text="{Binding Apelido}" />
                             </VerticalStackLayout>
 
-                            <Button
-                                BackgroundColor="Red"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:GerenciarJogadoresViewModel}}, Path=RemoverJogadorCommand}"
+                            <!--  Usando x:Reference para acessar o BindingContext da página  -->
+                            <ImageButton
+                                Grid.Column="1"
+                                Command="{Binding Source={x:Reference page}, Path=BindingContext.RemoverJogadorCommand}"
                                 CommandParameter="{Binding .}"
-                                HorizontalOptions="EndAndExpand"
-                                Text="Remover"
-                                TextColor="White" />
-                        </HorizontalStackLayout>
+                                Source="delete.png"
+                                VerticalOptions="Center" />
+                        </Grid>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
     </VerticalStackLayout>
 </ContentPage>
