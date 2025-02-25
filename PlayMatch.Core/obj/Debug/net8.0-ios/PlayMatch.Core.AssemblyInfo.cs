@@ -14,11 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlayMatch.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba08985957a180893c0cec6e8f14f313521dcbce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3793e07fe459f1303285c059cc974283b098a1cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlayMatch.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlayMatch.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
-[assembly: System.Runtime.Versioning.TargetPlatformAttribute("iOS17.2")]
+[assembly: System.Runtime.Versioning.TargetPlatformAttribute("iOS18.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("iOS11.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GerenciadorDeJogos.Views.GerenciarJogadoresPage"
+             x:Class="GerenciadorDeJogos.Views.Pages.GerenciarJogadoresPage"
+             xmlns:viewModels="clr-namespace:GerenciadorDeJogos.ViewModels"
              Title="GerenciarJogadoresPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Adicionar" Command="{Binding AdicionarJogadorCommand}" />
@@ -10,9 +11,9 @@
     <VerticalStackLayout Padding="10" Spacing="10">
 
         <!-- Campo para adicionar novo jogador -->
-        <Entry Placeholder="Nome do Jogador" Text="{Binding NovoNome}" />
-        <Entry Placeholder="Apelido" Text="{Binding NovoApelido}" />
-        <Button Text="Adicionar Jogador" Command="{Binding AdicionarJogadorCommand}" BackgroundColor="LightGreen" TextColor="White"/>
+        <Entry Placeholder="Nome do Jogador" x:Name="NomeEntry" />
+        <Entry Placeholder="Apelido" x:Name="ApelidoEntry" />
+        <Button Text="Adicionar Jogador" Clicked="AdicionarJogador_Clicked" BackgroundColor="LightGreen" TextColor="White"/>
 
         <!-- Lista de jogadores -->
         <CollectionView ItemsSource="{Binding Jogadores}">

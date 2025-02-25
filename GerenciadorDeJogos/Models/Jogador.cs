@@ -11,5 +11,11 @@ namespace GerenciadorDeJogos.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Apelido { get; set; }
+
+        public Jogador(string nome, string apelido)
+        {
+            Nome = nome;
+            Apelido = apelido;
+        }
     }
 }

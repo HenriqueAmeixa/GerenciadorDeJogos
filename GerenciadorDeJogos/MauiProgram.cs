@@ -1,6 +1,6 @@
 ﻿using GerenciadorDeJogos.Services;
 using GerenciadorDeJogos.ViewModels;
-using GerenciadorDeJogos.Views;
+using GerenciadorDeJogos.Views.Pages;
 using Microsoft.Extensions.Logging;
 using PlayMatch.Core.Data;
 

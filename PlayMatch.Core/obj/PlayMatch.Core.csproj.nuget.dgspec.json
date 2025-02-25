@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\henri\\Source\\Repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj": {}
+    "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\henri\\Source\\Repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj": {
+    "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\henri\\Source\\Repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
+        "projectUniqueName": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
         "projectName": "PlayMatch.Core",
-        "projectPath": "C:\\Users\\henri\\Source\\Repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
+        "projectPath": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
         "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\henri\\Source\\Repos\\GerenciadorDeJogos\\PlayMatch.Core\\obj\\",
+        "outputPath": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
@@ -38,11 +38,11 @@
             "targetAlias": "net8.0-android",
             "projectReferences": {}
           },
-          "net8.0-ios17.2": {
+          "net8.0-ios18.0": {
             "targetAlias": "net8.0-ios",
             "projectReferences": {}
           },
-          "net8.0-maccatalyst17.2": {
+          "net8.0-maccatalyst18.0": {
             "targetAlias": "net8.0-maccatalyst",
             "projectReferences": {}
           },
@@ -68,11 +68,11 @@
           "dependencies": {
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.40, )"
+              "version": "[8.0.100, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.40, )"
+              "version": "[8.0.100, )"
             },
             "Microsoft.Windows.SDK.BuildTools": {
               "target": "Package",
@@ -102,23 +102,23 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         },
-        "net8.0-ios17.2": {
+        "net8.0-ios18.0": {
           "targetAlias": "net8.0-ios",
           "dependencies": {
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.40, )"
+              "version": "[8.0.100, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.40, )"
+              "version": "[8.0.100, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.6, )",
+              "version": "[8.0.13, )",
               "autoReferenced": true
             },
             "Microsoft.Windows.SDK.BuildTools": {
@@ -149,23 +149,23 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         },
-        "net8.0-maccatalyst17.2": {
+        "net8.0-maccatalyst18.0": {
           "targetAlias": "net8.0-maccatalyst",
           "dependencies": {
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.40, )"
+              "version": "[8.0.100, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.40, )"
+              "version": "[8.0.100, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.6, )",
+              "version": "[8.0.13, )",
               "autoReferenced": true
             },
             "Microsoft.Windows.SDK.BuildTools": {
@@ -197,18 +197,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-windows10.0.19041": {
           "targetAlias": "net8.0-windows10.0.19041.0",
           "dependencies": {
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.40, )"
+              "version": "[8.0.100, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.40, )"
+              "version": "[8.0.100, )"
             },
             "Microsoft.Windows.SDK.BuildTools": {
               "target": "Package",
@@ -233,7 +233,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.19041.31, 10.0.19041.31]"
+              "version": "[10.0.19041.56, 10.0.19041.56]"
             }
           ],
           "frameworkReferences": {
@@ -244,7 +244,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406\\RuntimeIdentifierGraph.json"
         }
       }
     }

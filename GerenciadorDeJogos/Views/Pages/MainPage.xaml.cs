@@ -1,4 +1,4 @@
-namespace GerenciadorDeJogos;
+namespace GerenciadorDeJogos.Views.Pages;
 
 public partial class MainPage : ContentPage
 {
