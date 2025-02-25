@@ -21,7 +21,10 @@ namespace PlayMatch.Core.Data
         {
             try
             {
-                var result = await _database.CreateTableAsync<Jogador>();
+                var resultJogador = await _database.CreateTableAsync<Jogador>();
+                var resultPartida = await _database.CreateTableAsync<Partida>();
+                var resultTime = await _database.CreateTableAsync<Time>();
+                var resultGol = await _database.CreateTableAsync<Gol>();
             }
             catch (Exception ex)
             {

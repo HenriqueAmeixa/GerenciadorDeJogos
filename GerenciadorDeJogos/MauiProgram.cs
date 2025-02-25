@@ -25,6 +25,9 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddSingleton<JogadorService>();
+		builder.Services.AddSingleton<TimeService>();
+        builder.Services.AddSingleton<PartidaService>();
+		builder.Services.AddSingleton<GolService>();
         builder.Services.AddSingleton<GerenciarJogadoresViewModel>();
         builder.Services.AddSingleton(new PlayMatchDbContext(dbPath));
         builder.Services.AddSingleton(typeof(IGenericRepository<>), typeof(SQLiteRepository<>));
