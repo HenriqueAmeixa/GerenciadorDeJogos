@@ -7,47 +7,49 @@
     x:Name="page"
     Title="Jogadores">
 
-    <VerticalStackLayout Padding="10" Spacing="10">
-        <Entry Placeholder="Nome do Jogador" Text="{Binding NovoNome}" />
-        <Entry Placeholder="Apelido" Text="{Binding NovoApelido}" />
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="10">
+            <Entry Placeholder="Nome do Jogador" Text="{Binding NovoNome}" />
+            <Entry Placeholder="Apelido" Text="{Binding NovoApelido}" />
 
-        <Button
-            BackgroundColor="LightGreen"
-            Command="{Binding AdicionarJogadorCommand}"
-            Text="Adicionar Jogador"
-            TextColor="White" />
+            <Button
+                BackgroundColor="LightGreen"
+                Command="{Binding AdicionarJogadorCommand}"
+                Text="Adicionar Jogador"
+                TextColor="White" />
 
-        <CollectionView ItemsSource="{Binding Jogadores}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame
-                        Padding="10"
-                        BorderColor="Gray"
-                        CornerRadius="10"
-                        Margin="0,0,0,10">
-                        <Grid ColumnDefinitions="*, Auto">
-                            <VerticalStackLayout Grid.Column="0">
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="Medium"
-                                    Text="{Binding Nome}" />
-                                <Label
-                                    FontAttributes="Italic"
-                                    FontSize="Small"
-                                    Text="{Binding Apelido}" />
-                            </VerticalStackLayout>
+            <CollectionView ItemsSource="{Binding Jogadores}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Margin="0,0,0,10"
+                            Padding="10"
+                            BorderColor="Gray"
+                            CornerRadius="10">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Nome}" />
+                                    <Label
+                                        FontAttributes="Italic"
+                                        FontSize="Small"
+                                        Text="{Binding Apelido}" />
+                                </VerticalStackLayout>
 
-                            <!--  Usando x:Reference para acessar o BindingContext da página  -->
-                            <ImageButton
-                                Grid.Column="1"
-                                Command="{Binding Source={x:Reference page}, Path=BindingContext.RemoverJogadorCommand}"
-                                CommandParameter="{Binding .}"
-                                Source="delete.png"
-                                VerticalOptions="Center" />
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+                                <!--  Usando x:Reference para acessar o BindingContext da página  -->
+                                <ImageButton
+                                    Grid.Column="1"
+                                    Command="{Binding Source={x:Reference page}, Path=BindingContext.RemoverJogadorCommand}"
+                                    CommandParameter="{Binding .}"
+                                    Source="delete.png"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
