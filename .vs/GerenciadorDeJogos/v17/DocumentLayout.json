@@ -3,8 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\selecaojogadoresview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\selecaojogadoresview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\gerenciarpartidaview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\gerenciarpartidaview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\viewmodels\\partidaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\viewmodels\\partidaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\viewmodels\\gerenciarjogadoresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\viewmodels\\gerenciarjogadoresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\services\\jogadorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\services\\jogadorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\playmatch.core\\data\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|solutionrelative:playmatch.core\\data\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\models\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\models\\jogador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\playmatch.core\\data\\sqliterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,10 +55,6 @@
       "RelativeMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|solutionrelative:playmatch.core\\models\\time.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\views\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\views\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\playmatch.core\\models\\gol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA39E531-099E-4F90-8E37-A509D1EC7C10}|PlayMatch.Core\\PlayMatch.Core.csproj|solutionrelative:playmatch.core\\models\\gol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -42,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "Gol.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Models\\Gol.cs",
               "RelativeDocumentMoniker": "PlayMatch.Core\\Models\\Gol.cs",
@@ -62,12 +90,11 @@
               "RelativeToolTip": "PlayMatch.Core\\Models\\Gol.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T22:12:19.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T22:12:19.443Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "Jogador.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Models\\Jogador.cs",
               "RelativeDocumentMoniker": "PlayMatch.Core\\Models\\Jogador.cs",
@@ -75,25 +102,23 @@
               "RelativeToolTip": "PlayMatch.Core\\Models\\Jogador.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T21:53:36.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T21:53:36.943Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "PlayMatchDbContext.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\PlayMatchDbContext.cs",
               "RelativeDocumentMoniker": "PlayMatch.Core\\Data\\PlayMatchDbContext.cs",
               "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\PlayMatchDbContext.cs",
               "RelativeToolTip": "PlayMatch.Core\\Data\\PlayMatchDbContext.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBoAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T21:49:22.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T21:49:22.464Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "Time.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Models\\Time.cs",
               "RelativeDocumentMoniker": "PlayMatch.Core\\Models\\Time.cs",
@@ -101,12 +126,11 @@
               "RelativeToolTip": "PlayMatch.Core\\Models\\Time.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T21:44:48.175Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T21:44:48.175Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\MainPage.xaml",
@@ -115,6 +139,32 @@
               "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-25T21:43:02.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SelecaoJogadoresView.xaml",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\SelecaoJogadoresView.xaml",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\SelecaoJogadoresView.xaml",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\SelecaoJogadoresView.xaml",
+              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\SelecaoJogadoresView.xaml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAwwCkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-25T23:29:38.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GerenciarJogadoresViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T22:40:40.33Z",
               "EditorCaption": ""
             }
           ]
@@ -125,20 +175,81 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "GerenciarPartidaView.xaml",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarPartidaView.xaml",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\GerenciarPartidaView.xaml",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarPartidaView.xaml",
+              "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\GerenciarPartidaView.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-25T23:46:11.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PartidaViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\PartidaViewModel.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\ViewModels\\PartidaViewModel.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\PartidaViewModel.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\ViewModels\\PartidaViewModel.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAiwFsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T23:02:48.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "JogadorService.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Services\\JogadorService.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Services\\JogadorService.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Services\\JogadorService.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\Services\\JogadorService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAEwCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T22:37:46.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Jogador.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Models\\Jogador.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Models\\Jogador.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Models\\Jogador.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\Models\\Jogador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T22:34:15.086Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\MauiProgram.cs",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\MauiProgram.cs",
+              "RelativeToolTip": "GerenciadorDeJogos\\MauiProgram.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T22:23:38.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "PlayMatch.Core\\Data\\IGenericRepository.cs",
               "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\IGenericRepository.cs",
               "RelativeToolTip": "PlayMatch.Core\\Data\\IGenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T22:19:00.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T22:19:00.976Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "SQLiteRepository.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Data\\SQLiteRepository.cs",
               "RelativeDocumentMoniker": "PlayMatch.Core\\Data\\SQLiteRepository.cs",
@@ -146,12 +257,11 @@
               "RelativeToolTip": "PlayMatch.Core\\Data\\SQLiteRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T22:18:46.561Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T22:18:46.561Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "Partida.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\Models\\Partida.cs",
               "RelativeDocumentMoniker": "PlayMatch.Core\\Models\\Partida.cs",
@@ -159,8 +269,7 @@
               "RelativeToolTip": "PlayMatch.Core\\Models\\Partida.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T21:46:17.44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T21:46:17.44Z"
             }
           ]
         }
