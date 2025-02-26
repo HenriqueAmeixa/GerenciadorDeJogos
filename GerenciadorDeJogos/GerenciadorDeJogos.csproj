@@ -103,16 +103,34 @@
 	  <MauiXaml Update="Views\Pages\GerenciarJogadoresPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\GerenciarPartidaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Navigation\AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\SelecaoJogadoresPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\SorteioTimesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\PlayMatch.Core\PlayMatch.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Pages\GerenciarPartidaPage.xaml.cs">
+	    <DependentUpon>GerenciarPartidaPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Pages\SelecaoJogadoresPage.xaml.cs">
+	    <DependentUpon>SelecaoJogadoresPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionGerenciadorDeJogosHideInfoBar="True" /></VisualStudio></ProjectExtensions>

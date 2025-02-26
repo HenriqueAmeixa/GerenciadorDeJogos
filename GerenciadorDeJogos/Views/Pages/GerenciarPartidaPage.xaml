@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GerenciadorDeJogos.Views.Pages.GerenciarPartidaPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Gerenciar Partida">
+
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="15"
+        VerticalOptions="Center">
+
+        <Label
+            FontAttributes="Bold"
+            FontSize="22"
+            HorizontalOptions="Center"
+            Text="PlayMatch - Gerenciar Partida" />
+
+        <!--  Botão Criar Partida  -->
+        <Button
+            BackgroundColor="Blue"
+            Command="{Binding CriarPartidaCommand}"
+            FontSize="18"
+            HorizontalOptions="Center"
+            Text="Criar Partida"
+            TextColor="White" />
+
+    </VerticalStackLayout>
+</ContentPage>

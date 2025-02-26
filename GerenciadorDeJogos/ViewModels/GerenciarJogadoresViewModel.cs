@@ -18,11 +18,15 @@ namespace GerenciadorDeJogos.ViewModels
         [ObservableProperty]
         private string novoApelido;
 
+        [ObservableProperty]
+        private int id;
+
         public GerenciarJogadoresViewModel(JogadorService jogadorService)
         {
             _jogadorService = jogadorService;
             CarregarJogadores();
         }
+
         [RelayCommand]
         private async void CarregarJogadores()
         {
@@ -53,6 +57,24 @@ namespace GerenciadorDeJogos.ViewModels
         {
             await _jogadorService.RemoveJogadorAsync(jogador);
             jogadores.Remove(jogador);
+        }
+
+        [RelayCommand]
+        private async Task EditarJogador()
+        {
+            var jogador = await _jogadorService.GetJogadorByIdAsync(Id);
+            if (jogador != null && !string.IsNullOrWhiteSpace(NovoNome))
+            {
+                jogador.Nome = NovoNome;
+                jogador.Apelido = NovoApelido;
+                await _jogadorService.UpdateJogadorAsync(jogador);
+
+                var index = jogadores.IndexOf(jogador);
+                if (index != -1)
+                {
+                    jogadores[index] = jogador;
+                }
+            }
         }
     }
 }

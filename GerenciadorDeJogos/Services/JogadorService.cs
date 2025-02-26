@@ -26,5 +26,15 @@ namespace GerenciadorDeJogos.Services
         {
             await _jogadorRepository.DeleteAsync(jogador);
         }
+
+        public async Task UpdateJogadorAsync(Jogador jogador)
+        {
+            await _jogadorRepository.UpdateAsync(jogador);
+        }
+        public async Task<Jogador> GetJogadorByIdAsync(int id)
+        {
+            return await _jogadorRepository.GetByIdAsync(id);
+        }
+        
     }
 }
