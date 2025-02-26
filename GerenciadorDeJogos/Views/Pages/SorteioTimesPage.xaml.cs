@@ -1,9 +1,24 @@
+using GerenciadorDeJogos.Models;
+
 namespace GerenciadorDeJogos.Views.Pages;
 
-public partial class SorteioTimesPage : ContentView
+[QueryProperty(nameof(JogadoresSelecionados), "JogadoresSelecionados")]
+public partial class SorteioTimesPage : ContentPage
 {
-	public SorteioTimesPage()
-	{
-		InitializeComponent();
-	}
+    private List<Jogador> _jogadoresSelecionados;
+    public List<Jogador> JogadoresSelecionados
+    {
+        get => _jogadoresSelecionados;
+        set
+        {
+            _jogadoresSelecionados = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public SorteioTimesPage()
+    {
+        InitializeComponent();
+        BindingContext = this;
+    }
 }
