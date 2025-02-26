@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView
+<ContentPage
     x:Class="GerenciadorDeJogos.Views.Pages.SorteioTimesPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <VerticalStackLayout>
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:GerenciadorDeJogos.ViewModels"
+    Title="Sorteio de Times">
+
+    <ContentPage.BindingContext>
+        <vm:SorteioTimesViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="10">
         <Label
+            FontSize="Medium"
             HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" />
+            Text="Jogadores Selecionados" />
+
+        <CollectionView ItemsSource="{Binding JogadoresParaSortear}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Apelido}" Text="{Binding Nome}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Command="{Binding SortearTimesCommand}" Text="Sortear Times" />
+
+        <Button Command="{Binding ResortearTimesCommand}" Text="Resortear Times" />
+
+        <Button Command="{Binding IrParaPartidaCommand}" Text="Ir para Partida" />
     </VerticalStackLayout>
-</ContentView>
+</ContentPage>
