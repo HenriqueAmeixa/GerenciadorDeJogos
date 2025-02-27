@@ -67,14 +67,14 @@ namespace GerenciadorDeJogos.ViewModels
         {
             if (JogadoresSelecionados.Count < 2)
             {
-                await Shell.Current.DisplayAlert("Erro", "Selecione pelo menos 2 jogadores para continuar.", "OK");
+                await Shell.Current.DisplayAlert("Aviso", "Selecione pelo menos 2 jogadores para continuar.", "OK");
                 return;
             }
 
             var parametros = new Dictionary<string, object>
-        {
-            { "JogadoresSelecionados", JogadoresSelecionados.ToList() }
-        };
+            {
+                { "JogadoresSelecionados", JogadoresSelecionados.ToList() }
+            };
 
             await Shell.Current.GoToAsync(nameof(SorteioTimesPage), parametros);
         }

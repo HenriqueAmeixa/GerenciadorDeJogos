@@ -30,7 +30,6 @@ namespace GerenciadorDeJogos.ViewModels
             TimeB = new ObservableCollection<Jogador>();
 
             SortearTimesCommand = new RelayCommand(SortearTimes);
-            IniciarPartidaCommand = new RelayCommand(IniciarPartida);
 
             CarregarJogadoresDisponiveis();
         }
@@ -71,21 +70,6 @@ namespace GerenciadorDeJogos.ViewModels
                     TimeB.Add(jogadoresEmbaralhados[i]);
                 }
             }
-        }
-
-        public async void IniciarPartida()
-        {
-            var partida = new Partida
-            {
-                DataHora = DateTime.Now,
-                TimeA = new Time { Jogadores = TimeA.ToList() },
-                TimeB = new Time { Jogadores = TimeB.ToList() },
-                JogadoresSelecionados = JogadoresSelecionados.ToList(),
-                Finalizada = false,
-                TempoDeJogo = TimeSpan.Zero
-            };
-
-            await _partidaService.AddPartidaAsync(partida);
         }
     }
 }

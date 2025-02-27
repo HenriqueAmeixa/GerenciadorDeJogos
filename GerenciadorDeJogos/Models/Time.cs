@@ -1,4 +1,5 @@
 using SQLite;
+using System.Collections.ObjectModel;
 
 namespace GerenciadorDeJogos.Models
 {
@@ -6,6 +7,6 @@ namespace GerenciadorDeJogos.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public List<Jogador> Jogadores { get; set; }
+        public ObservableCollection<Jogador> Jogadores { get; set; } = new ObservableCollection<Jogador>();
     }
 }

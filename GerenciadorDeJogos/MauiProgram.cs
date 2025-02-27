@@ -26,6 +26,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<GerenciarPartidaViewModel>();
         builder.Services.AddSingleton<GerenciarPartidaPage>();
 		builder.Services.AddSingleton<SelecaoJogadoresPage>();
+		builder.Services.AddSingleton<SorteioTimesPage>();
+		builder.Services.AddSingleton<SorteioTimesViewModel>();
         builder.Services.AddSingleton<JogadorService>();
 		builder.Services.AddSingleton<TimeService>();
         builder.Services.AddSingleton<PartidaService>();

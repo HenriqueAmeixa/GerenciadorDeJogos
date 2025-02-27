@@ -1,4 +1,5 @@
 using GerenciadorDeJogos.Models;
+using GerenciadorDeJogos.ViewModels;
 
 namespace GerenciadorDeJogos.Views.Pages;
 
@@ -13,12 +14,16 @@ public partial class SorteioTimesPage : ContentPage
         {
             _jogadoresSelecionados = value;
             OnPropertyChanged();
+            if (BindingContext is SorteioTimesViewModel viewModel)
+            {
+                viewModel.SetJogadoresSelecionados(_jogadoresSelecionados);
+            }
         }
     }
 
-    public SorteioTimesPage()
+    public SorteioTimesPage(SorteioTimesViewModel viewModel)
     {
         InitializeComponent();
-        BindingContext = this;
+        BindingContext = viewModel;
     }
 }
