@@ -33,8 +33,6 @@ namespace GerenciadorDeJogos.ViewModels
         [RelayCommand]
         public void SortearTimes()
         {
-            Debug.WriteLine("SortearTimes foi chamado!");
-
             var random = new Random();
             var jogadores = JogadoresSelecionados?.ToList() ?? new List<Jogador>();
 

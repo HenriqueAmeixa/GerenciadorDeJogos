@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\viewmodels\\sorteiotimesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\platforms\\ios\\info.plist||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\platforms\\ios\\info.plist||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|c:\\users\\henrique.ameixa\\source\\repos\\gerenciadordejogos\\gerenciadordejogos\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}|GerenciadorDeJogos\\GerenciadorDeJogos.csproj|solutionrelative:gerenciadordejogos\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -42,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,13 +58,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Info.plist",
+              "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Platforms\\iOS\\Info.plist",
+              "RelativeDocumentMoniker": "GerenciadorDeJogos\\Platforms\\iOS\\Info.plist",
+              "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Platforms\\iOS\\Info.plist",
+              "RelativeToolTip": "GerenciadorDeJogos\\Platforms\\iOS\\Info.plist",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-02-27T11:33:54.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "SorteioTimesPage.xaml",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\SorteioTimesPage.xaml",
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\SorteioTimesPage.xaml",
               "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\SorteioTimesPage.xaml",
               "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\SorteioTimesPage.xaml",
-              "ViewState": "AgIAACsAAAAAAAAAAAAowFgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAowFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-27T11:26:19.41Z",
               "EditorCaption": ""
@@ -73,14 +90,14 @@
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\ViewModels\\SorteioTimesViewModel.cs",
               "ToolTip": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\SorteioTimesViewModel.cs",
               "RelativeToolTip": "GerenciadorDeJogos\\ViewModels\\SorteioTimesViewModel.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAUwDsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T11:19:34.301Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MauiProgram.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\MauiProgram.cs",
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\MauiProgram.cs",
@@ -88,11 +105,12 @@
               "RelativeToolTip": "GerenciadorDeJogos\\MauiProgram.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T18:12:29.46Z"
+              "WhenOpened": "2025-02-26T18:12:29.46Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AppShell.xaml.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml.cs",
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml.cs",
@@ -100,11 +118,12 @@
               "RelativeToolTip": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T16:57:37.772Z"
+              "WhenOpened": "2025-02-26T16:57:37.772Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AppShell.xaml",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
@@ -112,7 +131,8 @@
               "RelativeToolTip": "GerenciadorDeJogos\\Views\\Navigation\\AppShell.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-26T16:57:33.403Z"
+              "WhenOpened": "2025-02-26T16:57:33.403Z",
+              "EditorCaption": ""
             }
           ]
         }
@@ -137,7 +157,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GerenciarJogadoresPage.xaml",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml",
@@ -150,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "GerenciarJogadoresPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs",
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs",
@@ -158,11 +178,12 @@
               "RelativeToolTip": "GerenciadorDeJogos\\Views\\Pages\\GerenciarJogadoresPage.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T17:17:38.209Z"
+              "WhenOpened": "2025-02-26T17:17:38.209Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GerenciarJogadoresViewModel.cs",
               "DocumentMoniker": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
               "RelativeDocumentMoniker": "GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
@@ -170,7 +191,8 @@
               "RelativeToolTip": "GerenciadorDeJogos\\ViewModels\\GerenciarJogadoresViewModel.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAEEAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T17:28:53.707Z"
+              "WhenOpened": "2025-02-26T17:28:53.707Z",
+              "EditorCaption": ""
             }
           ]
         }

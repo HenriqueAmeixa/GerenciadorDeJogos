@@ -10,79 +10,74 @@
         <vm:SorteioTimesViewModel />
     </ContentPage.BindingContext>
 
-    <Grid Padding="10" RowDefinitions="Auto,*,Auto,*,Auto,*,Auto,Auto">
+    <!--  ScrollView Principal para a tela inteira  -->
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="5">
 
-        <Label
-            Grid.Row="0"
-            FontSize="Medium"
-            HorizontalOptions="Center"
-            Text="Jogadores Selecionados" />
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Jogadores Selecionados" />
 
-        <ScrollView Grid.Row="1">
-            <ListView ItemsSource="{Binding JogadoresSelecionados}">
+            <ListView HeightRequest="150" ItemsSource="{Binding JogadoresSelecionados}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10" Orientation="Horizontal">
+                            <StackLayout Padding="5" Orientation="Horizontal">
                                 <Label Text="{Binding Apelido}" VerticalOptions="Center" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </ScrollView>
 
-        <Button
-            Grid.Row="2"
-            Command="{Binding SortearTimesCommand}"
-            HorizontalOptions="Fill"
-            Text="Sortear Times" />
+            <Button
+                Command="{Binding SortearTimesCommand}"
+                HorizontalOptions="Fill"
+                Text="Sortear Times" />
 
-        <Label
-            Grid.Row="3"
-            FontSize="Medium"
-            HorizontalOptions="Center"
-            Text="Time 1" />
+            <Label
+                Margin="0,10,0,2"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Time 1" />
 
-        <ScrollView Grid.Row="4">
-            <ListView ItemsSource="{Binding Time1.Jogadores}">
+            <ListView HeightRequest="150" ItemsSource="{Binding Time1.Jogadores}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10" Orientation="Horizontal">
+                            <StackLayout Padding="5" Orientation="Horizontal">
                                 <Label Text="{Binding Apelido}" VerticalOptions="Center" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </ScrollView>
 
-        <Label
-            Grid.Row="5"
-            FontSize="Medium"
-            HorizontalOptions="Center"
-            Text="Time 2" />
+            <Label
+                Margin="0,10,0,2"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Time 2" />
 
-        <ScrollView Grid.Row="6">
-            <ListView ItemsSource="{Binding Time2.Jogadores}">
+            <ListView HeightRequest="150" ItemsSource="{Binding Time2.Jogadores}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10" Orientation="Horizontal">
+                            <StackLayout Padding="5" Orientation="Horizontal">
                                 <Label Text="{Binding Apelido}" VerticalOptions="Center" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </ScrollView>
 
-        <Button
-            Grid.Row="7"
-            Command="{Binding IrParaPartidaCommand}"
-            HorizontalOptions="Fill"
-            Text="Ir para Partida" />
+            <Button
+                Command="{Binding IrParaPartidaCommand}"
+                HorizontalOptions="Fill"
+                Text="Ir para Partida" />
 
-    </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>
