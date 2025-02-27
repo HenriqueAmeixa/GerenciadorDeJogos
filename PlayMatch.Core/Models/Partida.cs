@@ -6,6 +6,7 @@ namespace PlayMatch.Core.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+
         public DateTime DataHora { get; set; }
 
         public int TimeAId { get; set; }
@@ -15,11 +16,17 @@ namespace PlayMatch.Core.Models
         public int TimeBId { get; set; }
         [Ignore]
         public Time TimeB { get; set; }
+
         [Ignore]
         public List<Jogador> JogadoresSelecionados { get; set; }
 
         public bool Finalizada { get; set; }
-        public TimeSpan TempoDeJogo { get; set; }
-    }
 
+        public TimeSpan TempoDeJogo { get; set; }
+
+        [Ignore]
+        public List<Gol> Gols { get; set; } = new List<Gol>();
+        [Ignore]
+        public List<Assistencia> Assistencias { get; set; } = new List<Assistencia>();
+    }
 }

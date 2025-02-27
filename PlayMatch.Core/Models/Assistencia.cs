@@ -1,16 +1,14 @@
-using SQLite;
-using System;
+﻿using SQLite;
 
-namespace GerenciadorDeJogos.Models
+namespace PlayMatch.Core.Models
 {
-    public class Gol
+    public class Assistencia
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public int PartidaId { get; set; }
         public int JogadorId { get; set; }
-        public TimeSpan MomentoGol { get; set; }
 
         [Ignore]
         public Partida Partida { get; set; }

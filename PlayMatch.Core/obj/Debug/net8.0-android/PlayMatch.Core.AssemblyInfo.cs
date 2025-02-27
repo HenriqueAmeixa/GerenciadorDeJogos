@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlayMatch.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+204ef59e02f0d3136b81dc16d128b2a9242ef336")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6391e6a4442c76ca46a2541efff5852e38df5b56")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlayMatch.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlayMatch.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,74 +1,168 @@
 ﻿using System.Collections.ObjectModel;
-using GerenciadorDeJogos.Models;
-using GerenciadorDeJogos.Services;
+using System.Timers;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using GerenciadorDeJogos.Models;
+using GerenciadorDeJogos.Services;
 
 namespace GerenciadorDeJogos.ViewModels
 {
-    public class PartidaViewModel : ObservableObject
+    public partial class PartidaViewModel : ObservableObject
     {
-        private readonly PartidaService _partidaService;
-        private readonly JogadorService _jogadorService;
+        [ObservableProperty]
+        private Partida partidaAtual;
 
-        public ObservableCollection<Jogador> JogadoresDisponiveis { get; set; }
-        public ObservableCollection<Jogador> JogadoresSelecionados { get; set; }
-        public ObservableCollection<Jogador> TimeA { get; set; }
-        public ObservableCollection<Jogador> TimeB { get; set; }
+        [ObservableProperty]
+        private Time time1 = new() { Jogadores = new ObservableCollection<Jogador>() };
 
-        public IRelayCommand SortearTimesCommand { get; }
-        public IRelayCommand IniciarPartidaCommand { get; }
+        [ObservableProperty]
+        private Time time2 = new() { Jogadores = new ObservableCollection<Jogador>() };
 
-        public PartidaViewModel(PartidaService partidaService, JogadorService jogadorService)
+        [ObservableProperty]
+        private TimeSpan tempoRestante = TimeSpan.FromMinutes(7);
+        [ObservableProperty]
+        private bool timerRodando = false;
+
+        private System.Timers.Timer _timer;
+
+        private bool _timerEmExecucao;
+
+        public PartidaViewModel()
         {
-            _partidaService = partidaService;
-            _jogadorService = jogadorService;
-
-            JogadoresDisponiveis = new ObservableCollection<Jogador>();
-            JogadoresSelecionados = new ObservableCollection<Jogador>();
-            TimeA = new ObservableCollection<Jogador>();
-            TimeB = new ObservableCollection<Jogador>();
-
-            SortearTimesCommand = new RelayCommand(SortearTimes);
-
-            CarregarJogadoresDisponiveis();
+            PartidaAtual = new Partida
+            {
+                TempoDeJogo = TimeSpan.FromMinutes(7),
+                Gols = new List<Gol>(),
+                Assistencias = new List<Assistencia>()
+            };
         }
 
-        private async void CarregarJogadoresDisponiveis()
+        public void SetTimesSelecionados(Time timeaux1, Time timeaux2)
         {
-            var jogadores = await _jogadorService.GetJogadoresAsync();
-            foreach (var jogador in jogadores)
+            Time1.Jogadores.Clear();
+            Time2.Jogadores.Clear();
+
+            if (timeaux1 != null)
             {
-                JogadoresDisponiveis.Add(jogador);
+                foreach (var jogador in timeaux1.Jogadores)
+                {
+                    Time1.Jogadores.Add(jogador);
+                }
+            }
+
+            if (timeaux2 != null)
+            {
+                foreach (var jogador in timeaux2.Jogadores)
+                {
+                    Time2.Jogadores.Add(jogador);
+                }
             }
         }
 
-        public void SelecionarJogador(Jogador jogador)
+        [RelayCommand]
+        public void IniciarOuPausarTimer()
         {
-            if (!JogadoresSelecionados.Contains(jogador))
+            if (_timer == null)
             {
-                JogadoresSelecionados.Add(jogador);
+                _timer = new System.Timers.Timer(1000);
+                _timer.Elapsed += TimerElapsed;
+                _timer.AutoReset = true;
+            }
+
+            if (_timerEmExecucao)
+            {
+                _timer.Stop();
+                TimerRodando = false;
+            }
+            else
+            {
+                _timer.Start();
+                TimerRodando = true;
+            }
+
+            _timerEmExecucao = !_timerEmExecucao;
+        }
+
+        private void TimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            if (TempoRestante.TotalSeconds > 0)
+            {
+                TempoRestante = TempoRestante.Subtract(TimeSpan.FromSeconds(1));
+                OnPropertyChanged(nameof(TempoRestante));
+            }
+            else
+            {
+                _timer.Stop();
+                _timerEmExecucao = false;
             }
         }
 
-        public void SortearTimes()
+        [RelayCommand]
+        public async Task AdicionarGol(Jogador jogador)
         {
-            var random = new Random();
-            var jogadoresEmbaralhados = JogadoresSelecionados.OrderBy(j => random.Next()).ToList();
+            if (PartidaAtual == null) return;
 
-            TimeA.Clear();
-            TimeB.Clear();
-
-            for (int i = 0; i < jogadoresEmbaralhados.Count; i++)
+            var novoGol = new Gol
             {
-                if (i % 2 == 0)
-                {
-                    TimeA.Add(jogadoresEmbaralhados[i]);
-                }
-                else
-                {
-                    TimeB.Add(jogadoresEmbaralhados[i]);
-                }
+                PartidaId = PartidaAtual.Id,
+                JogadorId = jogador.Id,
+                MomentoGol = PartidaAtual.TempoDeJogo - TempoRestante
+            };
+
+            PartidaAtual.Gols.Add(novoGol);
+
+            jogador.PartidaAtual = PartidaAtual;
+            jogador.OnPropertyChanged(nameof(Jogador.Gols));
+
+            OnPropertyChanged(nameof(PartidaAtual));
+        }
+
+        [RelayCommand]
+        public async Task RemoverGol(Jogador jogador)
+        {
+            if (PartidaAtual == null) return;
+
+            var ultimoGol = PartidaAtual.Gols.LastOrDefault(g => g.JogadorId == jogador.Id);
+            if (ultimoGol != null)
+            {
+                PartidaAtual.Gols.Remove(ultimoGol);
+
+                jogador.PartidaAtual = PartidaAtual;
+                jogador.OnPropertyChanged(nameof(Jogador.Gols));
+                OnPropertyChanged(nameof(PartidaAtual));
+            }
+        }
+
+        [RelayCommand]
+        public async Task AdicionarAssistencia(Jogador jogador)
+        {
+            if (PartidaAtual == null) return;
+
+            var novaAssistencia = new Assistencia
+            {
+                PartidaId = PartidaAtual.Id,
+                JogadorId = jogador.Id
+            };
+
+            PartidaAtual.Assistencias.Add(novaAssistencia);
+            jogador.PartidaAtual = PartidaAtual;
+            jogador.OnPropertyChanged(nameof(Jogador.Assistencias));
+            OnPropertyChanged(nameof(PartidaAtual));
+        }
+
+        [RelayCommand]
+        public async Task RemoverAssistencia(Jogador jogador)
+        {
+            if (PartidaAtual == null) return;
+
+            var ultimaAssistencia = PartidaAtual.Assistencias.LastOrDefault(a => a.JogadorId == jogador.Id);
+
+            if (ultimaAssistencia != null)
+            {
+                PartidaAtual.Assistencias.Remove(ultimaAssistencia);
+                jogador.PartidaAtual = PartidaAtual;
+                jogador.OnPropertyChanged(nameof(Jogador.Assistencias));
+                OnPropertyChanged(nameof(PartidaAtual));
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GerenciadorDeJogos.Models;
+using GerenciadorDeJogos.Views.Pages;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
@@ -30,6 +31,7 @@ namespace GerenciadorDeJogos.ViewModels
             }
         }
 
+
         [RelayCommand]
         public void SortearTimes()
         {
@@ -57,6 +59,16 @@ namespace GerenciadorDeJogos.ViewModels
             // Criar novas instâncias para forçar atualização da UI
             Time1 = new Time { Jogadores = new ObservableCollection<Jogador>(time1Temp) };
             Time2 = new Time { Jogadores = new ObservableCollection<Jogador>(time2Temp) };
+        }
+        [RelayCommand]
+        public async void IrParaPartida()
+        {
+            var parametros = new Dictionary<string, object>
+            {
+                { "Time1", Time1 },
+                { "Time2", Time2 }
+            };
+            await Shell.Current.GoToAsync(nameof(PartidaPage), parametros);
         }
     }
 }
