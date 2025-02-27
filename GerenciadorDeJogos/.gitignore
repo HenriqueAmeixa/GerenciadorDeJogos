@@ -12,7 +12,14 @@ obj/
 # SQLite databases (se aplicável)
 *.db
 *.db-journal
+.db-shm
+.db-wal
+.db
+.bin
 
 # Arquivos específicos do MAUI
 **/Platforms/Android/obj/
 **/Platforms/iOS/obj/
+**/CopilotIndices/
+**/ProjectEvaluation/
+
