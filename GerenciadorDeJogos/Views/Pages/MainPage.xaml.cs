@@ -10,13 +10,5 @@ public partial class MainPage : ContentPage
     {
         // Implementação futura para criar nova rodada
     }
-    private void OnMenuClicked(object sender, EventArgs e)
-    {
-        var parent = this.Parent as FlyoutPage;
-        if (parent != null)
-        {
-            parent.IsPresented = true; 
-        }
-    }
 
 }

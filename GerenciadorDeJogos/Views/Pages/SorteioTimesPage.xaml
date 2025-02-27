@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GerenciadorDeJogos.Views.Pages.SorteioTimesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:GerenciadorDeJogos.ViewModels"
+    Title="Sorteio de Times">
+
+    <ContentPage.BindingContext>
+        <vm:SorteioTimesViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Label
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            Text="Jogadores Selecionados" />
+        
+        <ScrollView HeightRequest="200">
+            <ListView ItemsSource="{Binding JogadoresSelecionados}" HeightRequest="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Label Text="{Binding Apelido}" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <Button Command="{Binding SortearTimesCommand}" Text="Sortear Times" />
+
+        <Label
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            Text="Time 1" />
+
+        <ScrollView HeightRequest="250">
+            <ListView ItemsSource="{Binding Time1.Jogadores}" HeightRequest="250">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Label Text="{Binding Apelido}" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <Label
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            Text="Time 2" />
+        
+        <ScrollView HeightRequest="250">
+            <ListView ItemsSource="{Binding Time2.Jogadores}" HeightRequest="250">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Label Text="{Binding Apelido}" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <Button Command="{Binding IrParaPartidaCommand}" Text="Ir para Partida" />
+    </VerticalStackLayout>
+</ContentPage>

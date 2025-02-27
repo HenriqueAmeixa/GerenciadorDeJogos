@@ -1,3 +1,16 @@
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\bin\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.deps.json
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\bin\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.dll
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\bin\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.pdb
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.csproj.AssemblyReference.cache
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.AssemblyInfoInputs.cache
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.AssemblyInfo.cs
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.csproj.CoreCompileInputs.cache
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.sourcelink.json
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.dll
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\refint\PlayMatch.Core.dll
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.pdb
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\obj\Debug\net8.0-windows10.0.19041.0\ref\PlayMatch.Core.dll
 C:\Users\henri\source\repos\GerenciadorDeJogos\PlayMatch.Core\bin\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.deps.json
 C:\Users\henri\source\repos\GerenciadorDeJogos\PlayMatch.Core\bin\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.dll
 C:\Users\henri\source\repos\GerenciadorDeJogos\PlayMatch.Core\bin\Debug\net8.0-windows10.0.19041.0\PlayMatch.Core.pdb
