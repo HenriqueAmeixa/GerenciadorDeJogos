@@ -6,10 +6,6 @@
     xmlns:vm="clr-namespace:GerenciadorDeJogos.ViewModels"
     Title="Partida">
 
-    <ContentPage.BindingContext>
-        <vm:PartidaViewModel />
-    </ContentPage.BindingContext>
-
     <VerticalStackLayout Padding="10" Spacing="10">
 
         <!--  Grid para Times e Timer  -->
@@ -197,6 +193,8 @@
             </VerticalStackLayout>
 
         </Grid>
+
+        <Button Text="Finalizar Partida" Command="{Binding Path=BindingContext.FinalizarPartidaCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}" />
 
     </VerticalStackLayout>
 

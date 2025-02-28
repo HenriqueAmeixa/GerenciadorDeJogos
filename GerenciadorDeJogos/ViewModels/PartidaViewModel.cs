@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GerenciadorDeJogos.Models;
 using GerenciadorDeJogos.Services;
+using GerenciadorDeJogos.Views.Pages;
 
 namespace GerenciadorDeJogos.ViewModels
 {
@@ -26,8 +27,9 @@ namespace GerenciadorDeJogos.ViewModels
         private System.Timers.Timer _timer;
 
         private bool _timerEmExecucao;
+        private PartidaService _partidaService;
 
-        public PartidaViewModel()
+        public PartidaViewModel(PartidaService partidaService)
         {
             PartidaAtual = new Partida
             {
@@ -35,6 +37,7 @@ namespace GerenciadorDeJogos.ViewModels
                 Gols = new List<Gol>(),
                 Assistencias = new List<Assistencia>()
             };
+            _partidaService = partidaService;
         }
 
         public void SetTimesSelecionados(Time timeaux1, Time timeaux2)
@@ -164,6 +167,29 @@ namespace GerenciadorDeJogos.ViewModels
                 jogador.OnPropertyChanged(nameof(Jogador.Assistencias));
                 OnPropertyChanged(nameof(PartidaAtual));
             }
+        }
+        [RelayCommand]
+        public async Task FinalizarPartida() {             
+            if (PartidaAtual == null) return;
+
+            PartidaAtual.TempoDeJogo = PartidaAtual.TempoDeJogo - TempoRestante;
+            PartidaAtual.Time1 = Time1;
+            PartidaAtual.Time2 = Time2;
+
+            await _partidaService.AddPartidaAsync(PartidaAtual);
+
+            PartidaAtual = new Partida
+            {
+                TempoDeJogo = TimeSpan.FromMinutes(7),
+                Gols = new List<Gol>(),
+                Assistencias = new List<Assistencia>()
+            };
+
+            Time1.Jogadores.Clear();
+            Time2.Jogadores.Clear();
+            TempoRestante = TimeSpan.FromMinutes(7);
+            TimerRodando = false;
+            await Shell.Current.GoToAsync(nameof(GerenciarPartidaPage));
         }
     }
 }

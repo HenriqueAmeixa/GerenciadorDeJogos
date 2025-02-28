@@ -9,13 +9,13 @@ namespace PlayMatch.Core.Models
 
         public DateTime DataHora { get; set; }
 
-        public int TimeAId { get; set; }
+        public int Time1Id { get; set; }
         [Ignore]
-        public Time TimeA { get; set; }
+        public Time Time1 { get; set; }
 
-        public int TimeBId { get; set; }
+        public int Time2Id { get; set; }
         [Ignore]
-        public Time TimeB { get; set; }
+        public Time Time2 { get; set; }
 
         [Ignore]
         public List<Jogador> JogadoresSelecionados { get; set; }

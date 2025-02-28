@@ -5,18 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Gerenciar Partida">
 
-    <VerticalStackLayout
-        Padding="20"
-        Spacing="15"
-        VerticalOptions="Center">
-
+    <VerticalStackLayout Padding="20" Spacing="15">
         <Label
             FontAttributes="Bold"
             FontSize="22"
             HorizontalOptions="Center"
             Text="PlayMatch - Gerenciar Partida" />
 
-        <!--  Botão Criar Partida  -->
+        <!-- Botão Criar Partida -->
         <Button
             BackgroundColor="Blue"
             Command="{Binding CriarPartidaCommand}"
@@ -25,5 +21,58 @@
             Text="Criar Partida"
             TextColor="White" />
 
+        <!-- Lista de Partidas Anteriores -->
+        <CollectionView ItemsSource="{Binding PartidasAnteriores}" Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" BorderColor="Gray">
+                        <VerticalStackLayout Spacing="5">
+                            <Label 
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Text="{Binding DataFormatada}"
+                                HorizontalOptions="Center" />
+
+                            <Label 
+                                FontSize="16"
+                                Text="{Binding TempoDeJogoFormatado}"
+                                HorizontalOptions="Center" />
+
+                            <!-- Placar dos Times -->
+                            <Grid ColumnDefinitions="*,Auto,*" Padding="5">
+                                <Label 
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    Text="{Binding Time1.Nome}" />
+
+                                <Label 
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    Text="{Binding PlacarTime1}" 
+                                    HorizontalOptions="Center" />
+
+                                <Label 
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    Text="{Binding Time2.Nome}"
+                                    HorizontalOptions="End" />
+
+                                <!-- Lista de Jogadores com Gols -->
+                                <VerticalStackLayout Grid.ColumnSpan="3">
+                                    <Label FontAttributes="Bold" Text="Goleadores:" />
+                                    <CollectionView ItemsSource="{Binding Goleadores}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Label Text="{Binding}" FontSize="14" />
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

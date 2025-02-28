@@ -4,14 +4,14 @@ using GerenciadorDeJogos.Models;
 using GerenciadorDeJogos.Services;
 using GerenciadorDeJogos.Views.Pages;
 using System.Collections.ObjectModel;
-using Microsoft.Maui.Controls;
+
 
 namespace GerenciadorDeJogos.ViewModels
 {
     public partial class GerenciarPartidaViewModel : ObservableObject, IQueryAttributable
     {
-        public IRelayCommand CriarPartidaCommand { get; }
         private readonly JogadorService _jogadorService;
+        private readonly PartidaService _partidaService;
 
         [ObservableProperty]
         private ObservableCollection<Jogador> jogadoresDisponiveis = new();
@@ -19,11 +19,19 @@ namespace GerenciadorDeJogos.ViewModels
         [ObservableProperty]
         private ObservableCollection<Jogador> jogadoresSelecionados = new();
 
-        public GerenciarPartidaViewModel(JogadorService jogadorService)
+        [ObservableProperty]
+        private ObservableCollection<Partida> partidasAnteriores = new();
+
+        public IRelayCommand CriarPartidaCommand { get; }
+
+        public GerenciarPartidaViewModel(JogadorService jogadorService, PartidaService partidaService)
         {
             CriarPartidaCommand = new RelayCommand(async () => await Shell.Current.GoToAsync(nameof(SelecaoJogadoresPage)));
             _jogadorService = jogadorService;
+            _partidaService = partidaService;
+
             CarregarJogadores();
+            CarregarPartidas();
         }
 
         [RelayCommand]
@@ -38,9 +46,21 @@ namespace GerenciadorDeJogos.ViewModels
             }
         }
 
+        [RelayCommand]
+        private async void CarregarPartidas()
+        {
+            var lista = await _partidaService.GetPartidasAsync();
+            PartidasAnteriores.Clear();
+            foreach (var partida in lista)
+            {
+                PartidasAnteriores.Add(partida);
+            }
+        }
+
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
             CarregarJogadores();
+            CarregarPartidas();
         }
 
         [RelayCommand]
@@ -62,6 +82,7 @@ namespace GerenciadorDeJogos.ViewModels
                 JogadoresDisponiveis.Add(jogador);
             }
         }
+
         [RelayCommand]
         private async void AvancarParaSorteio()
         {
