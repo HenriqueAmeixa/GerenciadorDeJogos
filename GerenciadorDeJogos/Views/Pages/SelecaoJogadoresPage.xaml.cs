@@ -4,7 +4,7 @@ namespace GerenciadorDeJogos.Views.Pages;
 
 public partial class SelecaoJogadoresPage : ContentPage
 {
-	public SelecaoJogadoresPage(GerenciarPartidaViewModel viewModel)
+	public SelecaoJogadoresPage(SelecaoJogadoresViewModel viewModel)
 	{
 		InitializeComponent();
         BindingContext = viewModel;
