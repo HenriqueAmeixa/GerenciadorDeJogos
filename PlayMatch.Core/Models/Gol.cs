@@ -10,7 +10,6 @@ namespace PlayMatch.Core.Models
 
         public int PartidaId { get; set; }  
         public int JogadorId { get; set; }  
-        public int? AssistenteId { get; set; }  
         public TimeSpan MomentoGol { get; set; }
 
         [Ignore]
@@ -18,9 +17,6 @@ namespace PlayMatch.Core.Models
 
         [Ignore]
         public Jogador Jogador { get; set; }
-
-        [Ignore]
-        public Jogador? Assistente { get; set; }
     }
 
 }

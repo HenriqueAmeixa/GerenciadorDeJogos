@@ -1,8 +1,11 @@
-﻿using GerenciadorDeJogos.Services;
+﻿using GerenciadorDeJogos.Mappers;
+using GerenciadorDeJogos.Services;
 using GerenciadorDeJogos.ViewModels;
 using GerenciadorDeJogos.Views.Pages;
 using Microsoft.Extensions.Logging;
 using PlayMatch.Core.Data;
+using PlayMatch.Core.Data.Interfaces;
+using PlayMatch.Core.Data.Repositorys;
 
 namespace GerenciadorDeJogos;
 
@@ -23,7 +26,8 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
-
+        builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+		builder.Services.AddSingleton<SelecaoJogadoresViewModel>();
         builder.Services.AddSingleton<GerenciarPartidaViewModel>();
         builder.Services.AddSingleton<GerenciarPartidaPage>();
 		builder.Services.AddSingleton<SelecaoJogadoresPage>();
@@ -37,7 +41,9 @@ public static class MauiProgram
 		builder.Services.AddSingleton<PartidaViewModel>();
         builder.Services.AddSingleton<GerenciarJogadoresViewModel>();
         builder.Services.AddSingleton(new PlayMatchDbContext(dbPath));
-        builder.Services.AddSingleton(typeof(IGenericRepository<>), typeof(SQLiteRepository<>));
+		builder.Services.AddSingleton(typeof(IGenericRepository<>), typeof(SQLiteRepository<>));
+		builder.Services.AddSingleton(typeof(IGolRepository), typeof(GolRepository));
+        builder.Services.AddSingleton(typeof(IAssistenciaRepository), typeof(AssistenciaRepository));
         builder.Services.AddSingleton<GerenciarJogadoresPage>();
         return builder.Build();
 	}

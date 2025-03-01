@@ -6,6 +6,8 @@ namespace PlayMatch.Core.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        public int PartidaId { get; set; }
+        [Ignore]
         public List<Jogador> Jogadores { get; set; }
     }
 }
