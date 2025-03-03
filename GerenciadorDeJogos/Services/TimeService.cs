@@ -1,8 +1,8 @@
 using PlayMatch.Core.Data;
-using System.Collections.ObjectModel;
-using PlayMatch.Core.Models;
 using PlayMatch.Core.Data.Interfaces;
+using GerenciadorDeJogos.Models;
 using AutoMapper;
+using System.Collections.ObjectModel;
 
 namespace GerenciadorDeJogos.Services
 {
@@ -25,7 +25,7 @@ namespace GerenciadorDeJogos.Services
             if (time != null)
             {
                 var jogadores = await _timeJogadorRepository.GetJogadoresPorTimeAsync(time.Id);
-                time.Jogadores = _mapper.Map<List<Jogador>>(jogadores);
+                time.Jogadores = _mapper.Map<ObservableCollection<Jogador>>(jogadores);
             }
             return time;
         }
@@ -36,7 +36,7 @@ namespace GerenciadorDeJogos.Services
             foreach (var time in times)
             {
                 var jogadores = await _timeJogadorRepository.GetJogadoresPorTimeAsync(time.Id);
-                time.Jogadores = _mapper.Map<List<Jogador>>(jogadores);
+                time.Jogadores = _mapper.Map<ObservableCollection<Jogador>>(jogadores);
             }
             return times;
         }
