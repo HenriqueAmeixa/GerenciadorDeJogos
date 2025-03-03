@@ -43,7 +43,6 @@ namespace GerenciadorDeJogos.Services
                     var assistenciasCore = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
                     partida.Assistencias = _mapper.Map<List<Assistencia>>(assistenciasCore);
 
-                    // Buscar times
                     var time1 = await _timeService.GetTimeByIdAsync(partida.Time1Id);
                     var time2 = await _timeService.GetTimeByIdAsync(partida.Time2Id);
                     partida.Time1 = _mapper.Map<Time>(time1);
@@ -64,6 +63,22 @@ namespace GerenciadorDeJogos.Services
         {
             try
             {
+
+                if (partida.Time1 != null)
+                {
+                    await _timeService.AddTimeAsync(partida.Time1);
+                }
+
+                // Inserir Time2 e obter o ID
+                if (partida.Time2 != null)
+                {
+                    await _timeService.AddTimeAsync(partida.Time2);
+                }
+
+
+                partida.Time1Id = partida.Time1.Id;
+                partida.Time2Id = partida.Time2.Id;
+
                 await _partidaRepository.InsertAsync(partida);
 
                 if (partida.Gols != null && partida.Gols.Any())
@@ -95,21 +110,16 @@ namespace GerenciadorDeJogos.Services
                     }
                 }
 
-                if (partida.Time1 != null)
+                if (partida.Time1?.Jogadores != null)
                 {
-                    partida.Time1.PartidaId = partida.Id;
-                    await _timeService.AddTimeAsync(partida.Time1);
-
                     foreach (var jogador in partida.Time1.Jogadores)
                     {
                         await _timeService.AdicionarJogadorAoTimeAsync(partida.Time1.Id, jogador.Id);
                     }
                 }
 
-                if (partida.Time2 != null)
+                if (partida.Time2?.Jogadores != null)
                 {
-                    partida.Time2.PartidaId = partida.Id;
-                    await _timeService.AddTimeAsync(partida.Time2);
                     foreach (var jogador in partida.Time2.Jogadores)
                     {
                         await _timeService.AdicionarJogadorAoTimeAsync(partida.Time2.Id, jogador.Id);
