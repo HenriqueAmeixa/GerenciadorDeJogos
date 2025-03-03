@@ -27,3 +27,9 @@
 /PlayMatch.Core/obj/Debug/net8.0-windows10.0.19041.0/PlayMatch.Core.assets.cache
 /PlayMatch.Core/obj/Debug/net8.0-windows10.0.19041.0/PlayMatch.Core.csproj.AssemblyReference.cache
 /PlayMatch.Core/obj/Debug/net8.0-windows10.0.19041.0/PlayMatch.Core.GeneratedMSBuildEditorConfig.editorconfig
+/PlayMatch.Core/obj/Debug/
+/PlayMatch.Core/bin/Debug/
+/.vs/
+/GerenciadorDeJogos/bin/Debug/
+/GerenciadorDejogos/obj/
+

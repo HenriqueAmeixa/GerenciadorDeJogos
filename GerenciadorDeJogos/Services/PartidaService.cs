@@ -10,22 +10,23 @@ namespace GerenciadorDeJogos.Services
         private readonly IGenericRepository<Partida> _partidaRepository;
         private readonly IGolRepository _golRepository;
         private readonly IAssistenciaRepository _assistenciaRepository;
-        private readonly IGenericRepository<Time> _timeRepository;
+        private readonly TimeService _timeService;
         private readonly IMapper _mapper;
 
         public PartidaService(
             IGenericRepository<Partida> partidaRepository,
             IGolRepository golRepository,
             IAssistenciaRepository assistenciaRepository,
-            IGenericRepository<Time> timeRepository,
+            TimeService timeService,
             IMapper mapper
         )
         {
             _partidaRepository = partidaRepository;
             _golRepository = golRepository;
             _assistenciaRepository = assistenciaRepository;
-            _timeRepository = timeRepository;
+            _timeService = timeService;
             _mapper = mapper;
+
         }
 
         public async Task<List<Partida>> GetPartidasAsync()
@@ -42,8 +43,12 @@ namespace GerenciadorDeJogos.Services
                     var assistenciasCore = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
                     partida.Assistencias = _mapper.Map<List<Assistencia>>(assistenciasCore);
 
-                    partida.Time1 = await _timeRepository.GetByIdAsync(partida.Time1Id);
-                    partida.Time2 = await _timeRepository.GetByIdAsync(partida.Time2Id);
+                    // Buscar times
+                    var time1 = await _timeService.GetTimeByIdAsync(partida.Time1Id);
+                    var time2 = await _timeService.GetTimeByIdAsync(partida.Time2Id);
+                    partida.Time1 = _mapper.Map<Time>(time1);
+                    partida.Time2 = _mapper.Map<Time>(time2);
+
                 }
 
                 return partidas;
@@ -93,13 +98,22 @@ namespace GerenciadorDeJogos.Services
                 if (partida.Time1 != null)
                 {
                     partida.Time1.PartidaId = partida.Id;
-                    await _timeRepository.InsertAsync(partida.Time1);
+                    await _timeService.AddTimeAsync(partida.Time1);
+
+                    foreach (var jogador in partida.Time1.Jogadores)
+                    {
+                        await _timeService.AdicionarJogadorAoTimeAsync(partida.Time1.Id, jogador.Id);
+                    }
                 }
 
                 if (partida.Time2 != null)
                 {
                     partida.Time2.PartidaId = partida.Id;
-                    await _timeRepository.InsertAsync(partida.Time2);
+                    await _timeService.AddTimeAsync(partida.Time2);
+                    foreach (var jogador in partida.Time2.Jogadores)
+                    {
+                        await _timeService.AdicionarJogadorAoTimeAsync(partida.Time2.Id, jogador.Id);
+                    }
                 }
             }
             catch (Exception ex)
@@ -143,12 +157,12 @@ namespace GerenciadorDeJogos.Services
 
                 if (partida.Time1 != null)
                 {
-                    await _timeRepository.DeleteAsync(partida.Time1);
+                    await _timeService.RemoveTimeAsync(partida.Time1);
                 }
 
                 if (partida.Time2 != null)
                 {
-                    await _timeRepository.DeleteAsync(partida.Time2);
+                    await _timeService.RemoveTimeAsync(partida.Time2);
                 }
 
                 await _partidaRepository.DeleteAsync(partida);
