@@ -2,7 +2,7 @@
 using PlayMatch.Core.Models;
 using SQLite;
 
-namespace PlayMatch.Core.Data.Repositorys
+namespace PlayMatch.Core.Data.Repositories
 {
     public class AssistenciaRepository : SQLiteRepository<Assistencia>, IAssistenciaRepository
     {
