@@ -38,7 +38,7 @@ namespace GerenciadorDeJogos.Models
 
         public int PlacarTime2 => Gols.Count(g => Time2?.Jogadores?.Any(j => j.Id == g.JogadorId) == true);
 
-        public List<string> Goleadores => Gols
+        public List<string?> Goleadores => Gols
             .GroupBy(g => g.JogadorId)
             .Select(grupo =>
             {

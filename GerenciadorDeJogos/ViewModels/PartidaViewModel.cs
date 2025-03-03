@@ -24,7 +24,7 @@ namespace GerenciadorDeJogos.ViewModels
         [ObservableProperty]
         private bool timerRodando = false;
 
-        private System.Timers.Timer _timer;
+        private System.Timers.Timer? _timer;
 
         private bool _timerEmExecucao;
         private PartidaService _partidaService;

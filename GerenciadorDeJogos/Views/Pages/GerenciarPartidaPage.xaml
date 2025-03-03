@@ -22,6 +22,7 @@
             TextColor="White" />
 
         <!-- Lista de Partidas Anteriores -->
+        <ScrollView>
         <CollectionView ItemsSource="{Binding PartidasAnteriores}" Margin="10">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -60,19 +61,20 @@
                                 <!-- Lista de Jogadores com Gols -->
                                 <VerticalStackLayout Grid.ColumnSpan="3">
                                     <Label FontAttributes="Bold" Text="Goleadores:" />
-                                    <CollectionView ItemsSource="{Binding Goleadores}">
-                                        <CollectionView.ItemTemplate>
-                                            <DataTemplate>
-                                                <Label Text="{Binding}" FontSize="14" />
-                                            </DataTemplate>
-                                        </CollectionView.ItemTemplate>
-                                    </CollectionView>
-                                </VerticalStackLayout>
+                                        <CollectionView ItemsSource="{Binding Goleadores}">
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Label Text="{Binding}" FontSize="14" />
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
+                                    </VerticalStackLayout>
                             </Grid>
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>

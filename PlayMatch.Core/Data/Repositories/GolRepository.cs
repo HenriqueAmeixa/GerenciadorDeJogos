@@ -1,7 +1,7 @@
 ﻿using PlayMatch.Core.Data.Interfaces;
 using PlayMatch.Core.Models;
 using SQLite;
-namespace PlayMatch.Core.Data.Repositorys
+namespace PlayMatch.Core.Data.Repositories
 {
     public class GolRepository : SQLiteRepository<Gol>, IGolRepository
     {
