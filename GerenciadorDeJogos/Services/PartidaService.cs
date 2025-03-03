@@ -2,7 +2,6 @@ using AutoMapper;
 using GerenciadorDeJogos.Models;
 using PlayMatch.Core.Data;
 using PlayMatch.Core.Data.Interfaces;
-using System.Collections.ObjectModel;
 
 namespace GerenciadorDeJogos.Services
 {
@@ -45,8 +44,10 @@ namespace GerenciadorDeJogos.Services
                     partida.Assistencias = _mapper.Map<List<Assistencia>>(assistenciasCore);
 
                     // Buscar times
-                    partida.Time1 = await _timeService.GetTimeByIdAsync(partida.Time1Id);
-                    partida.Time2 = await _timeService.GetTimeByIdAsync(partida.Time2Id);
+                    var time1 = await _timeService.GetTimeByIdAsync(partida.Time1Id);
+                    var time2 = await _timeService.GetTimeByIdAsync(partida.Time2Id);
+                    partida.Time1 = _mapper.Map<Time>(time1);
+                    partida.Time2 = _mapper.Map<Time>(time2);
 
                 }
 
@@ -97,20 +98,21 @@ namespace GerenciadorDeJogos.Services
                 if (partida.Time1 != null)
                 {
                     partida.Time1.PartidaId = partida.Id;
-                    await _timeRepository.InsertAsync(partida.Time1);
+                    await _timeService.AddTimeAsync(partida.Time1);
+
                     foreach (var jogador in partida.Time1.Jogadores)
                     {
-                        await _timeJogadorRepository.InserirRelacionamentoAsync(partida.Time1.Id, jogador.Id);
+                        await _timeService.AdicionarJogadorAoTimeAsync(partida.Time1.Id, jogador.Id);
                     }
                 }
 
                 if (partida.Time2 != null)
                 {
                     partida.Time2.PartidaId = partida.Id;
-                    await _timeRepository.InsertAsync(partida.Time2);
+                    await _timeService.AddTimeAsync(partida.Time2);
                     foreach (var jogador in partida.Time2.Jogadores)
                     {
-                        await _timeJogadorRepository.InserirRelacionamentoAsync(partida.Time2.Id, jogador.Id);
+                        await _timeService.AdicionarJogadorAoTimeAsync(partida.Time2.Id, jogador.Id);
                     }
                 }
             }
@@ -155,12 +157,12 @@ namespace GerenciadorDeJogos.Services
 
                 if (partida.Time1 != null)
                 {
-                    await _timeRepository.DeleteAsync(partida.Time1);
+                    await _timeService.RemoveTimeAsync(partida.Time1);
                 }
 
                 if (partida.Time2 != null)
                 {
-                    await _timeRepository.DeleteAsync(partida.Time2);
+                    await _timeService.RemoveTimeAsync(partida.Time2);
                 }
 
                 await _partidaRepository.DeleteAsync(partida);
