@@ -20,6 +20,8 @@ namespace GerenciadorDeJogos.ViewModels
 
         public SorteioTimesViewModel()
         {
+            Time1.Jogadores.Clear();
+            Time2.Jogadores.Clear();
         }
 
         public void SetJogadoresSelecionados(List<Jogador> jogadores)
