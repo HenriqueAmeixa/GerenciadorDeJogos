@@ -2,6 +2,9 @@
 
 .form-group {
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center;
 }
 
 .form-control {
@@ -13,20 +16,17 @@
 
 .btn-success {
     background-color: #28a745;
-    justify-content: center;
-    align-items: center;
     border-color: #28a745;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 4px;
 }
 
-.btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    color: white;
+.btn-deletar {
+    color: black;
     padding: 0.5rem 1rem;
     border-radius: 4px;
+    align-self: center; /* Faz o botão alinhar-se com a largura do form-control */
 }
 
 .list-group-item {

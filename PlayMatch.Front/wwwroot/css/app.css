@@ -6,6 +6,14 @@ a, .btn-link {
     color: #006bb7;
 }
 
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
