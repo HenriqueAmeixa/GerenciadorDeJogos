@@ -1,8 +1,9 @@
 using PlayMatch.Core.Data;
 using PlayMatch.Front.Models;
 using PlayMatch.Core.Data.Interfaces;
+using AutoMapper;
 
-namespace GerenciadorDeJogos.Services
+namespace PlayMatch.Front.Services
 {
     public class PartidaService
     {

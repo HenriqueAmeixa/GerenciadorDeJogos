@@ -1,7 +1,7 @@
 using PlayMatch.Core.Data;
 using PlayMatch.Front.Models;
 
-namespace GerenciadorDeJogos.Services
+namespace PlayMatch.Front.Services
 {
     public class GolService
     {

@@ -1,39 +1,44 @@
-﻿using PlayMatch.Core.Data;
-using PlayMatch.Front.Models;
+﻿using AutoMapper;
+using PlayMatch.Core.Data;
+using PlayMatch.Core.Models;
 
-namespace GerenciadorDeJogos.Services
+namespace PlayMatch.Front.Services
 {
     public class JogadorService
     {
         private readonly IGenericRepository<Jogador> _jogadorRepository;
+        private readonly IMapper _mapper;
 
-        public JogadorService(IGenericRepository<Jogador> jogadorRepository)
+        public JogadorService(IGenericRepository<Jogador> jogadorRepository, IMapper mapper)
         {
             _jogadorRepository = jogadorRepository;
+            _mapper = mapper;
         }
 
-        public async Task<List<Jogador>> GetJogadoresAsync()
+        public async Task<List<Models.Jogador>> GetJogadoresAsync()
         {
-            return await _jogadorRepository.GetAllAsync();
+            var jogadores = await _jogadorRepository.GetAllAsync();
+            return jogadores.Select(j => _mapper.Map<Models.Jogador>(j)).ToList();
         }
 
-        public async Task AddJogadorAsync(Jogador jogador)
+        public async Task AddJogadorAsync(Models.Jogador jogador)
         {
-            await _jogadorRepository.InsertAsync(jogador);
+            await _jogadorRepository.InsertAsync(_mapper.Map<Jogador>(jogador));
         }
 
-        public async Task RemoveJogadorAsync(Jogador jogador)
+        public async Task RemoveJogadorAsync(Models.Jogador jogador)
         {
-            await _jogadorRepository.DeleteAsync(jogador);
+            await _jogadorRepository.DeleteAsync(_mapper.Map<Jogador>(jogador));
         }
 
-        public async Task UpdateJogadorAsync(Jogador jogador)
+        public async Task UpdateJogadorAsync(Models.Jogador jogador)
         {
-            await _jogadorRepository.UpdateAsync(jogador);
+            await _jogadorRepository.UpdateAsync(_mapper.Map<Jogador>(jogador));
         }
-        public async Task<Jogador> GetJogadorByIdAsync(int id)
+        public async Task<Models.Jogador> GetJogadorByIdAsync(int id)
         {
-            return await _jogadorRepository.GetByIdAsync(id);
+            var jogador = await _jogadorRepository.GetByIdAsync(id);
+            return _mapper.Map<Models.Jogador>(jogador);
         }
         
     }

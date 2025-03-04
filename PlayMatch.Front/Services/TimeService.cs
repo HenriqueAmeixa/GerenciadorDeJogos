@@ -4,7 +4,7 @@ using PlayMatch.Front.Models;
 using AutoMapper;
 using System.Collections.ObjectModel;
 
-namespace GerenciadorDeJogos.Services
+namespace PlayMatch.Front.Services
 {
     public class TimeService
     {
