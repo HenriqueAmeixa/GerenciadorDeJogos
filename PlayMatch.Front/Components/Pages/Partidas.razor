@@ -1,0 +1,110 @@
+﻿@page "/Partidas"
+@inject NavigationManager Navigation
+
+<PageTitle>Gerenciar Partida</PageTitle>
+
+<h1>PlayMatch - Gerenciar Partida</h1>
+
+
+    <!-- Lista de Partidas Anteriores -->
+    <div class="scroll-view">
+        @foreach (var partida in PartidasAnteriores)
+        {
+            <div class="partida-item" style="border: 1px solid gray; padding: 10px; margin: 5px;">
+                <div style="text-align: center;">
+                    <h3>@partida.DataFormatada</h3>
+                    <p>@partida.TempoDeJogoFormatado</p>
+
+                    <!-- Time 1 - Jogadores -->
+                    <div>
+                        <h4>Time 1:</h4>
+                        @foreach (var jogador in partida.Time1.Jogadores)
+                        {
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>@jogador.Nome</span>
+                                <span>@jogador.Gols</span>
+                                <span>@jogador.Assistencias</span>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Time 2 - Jogadores -->
+                    <div>
+                        <h4>Time 2:</h4>
+                        @foreach (var jogador in partida.Time2.Jogadores)
+                        {
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>@jogador.Nome</span>
+                                <span>@jogador.Gols</span>
+                                <span>@jogador.Assistencias</span>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Placar -->
+                    <div style="display: flex; justify-content: space-between; padding: 5px;">
+                        <span><strong>@partida.Time1.Nome</strong></span>
+                        <span><strong>@partida.PlacarTime1</strong></span>
+                        <span><strong>@partida.Time2.Nome</strong></span>
+                    </div>
+
+                    <!-- Goleadores -->
+                    <div>
+                        <h4>Goleadores:</h4>
+                        @foreach (var goleador in partida.Goleadores)
+                        {
+                            <p>@goleador</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+@code {
+    // Lista de partidas anteriores
+    private List<Partida> PartidasAnteriores = new List<Partida>
+    {
+        // Simulação de dados
+        new Partida
+        {
+            DataFormatada = "03/03/2025",
+            TempoDeJogoFormatado = "10min",
+            Time1 = new Time { Nome = "Time 1", Jogadores = new List<Jogador> { new Jogador { Nome = "Jogador A", Gols = 2, Assistencias = 1 }, new Jogador { Nome = "Jogador B", Gols = 1, Assistencias = 0 } } },
+            Time2 = new Time { Nome = "Time 2", Jogadores = new List<Jogador> { new Jogador { Nome = "Jogador C", Gols = 0, Assistencias = 1 }, new Jogador { Nome = "Jogador D", Gols = 1, Assistencias = 1 } } },
+            PlacarTime1 = "3",
+            PlacarTime2 = "2",
+            Goleadores = new List<string> { "Jogador A", "Jogador B" }
+        }
+    };
+
+    private void CriarPartidaCommand()
+    {
+        // Lógica para criar uma partida
+    }
+
+    // Modelos de dados para Partida, Time e Jogador
+    public class Partida
+    {
+        public string DataFormatada { get; set; }
+        public string TempoDeJogoFormatado { get; set; }
+        public Time Time1 { get; set; }
+        public Time Time2 { get; set; }
+        public string PlacarTime1 { get; set; }
+        public string PlacarTime2 { get; set; }
+        public List<string> Goleadores { get; set; }
+    }
+
+    public class Time
+    {
+        public string Nome { get; set; }
+        public List<Jogador> Jogadores { get; set; }
+    }
+
+    public class Jogador
+    {
+        public string Nome { get; set; }
+        public int Gols { get; set; }
+        public int Assistencias { get; set; }
+    }
+}

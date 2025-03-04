@@ -1,6 +1,6 @@
 using PlayMatch.Core.Data;
 using PlayMatch.Core.Data.Interfaces;
-using GerenciadorDeJogos.Models;
+using PlayMatch.Front.Models;
 using AutoMapper;
 using System.Collections.ObjectModel;
 

@@ -22,7 +22,6 @@
             TextColor="White" />
 
         <!-- Lista de Partidas Anteriores -->
-        <ScrollView>
         <CollectionView ItemsSource="{Binding PartidasAnteriores}" Margin="10">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -39,7 +38,43 @@
                                 Text="{Binding TempoDeJogoFormatado}"
                                 HorizontalOptions="Center" />
 
-                            <!-- Placar dos Times -->
+                            <!-- Time 1 - Jogadores -->
+                            <VerticalStackLayout Padding="5">
+                                <Label FontAttributes="Bold" Text="Time 1:" FontSize="16"/>
+                                <StackLayout>
+                                    <CollectionView ItemsSource="{Binding Time1.Jogadores}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                                    <Label Text="{Binding Nome}" FontSize="14" VerticalOptions="Center"/>
+                                                    <Label Text="{Binding Gols}" FontSize="14" VerticalOptions="Center"/>
+                                                    <Label Text="{Binding Assistencias}" FontSize="14" VerticalOptions="Center"/>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                            </VerticalStackLayout>
+
+                            <!-- Time 2 - Jogadores -->
+                            <VerticalStackLayout Padding="5">
+                                <Label FontAttributes="Bold" Text="Time 2:" FontSize="16"/>
+                                <StackLayout>
+                                    <CollectionView ItemsSource="{Binding Time2.Jogadores}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                                    <Label Text="{Binding Nome}" FontSize="14" VerticalOptions="Center"/>
+                                                    <Label Text="{Binding Gols}" FontSize="14" VerticalOptions="Center"/>
+                                                    <Label Text="{Binding Assistencias}" FontSize="14" VerticalOptions="Center"/>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                            </VerticalStackLayout>
+
+                            <!-- Placar -->
                             <Grid ColumnDefinitions="*,Auto,*" Padding="5">
                                 <Label 
                                     FontAttributes="Bold"
@@ -57,24 +92,24 @@
                                     FontSize="16"
                                     Text="{Binding Time2.Nome}"
                                     HorizontalOptions="End" />
-
-                                <!-- Lista de Jogadores com Gols -->
-                                <VerticalStackLayout Grid.ColumnSpan="3">
-                                    <Label FontAttributes="Bold" Text="Goleadores:" />
-                                        <CollectionView ItemsSource="{Binding Goleadores}">
-                                            <CollectionView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <Label Text="{Binding}" FontSize="14" />
-                                                </DataTemplate>
-                                            </CollectionView.ItemTemplate>
-                                        </CollectionView>
-                                    </VerticalStackLayout>
                             </Grid>
+
+                            <!-- Goleadores -->
+                            <VerticalStackLayout Grid.ColumnSpan="3">
+                                <Label FontAttributes="Bold" Text="Goleadores:" />
+                                <CollectionView ItemsSource="{Binding Goleadores}">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Label Text="{Binding}" FontSize="14" />
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </VerticalStackLayout>
+
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>

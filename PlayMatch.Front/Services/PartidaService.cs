@@ -1,6 +1,5 @@
-using AutoMapper;
-using GerenciadorDeJogos.Models;
 using PlayMatch.Core.Data;
+using PlayMatch.Front.Models;
 using PlayMatch.Core.Data.Interfaces;
 
 namespace GerenciadorDeJogos.Services
