@@ -1,0 +1,60 @@
+﻿/* Estilização da página de sorteio */
+.sorteio-container {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Títulos */
+h3 {
+    color: #333;
+    text-align: center;
+}
+
+h4 {
+    margin-top: 20px;
+    color: #007bff;
+}
+
+/* Lista de jogadores */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botões */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 5px;
+    transition: 0.2s ease-in-out;
+}
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Botão desativado */
+    button:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+    }
