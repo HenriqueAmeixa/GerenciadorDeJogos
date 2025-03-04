@@ -1,6 +1,7 @@
 ﻿@page "/gerenciar-partida"
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
+@inject GerenciarPartidaService Partida
 @using System.Timers
 
 <h3>Partida</h3>
@@ -8,102 +9,79 @@
 <!-- Time 1 -->
 <h4>Time 1</h4>
 <ul>
-    @foreach (var jogador in Time1.Jogadores)
+    @foreach (var jogador in Partida.Time1.Jogadores)
     {
         <li>
             @jogador.Apelido - Gols: @jogador.Gols - Assistências: @jogador.Assistencias
-            <button @onclick="() => AdicionarGol(jogador)">+</button>
-            <button @onclick="() => RemoverGol(jogador)">-</button>
-            <button @onclick="() => AdicionarAssistencia(jogador)">+</button>
-            <button @onclick="() => RemoverAssistencia(jogador)">-</button>
+            <button @onclick="() => Partida.AdicionarGol(jogador)">+</button>
+            <button @onclick="() => Partida.RemoverGol(jogador)">-</button>
+            <button @onclick="() => Partida.AdicionarAssistencia(jogador)">+</button>
+            <button @onclick="() => Partida.RemoverAssistencia(jogador)">-</button>
         </li>
     }
 </ul>
 
-<!-- Timer -->
-<h3 style="color: red;">@TempoRestante</h3>
+<h3 style="color: red;">@Partida.TempoRestante</h3>
 <button @onclick="IniciarOuPausarTimer">@TextoBotaoTimer</button>
 
-<!-- Time 2 -->
 <h4>Time 2</h4>
 <ul>
-    @foreach (var jogador in Time2.Jogadores)
+    @foreach (var jogador in Partida.Time2.Jogadores)
     {
         <li>
             @jogador.Apelido - Gols: @jogador.Gols - Assistências: @jogador.Assistencias
-            <button @onclick="() => AdicionarGol(jogador)">+</button>
-            <button @onclick="() => RemoverGol(jogador)">-</button>
-            <button @onclick="() => AdicionarAssistencia(jogador)">+</button>
-            <button @onclick="() => RemoverAssistencia(jogador)">-</button>
+            <button @onclick="() => Partida.AdicionarGol(jogador)">+</button>
+            <button @onclick="() => Partida.RemoverGol(jogador)">-</button>
+            <button @onclick="() => Partida.AdicionarAssistencia(jogador)">+</button>
+            <button @onclick="() => Partida.RemoverAssistencia(jogador)">-</button>
         </li>
     }
 </ul>
 
-<!-- Botão Finalizar Partida -->
-<button @onclick="FinalizarPartida">Finalizar Partida</button>
+<button @onclick="Partida.FinalizarPartida">Finalizar Partida</button>
 
 @code {
-    private Time Time1 = new Time {Jogadores = new List<Jogador>() };
-    private Time Time2 = new Time {Jogadores = new List<Jogador>() };
-    private TimeSpan TempoRestante = TimeSpan.FromMinutes(7);
-    private System.Timers.Timer? _timer;
-    private bool TimerRodando;
-    private string TextoBotaoTimer => TimerRodando ? "Pausar" : "Iniciar";
+    private System.Timers.Timer? timer;
+    private bool timerRodando;
+    private string TextoBotaoTimer => timerRodando ? "Pausar" : "Iniciar";
 
     protected override async Task OnInitializedAsync()
     {
-        var jsonTime1 = await JS.InvokeAsync<string>("sessionStorage.getItem", "Time1");
-        var jsonTime2 = await JS.InvokeAsync<string>("sessionStorage.getItem", "Time2");
-        if (!string.IsNullOrEmpty(jsonTime1))
-        {
-            Time1 = System.Text.Json.JsonSerializer.Deserialize<Time>(jsonTime1);
-        }
-        if (!string.IsNullOrEmpty(jsonTime2))
-        {
-            Time2 = System.Text.Json.JsonSerializer.Deserialize<Time>(jsonTime2);
-        }
+        await Partida.CarregarTimesAsync();
     }
-
-    private void AdicionarGol(Jogador jogador) => jogador.Gols++;
-    private void RemoverGol(Jogador jogador) => jogador.Gols = Math.Max(0, jogador.Gols - 1);
-    private void AdicionarAssistencia(Jogador jogador) => jogador.Assistencias++;
-    private void RemoverAssistencia(Jogador jogador) => jogador.Assistencias = Math.Max(0, jogador.Assistencias - 1);
-    
-    private void FinalizarPartida() => Navigation.NavigateTo("/finalizar");
-
     public void IniciarOuPausarTimer()
     {
-        if (_timer == null)
+        if (timer == null)
         {
-            _timer = new System.Timers.Timer(1000);
-            _timer.Elapsed += TimerElapsed;
-            _timer.AutoReset = true;
+            timer = new System.Timers.Timer(1000);
+            timer.Elapsed += TimerElapsed;
+            timer.AutoReset = true;
         }
 
-        if (TimerRodando)
+        if (timerRodando)
         {
-            _timer.Stop();
-            TimerRodando = false;
+            timer.Stop();
+            timerRodando = false;
         }
         else
         {
-            _timer.Start();
-            TimerRodando = true;
+            timer.Start();
+            timerRodando = true;
         }
     }
+
     private async void TimerElapsed(object sender, ElapsedEventArgs e)
     {
-        if (TempoRestante.TotalSeconds > 0)
+        if (Partida.TempoRestante.TotalSeconds > 0)
         {
-            TempoRestante = TempoRestante.Subtract(TimeSpan.FromSeconds(1));
+            Partida.TempoRestante = Partida.TempoRestante.Subtract(TimeSpan.FromSeconds(1));
             await InvokeAsync(StateHasChanged);
         }
         else
         {
-            _timer.Stop();
-            TimerRodando = false;
+            timer?.Stop();
+            timerRodando = false;
             await InvokeAsync(StateHasChanged);
         }
     }
-
 }

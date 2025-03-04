@@ -27,13 +27,13 @@ namespace PlayMatch.Front
     		builder.Logging.AddDebug();
 #endif
             builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
-            builder.Services.AddSingleton<TimeService>();
-
-            builder.Services.AddSingleton<JogadorService>();
-            builder.Services.AddSingleton<TimeService>();
-            builder.Services.AddSingleton<PartidaService>();
-            builder.Services.AddSingleton<GolService>();
-            builder.Services.AddSingleton<Jogadores>();
+            builder.Services.AddScoped<TimeService>();
+            builder.Services.AddScoped<GerenciarPartidaService>();
+            builder.Services.AddScoped<JogadorService>();
+            builder.Services.AddScoped<TimeService>();
+            builder.Services.AddScoped<PartidaService>();
+            builder.Services.AddScoped<GolService>();
+            builder.Services.AddScoped<Jogadores>();
             builder.Services.AddSingleton(new PlayMatchDbContext(dbPath));
             builder.Services.AddSingleton(typeof(IGenericRepository<>), typeof(SQLiteRepository<>));
             return builder.Build();
