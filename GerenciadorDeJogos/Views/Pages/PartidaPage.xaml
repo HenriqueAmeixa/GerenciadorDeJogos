@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GerenciadorDeJogos.Views.Pages.PartidaPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:GerenciadorDeJogos.ViewModels"
+    Title="Partida">
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+
+        <!--  Grid para Times e Timer  -->
+        <Grid RowDefinitions="*,Auto,*">
+
+            <!--  Time 1  -->
+            <VerticalStackLayout Grid.Row="0" Spacing="5">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="Time 1" />
+                <ListView HeightRequest="150" ItemsSource="{Binding Time1.Jogadores}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5" ColumnDefinitions="*,Auto,Auto,Auto">
+
+                                    <Label
+                                        Grid.Column="0"
+                                        Text="{Binding Apelido}"
+                                        VerticalOptions="Center" />
+
+                                    <!--  Gols (Botões na vertical)  -->
+                                    <HorizontalStackLayout
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        Spacing="2">
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            Text="G"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            Text="{Binding Gols}"
+                                            VerticalOptions="Center" />
+                                        <VerticalStackLayout HorizontalOptions="Start" Spacing="2">
+                                            <ImageButton
+                                                Command="{Binding Path=BindingContext.AdicionarGolCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                CommandParameter="{Binding}"
+                                                HeightRequest="20"
+                                                Source="add.png"
+                                                WidthRequest="20" />
+                                            <ImageButton
+                                                Command="{Binding Path=BindingContext.RemoverGolCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                CommandParameter="{Binding}"
+                                                HeightRequest="20"
+                                                Source="remove.png"
+                                                WidthRequest="20" />
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+
+                                    <!--  Assistências (Botões na horizontal)  -->
+                                    <HorizontalStackLayout
+                                        Grid.Column="2"
+                                        HorizontalOptions="Start"
+                                        Spacing="2">
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            Text="A"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            Text="{Binding Assistencias}"
+                                            VerticalOptions="Center" />
+                                        <VerticalStackLayout HorizontalOptions="Start" Spacing="2">
+                                            <ImageButton
+                                                Command="{Binding Path=BindingContext.AdicionarAssistenciaCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                CommandParameter="{Binding}"
+                                                HeightRequest="20"
+                                                Source="add.png"
+                                                WidthRequest="20" />
+                                            <ImageButton
+                                                Command="{Binding Path=BindingContext.RemoverAssistenciaCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                CommandParameter="{Binding}"
+                                                HeightRequest="20"
+                                                Source="remove.png"
+                                                WidthRequest="20" />
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+
+            <!--  Timer  -->
+            <VerticalStackLayout Grid.Row="1" HorizontalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="{Binding TempoRestante}"
+                    TextColor="Red" />
+                <ImageButton
+                    Command="{Binding IniciarOuPausarTimerCommand}"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    Source="{Binding TimerRodando, Converter={StaticResource BoolToImageConverter}}"
+                    WidthRequest="50" />
+            </VerticalStackLayout>
+
+            <!--  Time 2  -->
+            <VerticalStackLayout Grid.Row="2" Spacing="5">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="Time 2" />
+                <ListView HeightRequest="150" ItemsSource="{Binding Time2.Jogadores}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5" ColumnDefinitions="*,Auto,Auto,Auto">
+
+                                    <Label
+                                        Grid.Column="0"
+                                        Text="{Binding Apelido}"
+                                        VerticalOptions="Center" />
+
+                                    <!--  Gols (Botões na vertical)  -->
+                                    <HorizontalStackLayout
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        Spacing="2">
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            Text="G"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            Text="{Binding Gols}"
+                                            VerticalOptions="Center" />
+                                        <VerticalStackLayout HorizontalOptions="Start" Spacing="2">
+                                            <ImageButton
+                                                Command="{Binding Path=BindingContext.AdicionarGolCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                CommandParameter="{Binding}"
+                                                HeightRequest="20"
+                                                Source="add.png"
+                                                WidthRequest="20" />
+                                            <ImageButton
+                                                Command="{Binding Path=BindingContext.RemoverGolCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                CommandParameter="{Binding}"
+                                                HeightRequest="20"
+                                                Source="remove.png"
+                                                WidthRequest="20" />
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+
+                                    <!--  Assistências (Botões na horizontal)  -->
+                                    <HorizontalStackLayout
+                                        Grid.Column="2"
+                                        HorizontalOptions="Start"
+                                        Spacing="2">
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            Text="A"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            Text="{Binding Assistencias}"
+                                            VerticalOptions="Center" />
+                                        <VerticalStackLayout HorizontalOptions="Start" Spacing="2">
+                                            <ImageButton
+                                                Command="{Binding Path=BindingContext.AdicionarAssistenciaCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                CommandParameter="{Binding}"
+                                                HeightRequest="20"
+                                                Source="add.png"
+                                                WidthRequest="20" />
+                                            <ImageButton
+                                                Command="{Binding Path=BindingContext.RemoverAssistenciaCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                CommandParameter="{Binding}"
+                                                HeightRequest="20"
+                                                Source="remove.png"
+                                                WidthRequest="20" />
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+
+        </Grid>
+
+        <Button Text="Finalizar Partida" Command="{Binding Path=BindingContext.FinalizarPartidaCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
