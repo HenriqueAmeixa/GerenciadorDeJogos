@@ -3,9 +3,11 @@
 
 <PageTitle>Gerenciar Partida</PageTitle>
 
-<h1>PlayMatch - Gerenciar Partida</h1>
+<h1>Partidas</h1>
 
-
+<div class="form-group">
+    <button class="btn btn-success" @onclick="IrParaSelecao">Iniciar Partida</button>
+</div>
     <!-- Lista de Partidas Anteriores -->
     <div class="scroll-view">
         @foreach (var partida in PartidasAnteriores)
@@ -78,9 +80,9 @@
         }
     };
 
-    private void CriarPartidaCommand()
+    private void IrParaSelecao()
     {
-        // Lógica para criar uma partida
+        Navigation.NavigateTo("/selecao-jogadores");
     }
 
     // Modelos de dados para Partida, Time e Jogador
