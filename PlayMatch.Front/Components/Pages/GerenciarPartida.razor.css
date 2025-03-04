@@ -1,0 +1,81 @@
+﻿
+.gerenciar-partida
+
+{
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h3 {
+    text-align: center;
+    color: #333;
+}
+
+h4 {
+    margin-top: 20px;
+    color: #007bff;
+}
+
+/* Lista de jogadores */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botões */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: 0.2s ease-in-out;
+}
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+/* Timer */
+.timer-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+}
+
+/* Botão de Finalizar */
+.finalizar-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #dc3545;
+}
+
+    .finalizar-btn:hover {
+        background-color: #b02a37;
+    }
+

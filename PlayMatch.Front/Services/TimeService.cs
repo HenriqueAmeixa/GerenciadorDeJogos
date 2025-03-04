@@ -25,7 +25,7 @@ namespace PlayMatch.Front.Services
             if (time != null)
             {
                 var jogadores = await _timeJogadorRepository.GetJogadoresPorTimeAsync(time.Id);
-                time.Jogadores = _mapper.Map<ObservableCollection<Jogador>>(jogadores);
+                time.Jogadores = _mapper.Map<List<Jogador>>(jogadores);
             }
             return time;
         }
@@ -36,7 +36,7 @@ namespace PlayMatch.Front.Services
             foreach (var time in times)
             {
                 var jogadores = await _timeJogadorRepository.GetJogadoresPorTimeAsync(time.Id);
-                time.Jogadores = _mapper.Map<ObservableCollection<Jogador>>(jogadores);
+                time.Jogadores = _mapper.Map<List<Jogador>>(jogadores);
             }
             return times;
         }

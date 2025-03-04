@@ -7,8 +7,8 @@ namespace PlayMatch.Front.Models
         public string Nome { get; set; }
         public string Apelido { get; set; }
         public Partida PartidaAtual { get; set; }
-        public int Gols => PartidaAtual?.Gols.Count(g => g.JogadorId == Id) ?? 0;
-        public int Assistencias => PartidaAtual?.Assistencias.Count(a => a.JogadorId == Id) ?? 0;
+        public int Gols { get; set; }
+        public int Assistencias { get; set; }
         public Jogador() { }
     }
 }
