@@ -4,50 +4,65 @@
 
 <h3>Sorteio de Times</h3>
 
-@if (JogadoresSelecionados.Any())
+@if (JogadoresSelecionados.Any() && !TimesDefinidos)
 {
     <h4>Jogadores Selecionados</h4>
-    <ul>
+    <ul style="list-style: none; padding: 0;">
         @foreach (var jogador in JogadoresSelecionados)
         {
-            <li>@jogador.Apelido</li>
+            <li style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0;">
+                <span>@jogador.Apelido</span>
+                @if (ModoSelecaoManual)
+                {
+                    <div>
+                        <button style="margin-left: 5px; padding: 2px 6px;" @onclick="() => AdicionarAoTime(jogador, 1)">1</button>
+                        <button style="margin-left: 5px; padding: 2px 6px;" @onclick="() => AdicionarAoTime(jogador, 2)">2</button>
+                    </div>
+                }
+            </li>
         }
     </ul>
 
-    <button @onclick="SortearTimes">Sortear Times</button>
-
-    @if (TimesSorteados)
-    {
-        <h4>Time 1</h4>
-        <ul>
-            @foreach (var jogador in Time1.Jogadores)
-            {
-                <li>@jogador.Apelido</li>
-            }
-        </ul>
-
-        <h4>Time 2</h4>
-        <ul>
-            @foreach (var jogador in Time2.Jogadores)
-            {
-                <li>@jogador.Apelido</li>
-            }
-        </ul>
-    }
-
-    <button @onclick="IrParaPartida" disabled="@(!TimesSorteados)">Ir para Partida</button>
+    <button @onclick="SortearTimes" disabled="@ModoSelecaoManual">Sortear Times</button>
+    <button @onclick="SelecionarManualmente" disabled="@ModoSelecaoManual">Selecionar Manualmente</button>
 }
-else
+
+@if (TimesDefinidos || ModoSelecaoManual)
 {
-    <p>Nenhum jogador selecionado.</p>
+    <div style="display: flex; justify-content: space-between; gap: 20px; margin-top: 20px;">
+        <div>
+            <h4>Time 1</h4>
+            <ul style="list-style: none; padding: 0;">
+                @foreach (var jogador in Time1.Jogadores)
+                {
+                    <li>@jogador.Apelido</li>
+                }
+            </ul>
+        </div>
+
+        <div>
+            <h4>Time 2</h4>
+            <ul style="list-style: none; padding: 0;">
+                @foreach (var jogador in Time2.Jogadores)
+                {
+                    <li>@jogador.Apelido</li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+
+@if (TimesDefinidos)
+{
+    <button @onclick="IrParaPartida">Ir para Partida</button>
 }
 
 @code {
-    [Parameter] public string? JogadoresQuery { get; set; }
     private List<Jogador> JogadoresSelecionados = new();
     private Time Time1 = new();
     private Time Time2 = new();
-    private bool TimesSorteados = false;
+    private bool TimesDefinidos = false;
+    private bool ModoSelecaoManual = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -66,7 +81,36 @@ else
         Time1.Jogadores = jogadoresEmbaralhados.Take(jogadoresEmbaralhados.Count / 2).ToList();
         Time2.Jogadores = jogadoresEmbaralhados.Skip(jogadoresEmbaralhados.Count / 2).ToList();
 
-        TimesSorteados = true;
+        TimesDefinidos = true;
+        ModoSelecaoManual = false;
+    }
+
+    private void SelecionarManualmente()
+    {
+        Time1.Jogadores.Clear();
+        Time2.Jogadores.Clear();
+        TimesDefinidos = false;
+        ModoSelecaoManual = true;
+    }
+
+    private void AdicionarAoTime(Jogador jogador, int time)
+    {
+        if (time == 1)
+        {
+            Time1.Jogadores.Add(jogador);
+        }
+        else if (time == 2)
+        {
+            Time2.Jogadores.Add(jogador);
+        }
+
+        JogadoresSelecionados.Remove(jogador);
+
+        if (!JogadoresSelecionados.Any())
+        {
+            TimesDefinidos = true;
+            ModoSelecaoManual = false;
+        }
     }
 
     private async void IrParaPartida()

@@ -1,8 +1,7 @@
 using PlayMatch.Core.Data;
 using PlayMatch.Core.Data.Interfaces;
-using PlayMatch.Front.Models;
+using PlayMatch.Core.Models;
 using AutoMapper;
-using System.Collections.ObjectModel;
 
 namespace PlayMatch.Front.Services
 {
@@ -19,7 +18,7 @@ namespace PlayMatch.Front.Services
             _mapper = mapper;
         }
 
-        public async Task<Time> GetTimeByIdAsync(int timeId)
+        public async Task<Models.Time> GetTimeByIdAsync(int timeId)
         {
             var time = await _timeRepository.GetByIdAsync(timeId);
             if (time != null)
@@ -27,10 +26,10 @@ namespace PlayMatch.Front.Services
                 var jogadores = await _timeJogadorRepository.GetJogadoresPorTimeAsync(time.Id);
                 time.Jogadores = _mapper.Map<List<Jogador>>(jogadores);
             }
-            return time;
+            return _mapper.Map<Models.Time>(time);
         }
 
-        public async Task<List<Time>> GetTimesAsync()
+        public async Task<List<Models.Time>> GetTimesAsync()
         {
             var times = await _timeRepository.GetAllAsync();
             foreach (var time in times)
@@ -38,17 +37,18 @@ namespace PlayMatch.Front.Services
                 var jogadores = await _timeJogadorRepository.GetJogadoresPorTimeAsync(time.Id);
                 time.Jogadores = _mapper.Map<List<Jogador>>(jogadores);
             }
-            return times;
+            return _mapper.Map<List<Models.Time>>(times);
         }
 
-        public async Task AddTimeAsync(Time time)
+        public async Task<Models.Time> AddTimeAsync(Models.Time time)
         {
-            var teste = await _timeRepository.InsertAsync(time);
+            var entity = await _timeRepository.InsertAsync(_mapper.Map<Time>(time));
+            return _mapper.Map<Models.Time>(entity);  
         }
 
-        public async Task RemoveTimeAsync(Time time)
+        public async Task RemoveTimeAsync(Models.Time time)
         {
-            await _timeRepository.DeleteAsync(time);
+            await _timeRepository.DeleteAsync(_mapper.Map<Time>(time));
         }
 
         public async Task AdicionarJogadorAoTimeAsync(int timeId, int jogadorId)

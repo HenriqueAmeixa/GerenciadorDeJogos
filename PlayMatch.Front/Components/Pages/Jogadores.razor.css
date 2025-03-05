@@ -1,10 +1,41 @@
-ï»¿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+/* Estilos específicos para a página Jogadores */
 
-namespace PlayMatch.Front.Components.Pages
-{
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center;
+}
 
+.form-control {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.btn-deletar {
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    align-self: center; /* Faz o botão alinhar-se com a largura do form-control */
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 0.75rem;
+    margin: 5px 0; /* Adiciona espaço entre os itens */
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
 }
