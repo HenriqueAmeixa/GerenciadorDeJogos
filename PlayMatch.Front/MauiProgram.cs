@@ -3,6 +3,8 @@ using PlayMatch.Front.Services;
 using PlayMatch.Core.Data;
 using PlayMatch.Front.Mappers;
 using PlayMatch.Front.Components.Pages;
+using PlayMatch.Core.Data.Interfaces;
+using PlayMatch.Core.Data.Repositories;
 
 namespace PlayMatch.Front
 {
@@ -34,8 +36,11 @@ namespace PlayMatch.Front
             builder.Services.AddScoped<PartidaService>();
             builder.Services.AddScoped<GolService>();
             builder.Services.AddScoped<Jogadores>();
+            builder.Services.AddScoped(typeof(IGolRepository), typeof(GolRepository));
+            builder.Services.AddScoped(typeof(IAssistenciaRepository), typeof(AssistenciaRepository));
+            builder.Services.AddScoped(typeof(ITimeJogadorRepository), typeof(TimeJogadorRepository));
             builder.Services.AddSingleton(new PlayMatchDbContext(dbPath));
-            builder.Services.AddSingleton(typeof(IGenericRepository<>), typeof(SQLiteRepository<>));
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(SQLiteRepository<>));
             return builder.Build();
         }
     }

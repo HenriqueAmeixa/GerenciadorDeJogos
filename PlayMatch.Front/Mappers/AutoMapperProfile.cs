@@ -27,6 +27,10 @@ namespace PlayMatch.Front.Mappers
 
             CreateMap<Jogador, Models.Jogador>();
             CreateMap<Models.Jogador, Jogador>();
+
+            CreateMap<Time, Models.Time>()
+                .ForMember(dest => dest.Jogadores, opt => opt.Ignore());
+            CreateMap<Models.Time, Time>();
         }
     }
 }

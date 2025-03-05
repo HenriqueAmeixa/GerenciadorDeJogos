@@ -69,7 +69,6 @@ namespace PlayMatch.Front.Services
                     await _timeService.AddTimeAsync(partida.Time1);
                 }
 
-                // Inserir Time2 e obter o ID
                 if (partida.Time2 != null)
                 {
                     await _timeService.AddTimeAsync(partida.Time2);
