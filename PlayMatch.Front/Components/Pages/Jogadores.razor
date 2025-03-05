@@ -1,0 +1,56 @@
+﻿@page "/Jogadores"
+@inject JogadorService JogadorService
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
+
+<h3>Jogadores</h3>
+
+<div class="form-group">
+    <input type="text" @bind="NovoNome" placeholder="Nome do Jogador" class="form-control" />
+    <input type="text" @bind="NovoApelido" placeholder="Apelido" class="form-control" />
+    <button class="btn btn-success" @onclick="AdicionarJogador">Adicionar Jogador</button>
+</div>
+
+<ul class="list-group">
+    @foreach (var jogador in ListaJogadores)
+    {
+        <li class="list-group-item">
+            <div>
+                <strong>@jogador.Nome</strong> <br />
+                <em>@jogador.Apelido</em>
+            </div>
+            <button class="btn btn-deletar" @onclick="() => RemoverJogador(jogador)"><i class="fas fa-trash"></i> <!-- Ícone de lixeira --></button>
+        </li>
+    }
+</ul>
+
+@code {
+    private string NovoNome { get; set; } = string.Empty;
+    private string NovoApelido { get; set; } = string.Empty;
+    private List<Jogador> ListaJogadores = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        ListaJogadores = await JogadorService.GetJogadoresAsync();
+    }
+
+    private async Task AdicionarJogador()
+    {
+        if (!string.IsNullOrWhiteSpace(NovoNome) && !string.IsNullOrWhiteSpace(NovoApelido))
+        {
+            var novoJogador = new Jogador { Nome = NovoNome, Apelido = NovoApelido };
+            await JogadorService.AddJogadorAsync(novoJogador);
+            ListaJogadores = await JogadorService.GetJogadoresAsync();
+            NovoNome = string.Empty;
+            NovoApelido = string.Empty;
+        }
+    }
+
+    private async Task RemoverJogador(Jogador jogador)
+    {
+        await JogadorService.RemoveJogadorAsync(jogador);
+        ListaJogadores = await JogadorService.GetJogadoresAsync();
+    }
+}

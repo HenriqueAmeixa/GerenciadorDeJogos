@@ -43,7 +43,7 @@ namespace GerenciadorDeJogos.Services
 
         public async Task AddTimeAsync(Time time)
         {
-            await _timeRepository.InsertAsync(time);
+            var teste = await _timeRepository.InsertAsync(time);
         }
 
         public async Task RemoveTimeAsync(Time time)

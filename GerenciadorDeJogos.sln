@@ -5,7 +5,9 @@ VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GerenciadorDeJogos", "GerenciadorDeJogos\GerenciadorDeJogos.csproj", "{7BD67F0C-365A-471E-B4D4-B94B0B188F8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayMatch.Core", "PlayMatch.Core\PlayMatch.Core.csproj", "{CA39E531-099E-4F90-8E37-A509D1EC7C10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayMatch.Core", "PlayMatch.Core\PlayMatch.Core.csproj", "{CA39E531-099E-4F90-8E37-A509D1EC7C10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayMatch.Front", "PlayMatch.Front\PlayMatch.Front.csproj", "{39770F50-65FB-4513-A1BE-F6DBB88BAD51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,12 @@ Global
 		{CA39E531-099E-4F90-8E37-A509D1EC7C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA39E531-099E-4F90-8E37-A509D1EC7C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA39E531-099E-4F90-8E37-A509D1EC7C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39770F50-65FB-4513-A1BE-F6DBB88BAD51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39770F50-65FB-4513-A1BE-F6DBB88BAD51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39770F50-65FB-4513-A1BE-F6DBB88BAD51}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{39770F50-65FB-4513-A1BE-F6DBB88BAD51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39770F50-65FB-4513-A1BE-F6DBB88BAD51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39770F50-65FB-4513-A1BE-F6DBB88BAD51}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

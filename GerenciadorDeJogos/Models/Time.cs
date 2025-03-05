@@ -7,7 +7,6 @@ namespace GerenciadorDeJogos.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public int PartidaId { get; set; }
         [Ignore]
         public ObservableCollection<Jogador> Jogadores { get; set; } = new ObservableCollection<Jogador>();
     }

@@ -8590,24 +8590,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\henri\\.nuget\\packages\\": {},
+    "C:\\Users\\Andre\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Andre\\Source\\Repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
       "projectName": "PlayMatch.Core",
-      "projectPath": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
-      "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\henri\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Core\\obj\\",
+      "projectPath": "C:\\Users\\Andre\\Source\\Repos\\GerenciadorDeJogos\\PlayMatch.Core\\PlayMatch.Core.csproj",
+      "packagesPath": "C:\\Users\\Andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Andre\\Source\\Repos\\GerenciadorDeJogos\\PlayMatch.Core\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\henri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8618,8 +8618,8 @@
         "net8.0-windows10.0.19041.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Users\\henri\\.nuget\\packages\\prosperi.innovation.package.domain\\0.1.17": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8649,7 +8649,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0-android34.0": {
@@ -8683,6 +8684,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.Android.Ref.34",
+            "version": "[34.0.147, 34.0.147]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.Android": {
             "privateAssets": "all"
@@ -8691,7 +8698,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       },
       "net8.0-ios18.0": {
         "targetAlias": "net8.0-ios",
@@ -8730,6 +8737,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.iOS.Ref.net8.0_18.0",
+            "version": "[18.0.8319, 18.0.8319]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.iOS": {
             "privateAssets": "all"
@@ -8738,7 +8751,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       },
       "net8.0-maccatalyst18.0": {
         "targetAlias": "net8.0-maccatalyst",
@@ -8778,6 +8791,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.MacCatalyst.Ref.net8.0_18.0",
+            "version": "[18.0.8319, 18.0.8319]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.MacCatalyst": {
             "privateAssets": "all"
@@ -8786,7 +8805,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       },
       "net8.0-windows10.0.19041": {
         "targetAlias": "net8.0-windows10.0.19041.0",
@@ -8822,18 +8841,18 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
-            "version": "[10.0.19041.56, 10.0.19041.56]"
+            "version": "[10.0.19041.57, 10.0.19041.57]"
           }
         ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
-          "Microsoft.Windows.SDK.NET.Ref": {
+          "Microsoft.Windows.SDK.NET.Ref.Windows": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

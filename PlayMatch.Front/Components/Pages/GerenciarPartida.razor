@@ -1,0 +1,116 @@
+﻿@page "/gerenciar-partida"
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+@using System.Timers
+
+<head>
+    <!-- Adicionar Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<h3>Partida</h3>
+
+<!-- Time 1 -->
+<h4>Time 1</h4>
+<ul>
+    @foreach (var jogador in Time1.Jogadores)
+    {
+        <li>
+            @jogador.Apelido - Gols: @jogador.Gols - Assistências: @jogador.Assistencias
+            <button @onclick="() => AdicionarGol(jogador)">+</button>
+            <button @onclick="() => RemoverGol(jogador)">-</button>
+            <button @onclick="() => AdicionarAssistencia(jogador)">+</button>
+            <button @onclick="() => RemoverAssistencia(jogador)">-</button>
+        </li>
+    }
+</ul>
+
+<!-- Timer -->
+<h3 style="color: red;">@TempoRestante</h3>
+<button @onclick="IniciarOuPausarTimer">@TextoBotaoTimer</button>
+
+
+
+<!-- Time 2 -->
+<h4>Time 2</h4>
+<ul>
+    @foreach (var jogador in Time2.Jogadores)
+    {
+        <li>
+            @jogador.Apelido - Gols: @jogador.Gols - Assistências: @jogador.Assistencias
+            <button @onclick="() => AdicionarGol(jogador)">+</button>
+            <button @onclick="() => RemoverGol(jogador)">-</button>
+            <button @onclick="() => AdicionarAssistencia(jogador)"><i class="fa-solid fa-plus"></i></button>
+            <button @onclick="() => RemoverAssistencia(jogador)"><i class="fa-solid fa-minus"></i></button>
+        </li>
+    }
+</ul>
+
+<!-- Botão Finalizar Partida -->
+<button @onclick="FinalizarPartida">Finalizar Partida</button>
+
+@code {
+    private Time Time1 = new Time {Jogadores = new List<Jogador>() };
+    private Time Time2 = new Time {Jogadores = new List<Jogador>() };
+    private TimeSpan TempoRestante = TimeSpan.FromMinutes(7);
+    private System.Timers.Timer? _timer;
+    private bool TimerRodando;
+    private string TextoBotaoTimer => TimerRodando ? "Pausar" : "Iniciar";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var jsonTime1 = await JS.InvokeAsync<string>("sessionStorage.getItem", "Time1");
+        var jsonTime2 = await JS.InvokeAsync<string>("sessionStorage.getItem", "Time2");
+        if (!string.IsNullOrEmpty(jsonTime1))
+        {
+            Time1 = System.Text.Json.JsonSerializer.Deserialize<Time>(jsonTime1);
+        }
+        if (!string.IsNullOrEmpty(jsonTime2))
+        {
+            Time2 = System.Text.Json.JsonSerializer.Deserialize<Time>(jsonTime2);
+        }
+    }
+
+    private void AdicionarGol(Jogador jogador) => jogador.Gols++;
+    private void RemoverGol(Jogador jogador) => jogador.Gols = Math.Max(0, jogador.Gols - 1);
+    private void AdicionarAssistencia(Jogador jogador) => jogador.Assistencias++;
+    private void RemoverAssistencia(Jogador jogador) => jogador.Assistencias = Math.Max(0, jogador.Assistencias - 1);
+    
+    private void FinalizarPartida() => Navigation.NavigateTo("/finalizar");
+
+    public void IniciarOuPausarTimer()
+    {
+        if (_timer == null)
+        {
+            _timer = new System.Timers.Timer(1000);
+            _timer.Elapsed += TimerElapsed;
+            _timer.AutoReset = true;
+        }
+
+        if (TimerRodando)
+        {
+            _timer.Stop();
+            TimerRodando = false;
+        }
+        else
+        {
+            _timer.Start();
+            TimerRodando = true;
+        }
+    }
+    private async void TimerElapsed(object sender, ElapsedEventArgs e)
+    {
+        if (TempoRestante.TotalSeconds > 0)
+        {
+            TempoRestante = TempoRestante.Subtract(TimeSpan.FromSeconds(1));
+            await InvokeAsync(StateHasChanged);
+        }
+        else
+        {
+            _timer.Stop();
+            TimerRodando = false;
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+}
