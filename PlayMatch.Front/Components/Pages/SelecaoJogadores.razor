@@ -1,0 +1,66 @@
+﻿@page "/selecao-jogadores"
+@inject NavigationManager Navigation
+@inject JogadorService JogadorService
+@inject IJSRuntime JS
+
+<h3>Seleção de Jogadores</h3>
+
+<p><strong>Selecione até 6 jogadores</strong></p>
+
+<!-- Lista de Jogadores Disponíveis -->
+<h4>Jogadores Disponíveis</h4>
+<div class="scroll-view">
+    @foreach (var jogador in JogadoresDisponiveis)
+    {
+        <div class="jogador-item">
+            <span>@jogador.Apelido</span>
+            <button class="btn btn-primary" @onclick="() => SelecionarJogador(jogador)">+</button>
+        </div>
+    }
+</div>
+
+<!-- Lista de Jogadores Selecionados -->
+<h4>Jogadores Selecionados</h4>
+<div class="scroll-view">
+    @foreach (var jogador in JogadoresSelecionados)
+    {
+        <div class="jogador-item">
+            <span>@jogador.Apelido</span>
+            <button class="btn btn-danger" @onclick="() => RemoverJogador(jogador)">-</button>
+        </div>
+    }
+</div>
+
+<!-- Botão para Avançar -->
+<button class="btn btn-success" @onclick="AvancarParaSorteio">Avançar para Sorteio</button>
+
+@code {
+    private List<Jogador> JogadoresDisponiveis = new();
+    private List<Jogador> JogadoresSelecionados = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        JogadoresDisponiveis = await JogadorService.GetJogadoresAsync();
+    }
+
+    private void SelecionarJogador(Jogador jogador)
+    {
+        if (!JogadoresSelecionados.Contains(jogador))
+        {
+            JogadoresSelecionados.Add(jogador);
+            JogadoresDisponiveis.Remove(jogador);
+        }
+    }
+
+    private void RemoverJogador(Jogador jogador)
+    {
+        JogadoresSelecionados.Remove(jogador);
+        JogadoresDisponiveis.Add(jogador);
+    }
+
+    private async Task AvancarParaSorteio()
+    {
+        await JS.InvokeVoidAsync("sessionStorage.setItem", "jogadoresSelecionados", System.Text.Json.JsonSerializer.Serialize(JogadoresSelecionados));
+        Navigation.NavigateTo("/sorteio");
+    }
+}

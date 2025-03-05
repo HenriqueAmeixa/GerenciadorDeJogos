@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GerenciadorDeJogos.Views.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="MainPage">
+
+
+    <Grid RowDefinitions="Auto, *">
+        <!--  Botão para criar nova rodada  -->
+        <StackLayout
+            Padding="10"
+            HorizontalOptions="Center"
+            Orientation="Horizontal">
+            <Button
+                BackgroundColor="LightGreen"
+                Clicked="OnNovaRodadaClicked"
+                CornerRadius="10"
+                Text="+ Nova Rodada"
+                TextColor="White" />
+        </StackLayout>
+
+        <!--  Lista de Rodadas  -->
+        <ScrollView Grid.Row="1" Orientation="Horizontal">
+            <StackLayout
+                Padding="10"
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="10">
+                <!--  Exemplo de item de rodada  -->
+                <CollectionView ItemsSource="{Binding Rodadas}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Padding="10"
+                                BackgroundColor="LightGray"
+                                CornerRadius="15"
+                                WidthRequest="200">
+                                <StackLayout>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Nome}" />
+                                    <Label Text="Jogos: {Binding NumeroDeJogos}" />
+                                    <Label Text="Artilheiro: {Binding JogadorMaisGols}" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

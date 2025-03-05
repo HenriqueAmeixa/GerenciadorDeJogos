@@ -1,0 +1,80 @@
+﻿@page "/Partidas"
+@inject NavigationManager Navigation
+@inject PartidaService PartidaService
+
+<PageTitle>Gerenciar Partida</PageTitle>
+
+<h1>Partidas</h1>
+
+<div class="form-group">
+    <button class="btn btn-success" @onclick="IrParaSelecao">Iniciar Partida</button>
+</div>
+    <!-- Lista de Partidas Anteriores -->
+    <div class="scroll-view">
+        @foreach (var partida in PartidasAnteriores)
+        {
+            <div class="partida-item" style="border: 1px solid gray; padding: 10px; margin: 5px;">
+                <div style="text-align: center;">
+                    <h3>@partida.DataFormatada</h3>
+                    <p>@partida.TempoDeJogoFormatado</p>
+
+                    <!-- Time 1 - Jogadores -->
+                    <div>
+                        <h4>Time 1:</h4>
+                        @foreach (var jogador in partida.Time1.Jogadores)
+                        {
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>@jogador.Nome</span>
+                                <span>@jogador.Gols</span>
+                                <span>@jogador.Assistencias</span>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Time 2 - Jogadores -->
+                    <div>
+                        <h4>Time 2:</h4>
+                        @foreach (var jogador in partida.Time2.Jogadores)
+                        {
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>@jogador.Nome</span>
+                                <span>@jogador.Gols</span>
+                                <span>@jogador.Assistencias</span>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Placar -->
+                    <div style="display: flex; justify-content: space-between; padding: 5px;">
+                        <span><strong>@partida.PlacarTime1</strong></span>
+                        <span><strong>@partida.PlacarTime2</strong></span>
+                    </div>
+
+                    <!-- Goleadores -->
+                    <div>
+                        <h4>Goleadores:</h4>
+                        @foreach (var goleador in partida.Goleadores)
+                        {
+                            <p>@goleador</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+@code {
+    private List<Partida> PartidasAnteriores = new List<Partida>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        PartidasAnteriores = await PartidaService.GetPartidasAsync();
+    }
+
+
+    private void IrParaSelecao()
+    {
+        Navigation.NavigateTo("/selecao-jogadores");
+    }
+
+}
