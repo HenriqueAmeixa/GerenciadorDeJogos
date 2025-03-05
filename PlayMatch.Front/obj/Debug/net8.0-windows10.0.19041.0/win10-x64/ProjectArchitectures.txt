@@ -1,0 +1,2 @@
+C:\Users\henri\source\repos\GerenciadorDeJogos\PlayMatch.Core\PlayMatch.Core.csproj;neutral
+C:\Users\henri\source\repos\GerenciadorDeJogos\PlayMatch.Front\PlayMatch.Front.csproj;x64

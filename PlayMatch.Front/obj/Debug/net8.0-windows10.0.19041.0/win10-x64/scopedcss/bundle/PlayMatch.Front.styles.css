@@ -1,0 +1,682 @@
+/* /Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-9a392iulc6] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-9a392iulc6] {
+    flex: 1;
+}
+
+.sidebar[b-9a392iulc6] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-9a392iulc6] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-9a392iulc6]  a, .top-row[b-9a392iulc6]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+        .top-row[b-9a392iulc6]  a:hover, .top-row[b-9a392iulc6]  .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        .top-row[b-9a392iulc6]  a:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+@media (max-width: 640.98px) {
+    .top-row[b-9a392iulc6] {
+        justify-content: space-between;
+    }
+
+        .top-row[b-9a392iulc6]  a, .top-row[b-9a392iulc6]  .btn-link {
+            margin-left: 0;
+        }
+}
+
+@media (min-width: 641px) {
+    .page[b-9a392iulc6] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-9a392iulc6] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-9a392iulc6] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+        .top-row.auth[b-9a392iulc6]  a:first-child {
+            flex: 1;
+            text-align: right;
+            width: 0;
+        }
+
+    .top-row[b-9a392iulc6], article[b-9a392iulc6] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* /Components/Layout/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-5l0l7t8jiq] {
+    appearance: none;
+    cursor: pointer;
+    width: 3.5rem;
+    height: 2.5rem;
+    color: white;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
+}
+
+    .navbar-toggler:checked[b-5l0l7t8jiq] {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+.top-row[b-5l0l7t8jiq] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-5l0l7t8jiq] {
+    font-size: 1.1rem;
+}
+
+.bi[b-5l0l7t8jiq] {
+    display: inline-block;
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.75rem;
+    top: -1px;
+    background-size: cover;
+}
+
+.bi-house-door-fill-nav-menu[b-5l0l7t8jiq] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-house-door-fill' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z'/%3E%3C/svg%3E");
+}
+
+.bi-plus-square-fill-nav-menu[b-5l0l7t8jiq] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-plus-square-fill' viewBox='0 0 16 16'%3E%3Cpath d='M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z'/%3E%3C/svg%3E");
+}
+
+.bi-list-nested-nav-menu[b-5l0l7t8jiq] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-list-nested' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
+}
+
+.nav-item[b-5l0l7t8jiq] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-5l0l7t8jiq] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-5l0l7t8jiq] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-5l0l7t8jiq]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+        .nav-item[b-5l0l7t8jiq]  a.active {
+            background-color: rgba(255,255,255,0.37);
+            color: white;
+        }
+
+        .nav-item[b-5l0l7t8jiq]  a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+.nav-scrollable[b-5l0l7t8jiq] {
+    display: none;
+}
+
+.navbar-toggler:checked ~ .nav-scrollable[b-5l0l7t8jiq] {
+    display: block;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-5l0l7t8jiq] {
+        display: none;
+    }
+
+    .nav-scrollable[b-5l0l7t8jiq] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+        /* Allow sidebar to scroll for tall menus */
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+    }
+}
+/* /Components/Pages/GerenciarPartida.razor.rz.scp.css */
+/* Estilos Globais */
+body[b-w8684t58o7] {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Para garantir o controle das margens e paddings */
+}
+
+/* Títulos */
+h3[b-w8684t58o7], h4[b-w8684t58o7] {
+    color: #333;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+h4[b-w8684t58o7] {
+    color: #007bff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Listagem dos Jogadores */
+ul[b-w8684t58o7] {
+    list-style-type: none;
+    padding: 0;
+}
+
+    ul li[b-w8684t58o7] {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s ease;
+    }
+
+        ul li:hover[b-w8684t58o7] {
+            background-color: #e9ecef;
+        }
+
+/* Botões */
+button[b-w8684t58o7] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* Aumentando o tamanho dos botões para facilitar o clique em telas menores */
+    cursor: pointer;
+    font-size: 16px; /* Tamanho maior para facilitar leitura e clique */
+    transition: background-color 0.3s ease;
+}
+
+    button:hover[b-w8684t58o7] {
+        background-color: #0056b3;
+    }
+
+    button:active[b-w8684t58o7] {
+        background-color: #004085;
+    }
+
+/* Estilo do Timer */
+h3[style="color: red;"][b-w8684t58o7] {
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Botão de iniciar/pausar o timer */
+button:focus[b-w8684t58o7] {
+    outline: none;
+}
+
+/* Estilo do Botão Finalizar Partida */
+button#finalizar[b-w8684t58o7] {
+    display: block;
+    width: 100%;
+    padding: 15px 0; /* Aumentando altura para maior clique */
+    margin-top: 20px;
+    background-color: #28a745;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+    button#finalizar:hover[b-w8684t58o7] {
+        background-color: #218838;
+    }
+
+/* Ajustes de Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    body[b-w8684t58o7] {
+        padding: 10px; /* Adicionando um pequeno padding nas bordas para evitar que o conteúdo fique muito colado */
+    }
+
+    h3[b-w8684t58o7], h4[b-w8684t58o7] {
+        font-size: 20px;
+        text-align: center; /* Centralizando os títulos para melhor visualização em telas pequenas */
+    }
+
+    /* Lista de jogadores */
+    ul li[b-w8684t58o7] {
+        font-size: 14px; /* Ajustando o tamanho da fonte para telas menores */
+        padding: 8px; /* Diminuindo o padding para otimizar o espaço */
+    }
+
+    button[b-w8684t58o7] {
+        font-size: 14px; /* Reduzindo o tamanho da fonte dos botões */
+        padding: 8px 16px; /* Ajustando o padding para botões em telas pequenas */
+    }
+
+        /* Botão Finalizar Partida */
+        button#finalizar[b-w8684t58o7] {
+            font-size: 16px; /* Ajustando o tamanho da fonte para o botão de finalizar */
+            padding: 12px 0; /* Ajustando o padding para tornar o botão mais clicável em dispositivos móveis */
+        }
+
+    /* Ajustando o tamanho do timer */
+    h3[style="color: red;"][b-w8684t58o7] {
+        font-size: 28px; /* Ajustando o tamanho do texto do timer */
+        margin-top: 20px;
+    }
+}
+
+/* Estilos para telas muito pequenas (ex: smartphones em modo retrato) */
+@media (max-width: 480px) {
+    h3[b-w8684t58o7], h4[b-w8684t58o7] {
+        font-size: 18px; /* Ajustando ainda mais para telas menores */
+    }
+
+    button[b-w8684t58o7] {
+        font-size: 14px; /* Menor para garantir espaço */
+        padding: 10px 15px;
+    }
+
+    ul li[b-w8684t58o7] {
+        font-size: 13px; /* Fontes menores para itens de lista */
+        padding: 6px; /* Menor padding para otimização do espaço */
+    }
+}
+/* /Components/Pages/Jogadores.razor.rz.scp.css */
+/* Estilos espec�ficos para a p�gina Jogadores */
+
+.form-group[b-zqbc7gc22s] {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center;
+}
+
+.form-control[b-zqbc7gc22s] {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-success[b-zqbc7gc22s] {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.btn-deletar[b-zqbc7gc22s] {
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    align-self: center; /* Faz o bot�o alinhar-se com a largura do form-control */
+}
+
+.list-group-item[b-zqbc7gc22s] {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 0.75rem;
+    margin: 5px 0; /* Adiciona espa�o entre os itens */
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+/* /Components/Pages/Partidas.razor.rz.scp.css */
+/* Estilo para o t�tulo principal da p�gina */
+h1[b-0q13jyzdlz] {
+    font-size: 2rem;
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 2rem;
+}
+
+/* Estilo para o t�tulo de cada partida */
+h3[b-0q13jyzdlz] {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+/* Bot�o "Iniciar Partida" */
+.btn-success[b-0q13jyzdlz] {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-success:hover[b-0q13jyzdlz] {
+        background-color: #218838;
+    }
+
+/* Lista de partidas anteriores */
+.scroll-view[b-0q13jyzdlz] {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+/* Estilo para cada item de partida */
+.partida-item[b-0q13jyzdlz] {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 15px 0;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+    .partida-item:hover[b-0q13jyzdlz] {
+        transform: scale(1.02);
+    }
+
+    /* Div para informa��es de cada partida */
+    .partida-item h3[b-0q13jyzdlz], .partida-item h4[b-0q13jyzdlz] {
+        color: #343a40;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Estilo para o placar e goleadores */
+    .partida-item .placar[b-0q13jyzdlz] {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    /* Estilo para as informa��es de jogadores (Gols, Assist�ncias) */
+    .partida-item .jogadores[b-0q13jyzdlz] {
+        margin-bottom: 15px;
+    }
+
+        .partida-item .jogadores div[b-0q13jyzdlz] {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+        }
+
+        .partida-item .jogadores span[b-0q13jyzdlz] {
+            font-size: 0.9rem;
+            color: #495057;
+        }
+
+/* Estilo para o bot�o de sortear/avan�ar */
+.btn-primary[b-0q13jyzdlz] {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover[b-0q13jyzdlz] {
+        background-color: #0056b3;
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .partida-item[b-0q13jyzdlz] {
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .btn-success[b-0q13jyzdlz], .btn-primary[b-0q13jyzdlz] {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+/* /Components/Pages/SelecaoJogadores.razor.rz.scp.css */
+/* Estilos Gerais */
+body[b-jfypzbyfxu] {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* T�tulos */
+h3[b-jfypzbyfxu] {
+    text-align: center;
+    color: #4caf50;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+/* Subt�tulos */
+h4[b-jfypzbyfxu] {
+    color: #333;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Descri��o */
+p[b-jfypzbyfxu] {
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Cont�iner das listas (Jogadores Dispon�veis e Selecionados) */
+.scroll-view[b-jfypzbyfxu] {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para cada item da lista */
+.jogador-item[b-jfypzbyfxu] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+    .jogador-item:hover[b-jfypzbyfxu] {
+        background-color: #e1e1e1;
+    }
+
+/* Bot�es de a��o */
+button[b-jfypzbyfxu] {
+    border: none;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary[b-jfypzbyfxu] {
+    background-color: #007bff;
+    color: white;
+}
+
+    .btn-primary:hover[b-jfypzbyfxu] {
+        background-color: #0056b3;
+    }
+
+.btn-danger[b-jfypzbyfxu] {
+    background-color: #dc3545;
+    color: white;
+}
+
+    .btn-danger:hover[b-jfypzbyfxu] {
+        background-color: #c82333;
+    }
+
+.btn-success[b-jfypzbyfxu] {
+    background-color: #28a745;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-success:hover[b-jfypzbyfxu] {
+        background-color: #218838;
+    }
+
+/* Ajuste para bot�es no final */
+button.btn-success[b-jfypzbyfxu] {
+    margin-top: 20px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    h3[b-jfypzbyfxu] {
+        font-size: 1.8rem;
+    }
+
+    h4[b-jfypzbyfxu] {
+        font-size: 1.3rem;
+    }
+
+    p[b-jfypzbyfxu] {
+        font-size: 0.9rem;
+    }
+
+    .scroll-view[b-jfypzbyfxu] {
+        max-height: 250px;
+    }
+
+    .jogador-item[b-jfypzbyfxu] {
+        padding: 6px;
+    }
+
+    .btn-primary[b-jfypzbyfxu], .btn-danger[b-jfypzbyfxu] {
+        font-size: 1rem;
+        padding: 4px 10px;
+    }
+
+    .btn-success[b-jfypzbyfxu] {
+        padding: 12px;
+    }
+}
+/* /Components/Pages/Sorteio.razor.rz.scp.css */
+/* Estilização da página de sorteio */
+.sorteio-container[b-11uacl9td6] {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Títulos */
+h3[b-11uacl9td6] {
+    color: #333;
+    text-align: center;
+}
+
+h4[b-11uacl9td6] {
+    margin-top: 20px;
+    color: #007bff;
+}
+
+/* Lista de jogadores */
+ul[b-11uacl9td6] {
+    list-style-type: none;
+    padding: 0;
+}
+
+li[b-11uacl9td6] {
+    background: white;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botões */
+button[b-11uacl9td6] {
+    display: flex;
+    justify-content: center;
+    background-color: darkred;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 10px 5px;
+}
+
+    /* Botão desativado */
+button:disabled[b-11uacl9td6] {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}

@@ -1,0 +1,147 @@
+/* Estilos Globais */
+body[b-w8684t58o7] {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Para garantir o controle das margens e paddings */
+}
+
+/* Títulos */
+h3[b-w8684t58o7], h4[b-w8684t58o7] {
+    color: #333;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+h4[b-w8684t58o7] {
+    color: #007bff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Listagem dos Jogadores */
+ul[b-w8684t58o7] {
+    list-style-type: none;
+    padding: 0;
+}
+
+    ul li[b-w8684t58o7] {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s ease;
+    }
+
+        ul li:hover[b-w8684t58o7] {
+            background-color: #e9ecef;
+        }
+
+/* Botões */
+button[b-w8684t58o7] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* Aumentando o tamanho dos botões para facilitar o clique em telas menores */
+    cursor: pointer;
+    font-size: 16px; /* Tamanho maior para facilitar leitura e clique */
+    transition: background-color 0.3s ease;
+}
+
+    button:hover[b-w8684t58o7] {
+        background-color: #0056b3;
+    }
+
+    button:active[b-w8684t58o7] {
+        background-color: #004085;
+    }
+
+/* Estilo do Timer */
+h3[style="color: red;"][b-w8684t58o7] {
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Botão de iniciar/pausar o timer */
+button:focus[b-w8684t58o7] {
+    outline: none;
+}
+
+/* Estilo do Botão Finalizar Partida */
+button#finalizar[b-w8684t58o7] {
+    display: block;
+    width: 100%;
+    padding: 15px 0; /* Aumentando altura para maior clique */
+    margin-top: 20px;
+    background-color: #28a745;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+    button#finalizar:hover[b-w8684t58o7] {
+        background-color: #218838;
+    }
+
+/* Ajustes de Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    body[b-w8684t58o7] {
+        padding: 10px; /* Adicionando um pequeno padding nas bordas para evitar que o conteúdo fique muito colado */
+    }
+
+    h3[b-w8684t58o7], h4[b-w8684t58o7] {
+        font-size: 20px;
+        text-align: center; /* Centralizando os títulos para melhor visualização em telas pequenas */
+    }
+
+    /* Lista de jogadores */
+    ul li[b-w8684t58o7] {
+        font-size: 14px; /* Ajustando o tamanho da fonte para telas menores */
+        padding: 8px; /* Diminuindo o padding para otimizar o espaço */
+    }
+
+    button[b-w8684t58o7] {
+        font-size: 14px; /* Reduzindo o tamanho da fonte dos botões */
+        padding: 8px 16px; /* Ajustando o padding para botões em telas pequenas */
+    }
+
+        /* Botão Finalizar Partida */
+        button#finalizar[b-w8684t58o7] {
+            font-size: 16px; /* Ajustando o tamanho da fonte para o botão de finalizar */
+            padding: 12px 0; /* Ajustando o padding para tornar o botão mais clicável em dispositivos móveis */
+        }
+
+    /* Ajustando o tamanho do timer */
+    h3[style="color: red;"][b-w8684t58o7] {
+        font-size: 28px; /* Ajustando o tamanho do texto do timer */
+        margin-top: 20px;
+    }
+}
+
+/* Estilos para telas muito pequenas (ex: smartphones em modo retrato) */
+@media (max-width: 480px) {
+    h3[b-w8684t58o7], h4[b-w8684t58o7] {
+        font-size: 18px; /* Ajustando ainda mais para telas menores */
+    }
+
+    button[b-w8684t58o7] {
+        font-size: 14px; /* Menor para garantir espaço */
+        padding: 10px 15px;
+    }
+
+    ul li[b-w8684t58o7] {
+        font-size: 13px; /* Fontes menores para itens de lista */
+        padding: 6px; /* Menor padding para otimização do espaço */
+    }
+}

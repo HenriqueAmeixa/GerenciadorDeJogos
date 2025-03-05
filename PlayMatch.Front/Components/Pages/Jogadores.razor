@@ -1,5 +1,9 @@
 ﻿@page "/Jogadores"
 @inject JogadorService JogadorService
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
 
 <h3>Jogadores</h3>
 
@@ -12,12 +16,12 @@
 <ul class="list-group">
     @foreach (var jogador in ListaJogadores)
     {
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li class="list-group-item">
             <div>
                 <strong>@jogador.Nome</strong> <br />
                 <em>@jogador.Apelido</em>
             </div>
-            <button class="btn btn-danger" @onclick="() => RemoverJogador(jogador)">Remover</button>
+            <button class="btn btn-deletar" @onclick="() => RemoverJogador(jogador)"><i class="fas fa-trash"></i> <!-- Ícone de lixeira --></button>
         </li>
     }
 </ul>
