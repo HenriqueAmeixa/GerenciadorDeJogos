@@ -43,27 +43,6 @@ build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/henri/source/repos/GerenciadorDeJogos/PlayMatch.Front/Components/Pages/Jogadores.razor]
-build_metadata.AdditionalFiles.GenKind = 
-build_metadata.AdditionalFiles.ManifestResourceName = 
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xKb2dhZG9yZXMucmF6b3I=
-build_metadata.AdditionalFiles.RelativePath = 
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/henri/source/repos/GerenciadorDeJogos/PlayMatch.Front/Components/Pages/Partidas.razor]
-build_metadata.AdditionalFiles.GenKind = 
-build_metadata.AdditionalFiles.ManifestResourceName = 
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYXJ0aWRhcy5yYXpvcg==
-build_metadata.AdditionalFiles.RelativePath = 
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/henri/source/repos/GerenciadorDeJogos/PlayMatch.Front/Components/Pages/SelecaoJogadores.razor]
-build_metadata.AdditionalFiles.GenKind = 
-build_metadata.AdditionalFiles.ManifestResourceName = 
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZWxlY2FvSm9nYWRvcmVzLnJhem9y
-build_metadata.AdditionalFiles.RelativePath = 
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/henri/source/repos/GerenciadorDeJogos/PlayMatch.Front/Components/Routes.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
@@ -98,6 +77,27 @@ build_metadata.AdditionalFiles.ManifestResourceName =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHZXJlbmNpYXJQYXJ0aWRhLnJhem9y
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = b-w8684t58o7
+
+[C:/Users/henri/source/repos/GerenciadorDeJogos/PlayMatch.Front/Components/Pages/Jogadores.razor]
+build_metadata.AdditionalFiles.GenKind = 
+build_metadata.AdditionalFiles.ManifestResourceName = 
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xKb2dhZG9yZXMucmF6b3I=
+build_metadata.AdditionalFiles.RelativePath = 
+build_metadata.AdditionalFiles.CssScope = b-zqbc7gc22s
+
+[C:/Users/henri/source/repos/GerenciadorDeJogos/PlayMatch.Front/Components/Pages/Partidas.razor]
+build_metadata.AdditionalFiles.GenKind = 
+build_metadata.AdditionalFiles.ManifestResourceName = 
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYXJ0aWRhcy5yYXpvcg==
+build_metadata.AdditionalFiles.RelativePath = 
+build_metadata.AdditionalFiles.CssScope = b-0q13jyzdlz
+
+[C:/Users/henri/source/repos/GerenciadorDeJogos/PlayMatch.Front/Components/Pages/SelecaoJogadores.razor]
+build_metadata.AdditionalFiles.GenKind = 
+build_metadata.AdditionalFiles.ManifestResourceName = 
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZWxlY2FvSm9nYWRvcmVzLnJhem9y
+build_metadata.AdditionalFiles.RelativePath = 
+build_metadata.AdditionalFiles.CssScope = b-jfypzbyfxu
 
 [C:/Users/henri/source/repos/GerenciadorDeJogos/PlayMatch.Front/Components/Pages/Sorteio.razor]
 build_metadata.AdditionalFiles.GenKind = 

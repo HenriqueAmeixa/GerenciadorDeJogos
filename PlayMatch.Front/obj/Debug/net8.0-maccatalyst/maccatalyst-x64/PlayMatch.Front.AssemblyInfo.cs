@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlayMatch.Front")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+201870770a1fb8da1ee6eb1644c801801092f654")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+143d1e90ba042a4581ca8ac74fff5e23fcee8cbd")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlayMatch.Front")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlayMatch.Front")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
