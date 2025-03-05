@@ -175,6 +175,7 @@ namespace GerenciadorDeJogos.ViewModels
             PartidaAtual.Time1 = Time1;
             PartidaAtual.Time2 = Time2;
 
+
             await _partidaService.AddPartidaAsync(PartidaAtual);
 
             PartidaAtual = new Partida

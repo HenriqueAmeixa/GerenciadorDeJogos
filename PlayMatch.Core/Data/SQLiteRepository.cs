@@ -22,14 +22,16 @@ namespace PlayMatch.Core.Data
             return await _database.FindAsync<T>(id);
         }
 
-        public async Task<int> InsertAsync(T entity)
+        public async Task<T> InsertAsync(T entity)
         {
-            return await _database.InsertAsync(entity);
+            await _database.InsertAsync(entity);
+            return entity;
         }
 
-        public async Task<int> UpdateAsync(T entity)
+        public async Task<T> UpdateAsync(T entity)
         {
-            return await _database.UpdateAsync(entity);
+            await _database.UpdateAsync(entity);
+            return entity;
         }
 
         public async Task<int> DeleteAsync(T entity)

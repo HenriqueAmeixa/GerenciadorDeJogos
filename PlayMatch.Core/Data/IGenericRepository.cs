@@ -5,8 +5,8 @@ namespace PlayMatch.Core.Data
     {
         Task<List<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
-        Task<int> InsertAsync(T entity);
-        Task<int> UpdateAsync(T entity);
+        Task<T> InsertAsync(T entity);
+        Task<T> UpdateAsync(T entity);
         Task<int> DeleteAsync(T entity);
     }
 }

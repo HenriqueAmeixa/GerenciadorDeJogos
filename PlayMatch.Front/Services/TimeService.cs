@@ -40,9 +40,10 @@ namespace PlayMatch.Front.Services
             return _mapper.Map<List<Models.Time>>(times);
         }
 
-        public async Task AddTimeAsync(Models.Time time)
+        public async Task<Models.Time> AddTimeAsync(Models.Time time)
         {
-             await _timeRepository.InsertAsync(_mapper.Map<Time>(time));
+            var entity = await _timeRepository.InsertAsync(_mapper.Map<Time>(time));
+            return _mapper.Map<Models.Time>(entity);  
         }
 
         public async Task RemoveTimeAsync(Models.Time time)

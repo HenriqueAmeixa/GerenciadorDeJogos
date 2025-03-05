@@ -81,38 +81,66 @@ namespace PlayMatch.Front.Services
             jogador.Gols++;
         }
         public void RemoverGol(Models.Jogador jogador)
-        { 
-            PartidaAtual.Gols.RemoveAll(g => g.JogadorId == jogador.Id);
-            jogador.Gols = Math.Max(0, jogador.Gols - 1); 
+        {
+            var ultimoGol = PartidaAtual.Gols.LastOrDefault(g => g.JogadorId == jogador.Id);
+
+            if (ultimoGol != null)
+            {
+                PartidaAtual.Gols.Remove(ultimoGol);
+                jogador.Gols = Math.Max(0, jogador.Gols - 1);
+            }
         }
-        public void AdicionarAssistencia(Models.Jogador jogador) => jogador.Assistencias++;
-        public void RemoverAssistencia(Models.Jogador jogador) => jogador.Assistencias = Math.Max(0, jogador.Assistencias - 1);
+        public void AdicionarAssistencia(Models.Jogador jogador)
+        {
+            var assistencia = new Models.Assistencia
+            {
+                PartidaId = PartidaAtual.Id,
+                JogadorId = jogador.Id,
+                Partida = PartidaAtual,
+                Jogador = jogador
+            };
+            PartidaAtual.Assistencias.Add(assistencia);
+            jogador.Assistencias++;
+        }
+        public void RemoverAssistencia(Models.Jogador jogador)
+        {
+            var ultimaAssistencia = PartidaAtual.Assistencias.LastOrDefault(g => g.JogadorId == jogador.Id);
+
+            if (ultimaAssistencia != null)
+            {
+                PartidaAtual.Assistencias.Remove(ultimaAssistencia);
+                jogador.Assistencias = Math.Max(0, jogador.Assistencias - 1);
+            }
+        }
 
         public async void FinalizarPartida()
         {
             if (PartidaAtual == null) return;
             PartidaAtual.TempoDeJogo = PartidaAtual.TempoDeJogo - TempoRestante;
-            PartidaAtual.Time1 = Time1;
-            PartidaAtual.Time2 = Time2;
-            await _timeService.AddTimeAsync(PartidaAtual.Time1);
-            await _timeService.AddTimeAsync(PartidaAtual.Time2);
-            await _partidaRepository.InsertAsync(_mapper.Map<Partida>(PartidaAtual));
+
+            PartidaAtual.Time1 = await _timeService.AddTimeAsync(Time1);
+            PartidaAtual.Time2 = await _timeService.AddTimeAsync(Time2);
+
+            PartidaAtual.Time1Id = PartidaAtual.Time1.Id;
+            PartidaAtual.Time2Id = PartidaAtual.Time2.Id;
+
+            var entity = await _partidaRepository.InsertAsync(_mapper.Map<Partida>(PartidaAtual));
             foreach (var gol in PartidaAtual.Gols)
             {
-                gol.PartidaId = PartidaAtual.Id;
+                gol.PartidaId = entity.Id;
                 await _golRepository.InsertAsync(_mapper.Map<Gol>(gol));
             }
             foreach (var assist in PartidaAtual.Assistencias)
             {
-                assist.PartidaId = PartidaAtual.Id;
+                assist.PartidaId = entity.Id;
                 await _assistenciaRepository.InsertAsync(_mapper.Map<Assistencia>(assist));
             }
 
-            foreach (var jogador in PartidaAtual.Time1.Jogadores)
+            foreach (var jogador in Time1.Jogadores)
             {
                 await _timeService.AdicionarJogadorAoTimeAsync(PartidaAtual.Time1.Id, jogador.Id);
             }
-            foreach (var jogador in PartidaAtual.Time2.Jogadores)
+            foreach (var jogador in Time2.Jogadores)
             {
                 await _timeService.AdicionarJogadorAoTimeAsync(PartidaAtual.Time2.Id, jogador.Id);
             }

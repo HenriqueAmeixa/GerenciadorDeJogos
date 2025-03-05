@@ -38,7 +38,7 @@ namespace PlayMatch.Front.Services
                 foreach (var partida in partidas)
                 {
                     var gols = await _golRepository.GetByPartidaIdAsync(partida.Id);
-                    partida.Gols = _mapper.Map<List<Gol>>(gols);
+                     partida.Gols = _mapper.Map<List<Gol>>(gols);
 
                     var assistenciasCore = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
                     partida.Assistencias = _mapper.Map<List<Assistencia>>(assistenciasCore);
