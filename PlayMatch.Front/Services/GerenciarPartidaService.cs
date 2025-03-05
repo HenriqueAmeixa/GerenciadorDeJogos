@@ -113,38 +113,65 @@ namespace PlayMatch.Front.Services
             }
         }
 
-        public async void FinalizarPartida()
+        public async Task FinalizarPartidaAsync()
         {
             if (PartidaAtual == null) return;
-            PartidaAtual.TempoDeJogo = PartidaAtual.TempoDeJogo - TempoRestante;
 
+            PartidaAtual.TempoDeJogo -= TempoRestante;
+
+            await SalvarTimesAsync();
+            await SalvarPartidaAsync();
+            await SalvarGolsEAssistenciasAsync();
+            await AdicionarJogadoresAosTimesAsync();
+
+            ResetarEstadoDaPartida();
+            _navigation.NavigateTo("/partidas");
+        }
+        private async Task SalvarTimesAsync()
+        {
             PartidaAtual.Time1 = await _timeService.AddTimeAsync(Time1);
             PartidaAtual.Time2 = await _timeService.AddTimeAsync(Time2);
 
             PartidaAtual.Time1Id = PartidaAtual.Time1.Id;
             PartidaAtual.Time2Id = PartidaAtual.Time2.Id;
-
+        }
+        private async Task SalvarPartidaAsync()
+        {
             var entity = await _partidaRepository.InsertAsync(_mapper.Map<Partida>(PartidaAtual));
-            foreach (var gol in PartidaAtual.Gols)
-            {
-                gol.PartidaId = entity.Id;
-                await _golRepository.InsertAsync(_mapper.Map<Gol>(gol));
-            }
-            foreach (var assist in PartidaAtual.Assistencias)
-            {
-                assist.PartidaId = entity.Id;
-                await _assistenciaRepository.InsertAsync(_mapper.Map<Assistencia>(assist));
-            }
+            PartidaAtual.Id = entity.Id;
+        }
+        private async Task SalvarGolsEAssistenciasAsync()
+        {
+            var partidaId = PartidaAtual.Id;
 
-            foreach (var jogador in Time1.Jogadores)
+            var gols = PartidaAtual.Gols.Select(g =>
             {
-                await _timeService.AdicionarJogadorAoTimeAsync(PartidaAtual.Time1.Id, jogador.Id);
-            }
-            foreach (var jogador in Time2.Jogadores)
-            {
-                await _timeService.AdicionarJogadorAoTimeAsync(PartidaAtual.Time2.Id, jogador.Id);
-            }
+                g.PartidaId = partidaId;
+                return _mapper.Map<Gol>(g);
+            });
 
+            var assistencias = PartidaAtual.Assistencias.Select(a =>
+            {
+                a.PartidaId = partidaId;
+                return _mapper.Map<Assistencia>(a);
+            });
+
+            await Task.WhenAll(
+                Task.WhenAll(gols.Select(g => _golRepository.InsertAsync(g))),
+                Task.WhenAll(assistencias.Select(a => _assistenciaRepository.InsertAsync(a)))
+            );
+        }
+        private async Task AdicionarJogadoresAosTimesAsync()
+        {
+            var tasks = new List<Task>();
+
+            tasks.AddRange(Time1.Jogadores.Select(j => _timeService.AdicionarJogadorAoTimeAsync(PartidaAtual.Time1.Id, j.Id)));
+            tasks.AddRange(Time2.Jogadores.Select(j => _timeService.AdicionarJogadorAoTimeAsync(PartidaAtual.Time2.Id, j.Id)));
+
+            await Task.WhenAll(tasks);
+        }
+        private void ResetarEstadoDaPartida()
+        {
             PartidaAtual = new Models.Partida
             {
                 TempoDeJogo = TimeSpan.FromMinutes(7),
@@ -155,8 +182,6 @@ namespace PlayMatch.Front.Services
             Time1.Jogadores.Clear();
             Time2.Jogadores.Clear();
             TempoRestante = TimeSpan.FromMinutes(7);
-            _navigation.NavigateTo("/partidas");
         }
-
     }
 }

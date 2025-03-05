@@ -9,6 +9,7 @@ namespace PlayMatch.Front.Services
     {
         private readonly IGenericRepository<Partida> _partidaRepository;
         private readonly IGolRepository _golRepository;
+        private readonly IGenericRepository<Jogador> _jogadorRepository;
         private readonly IAssistenciaRepository _assistenciaRepository;
         private readonly TimeService _timeService;
         private readonly IMapper _mapper;
@@ -17,11 +18,13 @@ namespace PlayMatch.Front.Services
             IGenericRepository<Partida> partidaRepository,
             IGolRepository golRepository,
             IAssistenciaRepository assistenciaRepository,
+            IGenericRepository<Jogador> jogadorRepository,
             TimeService timeService,
             IMapper mapper
         )
         {
             _partidaRepository = partidaRepository;
+            _jogadorRepository = jogadorRepository;
             _golRepository = golRepository;
             _assistenciaRepository = assistenciaRepository;
             _timeService = timeService;
@@ -35,18 +38,42 @@ namespace PlayMatch.Front.Services
             {
                 var partidas = await _partidaRepository.GetAllAsync();
 
+
                 foreach (var partida in partidas)
                 {
-                    var gols = await _golRepository.GetByPartidaIdAsync(partida.Id);
-                     partida.Gols = _mapper.Map<List<Gol>>(gols);
-
-                    var assistenciasCore = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
-                    partida.Assistencias = _mapper.Map<List<Assistencia>>(assistenciasCore);
-
                     var time1 = await _timeService.GetTimeByIdAsync(partida.Time1Id);
                     var time2 = await _timeService.GetTimeByIdAsync(partida.Time2Id);
                     partida.Time1 = _mapper.Map<Time>(time1);
                     partida.Time2 = _mapper.Map<Time>(time2);
+
+                    var gols = await _golRepository.GetByPartidaIdAsync(partida.Id);
+                    foreach (var gol in gols)
+                    {
+                        var jogador = partida.Time1.Jogadores.FirstOrDefault(j => j.Id == gol.JogadorId) ??
+                                      partida.Time2.Jogadores.FirstOrDefault(j => j.Id == gol.JogadorId);
+
+                        if (jogador != null)
+                        {
+                            jogador.Gols++; 
+                        }
+                    }
+
+                    partida.Gols = _mapper.Map<List<Gol>>(gols);
+
+                    var assistencias = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
+                    foreach (var assistencia in assistencias)
+                    {
+                        var jogador = partida.Time1.Jogadores.FirstOrDefault(j => j.Id == assistencia.JogadorId) ??
+                                      partida.Time2.Jogadores.FirstOrDefault(j => j.Id == assistencia.JogadorId);
+
+                        if (jogador != null)
+                        {
+                            jogador.Assistencias++; // Atualiza a contagem de assistências do jogador no time
+                        }
+                    }
+                    partida.Assistencias = _mapper.Map<List<Assistencia>>(assistencias);
+
+
 
                 }
 
