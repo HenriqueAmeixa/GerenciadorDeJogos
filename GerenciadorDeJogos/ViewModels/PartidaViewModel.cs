@@ -171,10 +171,10 @@ namespace GerenciadorDeJogos.ViewModels
         [RelayCommand]
         public async Task FinalizarPartida() {             
             if (PartidaAtual == null) return;
-
             PartidaAtual.TempoDeJogo = PartidaAtual.TempoDeJogo - TempoRestante;
             PartidaAtual.Time1 = Time1;
             PartidaAtual.Time2 = Time2;
+
 
             await _partidaService.AddPartidaAsync(PartidaAtual);
 

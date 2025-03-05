@@ -37,3 +37,6 @@
 
 /PlayMatch.Front/bin/Debug/net8.0-android/com.companyname.playmatch.front-Signed.apk
 /PlayMatch.Front/obj/Debug/net8.0-android/android/assets/PlayMatch.Front.dll
+/PlayMatch.Front/obj/Debug/net8.0-ios/iossimulator-x64/PlayMatch.Front.AssemblyInfo.cs
+/GerenciadorDeJogos/GerenciadorDeJogos.csproj.user
+/PlayMatch.Front/PlayMatch.Front.csproj.user

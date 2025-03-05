@@ -3,6 +3,8 @@ using PlayMatch.Front.Services;
 using PlayMatch.Core.Data;
 using PlayMatch.Front.Mappers;
 using PlayMatch.Front.Components.Pages;
+using PlayMatch.Core.Data.Interfaces;
+using PlayMatch.Core.Data.Repositories;
 
 namespace PlayMatch.Front
 {
@@ -27,15 +29,18 @@ namespace PlayMatch.Front
     		builder.Logging.AddDebug();
 #endif
             builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
-            builder.Services.AddSingleton<TimeService>();
-
-            builder.Services.AddSingleton<JogadorService>();
-            builder.Services.AddSingleton<TimeService>();
-            builder.Services.AddSingleton<PartidaService>();
-            builder.Services.AddSingleton<GolService>();
-            builder.Services.AddSingleton<Jogadores>();
+            builder.Services.AddScoped<TimeService>();
+            builder.Services.AddScoped<GerenciarPartidaService>();
+            builder.Services.AddScoped<JogadorService>();
+            builder.Services.AddScoped<TimeService>();
+            builder.Services.AddScoped<PartidaService>();
+            builder.Services.AddScoped<GolService>();
+            builder.Services.AddScoped<Jogadores>();
+            builder.Services.AddScoped(typeof(IGolRepository), typeof(GolRepository));
+            builder.Services.AddScoped(typeof(IAssistenciaRepository), typeof(AssistenciaRepository));
+            builder.Services.AddScoped(typeof(ITimeJogadorRepository), typeof(TimeJogadorRepository));
             builder.Services.AddSingleton(new PlayMatchDbContext(dbPath));
-            builder.Services.AddSingleton(typeof(IGenericRepository<>), typeof(SQLiteRepository<>));
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(SQLiteRepository<>));
             return builder.Build();
         }
     }

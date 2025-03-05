@@ -1,5 +1,6 @@
 ﻿@page "/Partidas"
 @inject NavigationManager Navigation
+@inject PartidaService PartidaService
 
 <PageTitle>Gerenciar Partida</PageTitle>
 
@@ -45,9 +46,8 @@
 
                     <!-- Placar -->
                     <div style="display: flex; justify-content: space-between; padding: 5px;">
-                        <span><strong>@partida.Time1.Nome</strong></span>
                         <span><strong>@partida.PlacarTime1</strong></span>
-                        <span><strong>@partida.Time2.Nome</strong></span>
+                        <span><strong>@partida.PlacarTime2</strong></span>
                     </div>
 
                     <!-- Goleadores -->
@@ -64,49 +64,17 @@
     </div>
 
 @code {
-    // Lista de partidas anteriores
-    private List<Partida> PartidasAnteriores = new List<Partida>
+    private List<Partida> PartidasAnteriores = new List<Partida>();
+
+    protected override async Task OnInitializedAsync()
     {
-        // Simulação de dados
-        new Partida
-        {
-            DataFormatada = "03/03/2025",
-            TempoDeJogoFormatado = "10min",
-            Time1 = new Time { Nome = "Time 1", Jogadores = new List<Jogador> { new Jogador { Nome = "Jogador A", Gols = 2, Assistencias = 1 }, new Jogador { Nome = "Jogador B", Gols = 1, Assistencias = 0 } } },
-            Time2 = new Time { Nome = "Time 2", Jogadores = new List<Jogador> { new Jogador { Nome = "Jogador C", Gols = 0, Assistencias = 1 }, new Jogador { Nome = "Jogador D", Gols = 1, Assistencias = 1 } } },
-            PlacarTime1 = "3",
-            PlacarTime2 = "2",
-            Goleadores = new List<string> { "Jogador A", "Jogador B" }
-        }
-    };
+        PartidasAnteriores = await PartidaService.GetPartidasAsync();
+    }
+
 
     private void IrParaSelecao()
     {
         Navigation.NavigateTo("/selecao-jogadores");
     }
 
-    // Modelos de dados para Partida, Time e Jogador
-    public class Partida
-    {
-        public string DataFormatada { get; set; }
-        public string TempoDeJogoFormatado { get; set; }
-        public Time Time1 { get; set; }
-        public Time Time2 { get; set; }
-        public string PlacarTime1 { get; set; }
-        public string PlacarTime2 { get; set; }
-        public List<string> Goleadores { get; set; }
-    }
-
-    public class Time
-    {
-        public string Nome { get; set; }
-        public List<Jogador> Jogadores { get; set; }
-    }
-
-    public class Jogador
-    {
-        public string Nome { get; set; }
-        public int Gols { get; set; }
-        public int Assistencias { get; set; }
-    }
 }
