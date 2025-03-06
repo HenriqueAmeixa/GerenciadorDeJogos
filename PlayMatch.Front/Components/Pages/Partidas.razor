@@ -1,112 +1,119 @@
 ﻿@page "/Partidas"
 @inject NavigationManager Navigation
+@inject PartidaService PartidaService
+@inject IJSRuntime JS
+
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
 
 <PageTitle>Gerenciar Partida</PageTitle>
 
-<h1>Partidas</h1>
+<div class="page-container">
+    <h1>Partidas</h1>
 
-<div class="form-group">
-    <button class="btn btn-success" @onclick="IrParaSelecao">Iniciar Partida</button>
-</div>
+    <div class="container-btn">
+        <button class="btn-iniciar" @onclick="IrParaSelecao">
+            <i class="fas fa-play"></i> Nova Partida
+        </button>
+    </div>
+
+    <div class="controls">
+        <button class="btn-icon" @onclick="CopiarPartidas">
+            <i class="fas fa-copy"></i>
+        </button>
+    </div>
+
     <!-- Lista de Partidas Anteriores -->
     <div class="scroll-view">
         @foreach (var partida in PartidasAnteriores)
         {
-            <div class="partida-item" style="border: 1px solid gray; padding: 10px; margin: 5px;">
-                <div style="text-align: center;">
-                    <h3>@partida.DataFormatada</h3>
-                    <p>@partida.TempoDeJogoFormatado</p>
+            var vencedorTime1 = partida.PlacarTime1 > partida.PlacarTime2;
+            var empate = partida.PlacarTime1 == partida.PlacarTime2;
 
-                    <!-- Time 1 - Jogadores -->
-                    <div>
-                        <h4>Time 1:</h4>
+            <div class="partida-item">
+                <div class="time-container @(vencedorTime1 ? "vencedor" : empate ? "empate" : "")">
+                    <h4>Time 1</h4>
+                    <div class="tabela-jogadores">
+                        <span><i class="fas fa-user"></i></span>
+                        <span><i class="fas fa-futbol"></i></span>
+                        <span><i class="fas fa-handshake"></i></span>
                         @foreach (var jogador in partida.Time1.Jogadores)
                         {
-                            <div style="display: flex; justify-content: space-between;">
-                                <span>@jogador.Nome</span>
-                                <span>@jogador.Gols</span>
-                                <span>@jogador.Assistencias</span>
-                            </div>
+                            <span>@jogador.Nome</span>
+                            <span>@jogador.Gols</span>
+                            <span>@jogador.Assistencias</span>
                         }
                     </div>
+                    @if (vencedorTime1)
+                    {
+                        <span class="vencedor-icon">✔</span>
+                    }
+                </div>
 
-                    <!-- Time 2 - Jogadores -->
-                    <div>
-                        <h4>Time 2:</h4>
+                <div class="tempo">@partida.TempoDeJogoFormatado</div>
+
+                <div class="time-container @(!vencedorTime1 ? "vencedor" : empate ? "empate" : "")">
+                    <h4>Time 2</h4>
+                    <div class="tabela-jogadores">
+                        <span><i class="fas fa-user"></i></span>
+                        <span><i class="fas fa-futbol"></i></span>
+                        <span><i class="fas fa-handshake"></i></span>
                         @foreach (var jogador in partida.Time2.Jogadores)
                         {
-                            <div style="display: flex; justify-content: space-between;">
-                                <span>@jogador.Nome</span>
-                                <span>@jogador.Gols</span>
-                                <span>@jogador.Assistencias</span>
-                            </div>
+                            <span>@jogador.Nome</span>
+                            <span>@jogador.Gols</span>
+                            <span>@jogador.Assistencias</span>
                         }
                     </div>
-
-                    <!-- Placar -->
-                    <div style="display: flex; justify-content: space-between; padding: 5px;">
-                        <span><strong>@partida.Time1.Nome</strong></span>
-                        <span><strong>@partida.PlacarTime1</strong></span>
-                        <span><strong>@partida.Time2.Nome</strong></span>
-                    </div>
-
-                    <!-- Goleadores -->
-                    <div>
-                        <h4>Goleadores:</h4>
-                        @foreach (var goleador in partida.Goleadores)
-                        {
-                            <p>@goleador</p>
-                        }
-                    </div>
+                    @if (!vencedorTime1 && !empate)
+                    {
+                        <span class="vencedor-icon">✔</span>
+                    }
                 </div>
             </div>
         }
     </div>
+</div>
+
+
 
 @code {
-    // Lista de partidas anteriores
-    private List<Partida> PartidasAnteriores = new List<Partida>
+    private List<Partida> PartidasAnteriores = new List<Partida>();
+
+    protected override async Task OnInitializedAsync()
     {
-        // Simulação de dados
-        new Partida
-        {
-            DataFormatada = "03/03/2025",
-            TempoDeJogoFormatado = "10min",
-            Time1 = new Time { Nome = "Time 1", Jogadores = new List<Jogador> { new Jogador { Nome = "Jogador A", Gols = 2, Assistencias = 1 }, new Jogador { Nome = "Jogador B", Gols = 1, Assistencias = 0 } } },
-            Time2 = new Time { Nome = "Time 2", Jogadores = new List<Jogador> { new Jogador { Nome = "Jogador C", Gols = 0, Assistencias = 1 }, new Jogador { Nome = "Jogador D", Gols = 1, Assistencias = 1 } } },
-            PlacarTime1 = "3",
-            PlacarTime2 = "2",
-            Goleadores = new List<string> { "Jogador A", "Jogador B" }
-        }
-    };
+        PartidasAnteriores = await PartidaService.GetPartidasAsync();
+    }
 
     private void IrParaSelecao()
     {
         Navigation.NavigateTo("/selecao-jogadores");
     }
 
-    // Modelos de dados para Partida, Time e Jogador
-    public class Partida
+    private async Task CopiarPartidas()
     {
-        public string DataFormatada { get; set; }
-        public string TempoDeJogoFormatado { get; set; }
-        public Time Time1 { get; set; }
-        public Time Time2 { get; set; }
-        public string PlacarTime1 { get; set; }
-        public string PlacarTime2 { get; set; }
-        public List<string> Goleadores { get; set; }
+        var texto = GerarTextoPartidas();
+        await Clipboard.Default.SetTextAsync(texto);
     }
 
-    public class Time
+    private string GerarTextoPartidas()
     {
-        public string Nome { get; set; }
-        public List<Jogador> Jogadores { get; set; }
-    }
+        var sb = new System.Text.StringBuilder();
 
-    public class Jogador
-    {
-        public string Nome { get; set; }
-        public int Gols { get; set; }
-        public int Assistencias { get; set; }
+
+        int jogoNumero = 1;
+        foreach (var partida in PartidasAnteriores)
+        {
+            sb.AppendLine($"Jogo {jogoNumero}");
+            sb.AppendLine($"{string.Join(", ", partida.Time1.Jogadores.Select(j => $"{j.Apelido} {(j.Gols > 0 ? j.Gols + "G" : "")} {(j.Assistencias > 0 ? j.Assistencias + "A" : "")}"))}");
+            sb.AppendLine("X");
+            sb.AppendLine($"{string.Join(", ", partida.Time2.Jogadores.Select(j => $"{j.Apelido} {(j.Gols > 0 ? j.Gols + "G" : "")} {(j.Assistencias > 0 ? j.Assistencias + "A" : "")}"))} V");
+            sb.AppendLine();
+            jogoNumero++;
+        }
+
+        return sb.ToString();
     }
 }

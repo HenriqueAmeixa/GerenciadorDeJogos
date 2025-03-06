@@ -37,3 +37,15 @@
 
 /PlayMatch.Front/bin/Debug/net8.0-android/com.companyname.playmatch.front-Signed.apk
 /PlayMatch.Front/obj/Debug/net8.0-android/android/assets/PlayMatch.Front.dll
+/PlayMatch.Front/obj/Debug/net8.0-ios/iossimulator-x64/PlayMatch.Front.AssemblyInfo.cs
+/GerenciadorDeJogos/GerenciadorDeJogos.csproj.user
+/PlayMatch.Front/PlayMatch.Front.csproj.user
+/PlayMatch.Core/obj/PlayMatch.Core.csproj.nuget.dgspec.json
+/PlayMatch.Core/obj/PlayMatch.Core.csproj.nuget.g.props
+/PlayMatch.Core/obj/project.assets.json
+/PlayMatch.Core/obj/project.nuget.cache
+/PlayMatch.Front/obj/project.nuget.cache
+/PlayMatch.Front/obj/project.assets.json
+/PlayMatch.Front/obj/PlayMatch.Front.csproj.nuget.g.props
+/PlayMatch.Front/obj/PlayMatch.Front.csproj.nuget.dgspec.json
+*.flag
