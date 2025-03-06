@@ -1,115 +1,212 @@
-/* Estilo para o título principal da página */
+/* Estilo para o título */
 h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     color: #343a40;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
-/* Estilo para o título de cada partida */
-h3 {
-    font-size: 1.5rem;
-    color: #007bff;
-    margin-bottom: 0.5rem;
+/* Botão de iniciar partida */
+.container-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
-/* Botão "Iniciar Partida" */
-.btn-success {
+.btn-iniciar {
     background-color: #28a745;
-    border-color: #28a745;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 20px;
-    transition: background-color 0.3s ease;
-}
-
-    .btn-success:hover {
-        background-color: #218838;
-    }
-
-/* Lista de partidas anteriores */
-.scroll-view {
-    max-height: 400px;
-    overflow-y: auto;
-    margin-top: 20px;
-}
-
-/* Estilo para cada item de partida */
-.partida-item {
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    margin: 15px 0;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-    .partida-item:hover {
-        transform: scale(1.02);
-    }
-
-    /* Div para informações de cada partida */
-    .partida-item h3, .partida-item h4 {
-        color: #343a40;
-        margin-bottom: 0.5rem;
-    }
-
-    /* Estilo para o placar e goleadores */
-    .partida-item .placar {
-        display: flex;
-        justify-content: space-between;
-        font-weight: bold;
-        padding: 10px;
-        background-color: #e9ecef;
-        border-radius: 5px;
-        margin-top: 10px;
-    }
-
-    /* Estilo para as informações de jogadores (Gols, Assistências) */
-    .partida-item .jogadores {
-        margin-bottom: 15px;
-    }
-
-        .partida-item .jogadores div {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px;
-        }
-
-        .partida-item .jogadores span {
-            font-size: 0.9rem;
-            color: #495057;
-        }
-
-/* Estilo para o botão de sortear/avançar */
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: white;
+    border: none;
     padding: 10px 15px;
     border-radius: 5px;
     font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
-    margin-top: 20px;
     transition: background-color 0.3s ease;
 }
 
-    .btn-primary:hover {
-        background-color: #0056b3;
+    .btn-iniciar i {
+        font-size: 1.2rem;
+    }
+
+    .btn-iniciar:hover {
+        background-color: #218838;
+    }
+
+/* Controles superiores */
+.controls {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+/* Botão copiar */
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+    .btn-icon:hover {
+        color: #0056b3;
+    }
+
+/* Lista de partidas */
+.scroll-view {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+/* Estilo de cada partida */
+.partida-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 5px 0;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Time container */
+.time-container {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Destacar vencedor */
+.vencedor {
+    background-color: #d4edda;
+}
+
+.empate {
+    background-color: #f8f9fa;
+}
+
+/* Ícone de vencedor */
+.vencedor-icon {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #28a745;
+    margin-left: 5px;
+}
+
+/* Tempo no centro */
+.tempo {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    min-width: 70px;
+    background: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+/* Tabela de jogadores */
+.tabela-jogadores {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 5px;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 5px 0;
+}
+
+    .tabela-jogadores span {
+        padding: 3px 0;
+    }
+
+    /* Ícones fixos */
+    .tabela-jogadores i {
+        color: #007bff;
     }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .partida-item {
-        margin: 10px 0;
-        padding: 10px;
+        font-size: 0.7rem;
     }
 
-    .btn-success, .btn-primary {
+    .tempo {
+        font-size: 0.8rem;
+    }
+
+    .btn-iniciar {
         font-size: 0.9rem;
-        padding: 8px 15px;
+        padding: 8px 12px;
+    }
+
+    .tabela-jogadores {
+        font-size: 0.7rem;
     }
 }
+
+/* Garante que a tela ocupe 100% da altura disponível */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Ajusta a estrutura para ocupar toda a tela */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* A área que contém a lista de partidas precisa crescer para ocupar o espaço disponível */
+.scroll-view {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px); /* Ajuste o valor conforme necessário */
+}
+
+/* Garantir que os cards de partida fiquem bem distribuídos */
+.partida-item {
+    flex: 1;
+    min-height: 120px; /* Ajuste conforme o tamanho desejado */
+}
+
+/* Ajusta o container do botão para não afetar a altura disponível */
+.container-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Botão de excluir */
+.btn-excluir {
+    position: absolute;
+    top: -5px; /* Levanta o botão um pouco para não influenciar os times */
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #dc3545;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Garante que o botão fique sobre os outros elementos */
+}
+
+    .btn-excluir:hover {
+        color: #a71d2a;
+    }

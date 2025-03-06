@@ -40,10 +40,12 @@
 /PlayMatch.Front/obj/Debug/net8.0-ios/iossimulator-x64/PlayMatch.Front.AssemblyInfo.cs
 /GerenciadorDeJogos/GerenciadorDeJogos.csproj.user
 /PlayMatch.Front/PlayMatch.Front.csproj.user
-/PlayMatch.Front/obj/.cache/com.BeWe.PlayMatch.flag
-/.gitignore
-/.gitignore
+/PlayMatch.Core/obj/PlayMatch.Core.csproj.nuget.dgspec.json
+/PlayMatch.Core/obj/PlayMatch.Core.csproj.nuget.g.props
+/PlayMatch.Core/obj/project.assets.json
+/PlayMatch.Core/obj/project.nuget.cache
 /PlayMatch.Front/obj/project.nuget.cache
 /PlayMatch.Front/obj/project.assets.json
 /PlayMatch.Front/obj/PlayMatch.Front.csproj.nuget.g.props
 /PlayMatch.Front/obj/PlayMatch.Front.csproj.nuget.dgspec.json
+*.flag

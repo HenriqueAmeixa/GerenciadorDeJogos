@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PlayMatch.Front.Pages.SplashPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="White">
+    <Grid HorizontalOptions="Center" VerticalOptions="Center">
+        <Image
+            x:Name="LoadingImage"
+            HeightRequest="100"
+            Source="loading_icon.png"
+            WidthRequest="100" />
+    </Grid>
+</ContentPage>

@@ -28,7 +28,7 @@ namespace PlayMatch.Front.Services
 
         public async Task RemoveJogadorAsync(Models.Jogador jogador)
         {
-            await _jogadorRepository.DeleteAsync(_mapper.Map<Jogador>(jogador));
+            await _jogadorRepository.DeleteAsync<Jogador>(jogador.Id);
         }
 
         public async Task UpdateJogadorAsync(Models.Jogador jogador)

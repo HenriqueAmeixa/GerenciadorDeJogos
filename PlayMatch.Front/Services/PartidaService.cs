@@ -1,5 +1,5 @@
 using PlayMatch.Core.Data;
-using PlayMatch.Front.Models;
+using PlayMatch.Core.Models;
 using PlayMatch.Core.Data.Interfaces;
 using AutoMapper;
 
@@ -32,61 +32,63 @@ namespace PlayMatch.Front.Services
 
         }
 
-        public async Task<List<Partida>> GetPartidasAsync()
+        public async Task<List<Models.Partida>> GetPartidasAsync()
         {
-            try
+            var partidasCore = await _partidaRepository.GetAllAsync();
+
+            var partidas = _mapper.Map<List<Models.Partida>>(partidasCore);
+            foreach (var partida in _mapper.Map<List<Models.Partida>>(partidas))
             {
-                var partidas = await _partidaRepository.GetAllAsync();
-
-
-                foreach (var partida in partidas)
-                {
-                    var time1 = await _timeService.GetTimeByIdAsync(partida.Time1Id);
-                    var time2 = await _timeService.GetTimeByIdAsync(partida.Time2Id);
-                    partida.Time1 = _mapper.Map<Time>(time1);
-                    partida.Time2 = _mapper.Map<Time>(time2);
-
-                    var gols = await _golRepository.GetByPartidaIdAsync(partida.Id);
-                    foreach (var gol in gols)
-                    {
-                        var jogador = partida.Time1.Jogadores.FirstOrDefault(j => j.Id == gol.JogadorId) ??
-                                      partida.Time2.Jogadores.FirstOrDefault(j => j.Id == gol.JogadorId);
-
-                        if (jogador != null)
-                        {
-                            jogador.Gols++; 
-                        }
-                    }
-
-                    partida.Gols = _mapper.Map<List<Gol>>(gols);
-
-                    var assistencias = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
-                    foreach (var assistencia in assistencias)
-                    {
-                        var jogador = partida.Time1.Jogadores.FirstOrDefault(j => j.Id == assistencia.JogadorId) ??
-                                      partida.Time2.Jogadores.FirstOrDefault(j => j.Id == assistencia.JogadorId);
-
-                        if (jogador != null)
-                        {
-                            jogador.Assistencias++; // Atualiza a contagem de assistências do jogador no time
-                        }
-                    }
-                    partida.Assistencias = _mapper.Map<List<Assistencia>>(assistencias);
-
-
-
-                }
-
-                return partidas;
+                await PreencherTimesAsync(partida);
+                await PreencherGolsAsync(partida);
+                await PreencherAssistenciasAsync(partida);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao buscar partidas: {ex.Message}");
-                return new List<Partida>();
-            }
+
+            return partidas;
         }
 
-        public async Task AddPartidaAsync(Partida partida)
+        private async Task PreencherTimesAsync(Models.Partida partida)
+        {
+            partida.Time1 = _mapper.Map<Models.Time>(await _timeService.GetTimeByIdAsync(partida.Time1Id));
+            partida.Time2 = _mapper.Map<Models.Time>(await _timeService.GetTimeByIdAsync(partida.Time2Id));
+        }
+
+        private async Task PreencherGolsAsync(Models.Partida partida)
+        {
+            var gols = await _golRepository.GetByPartidaIdAsync(partida.Id);
+            foreach (var gol in gols)
+            {
+                var jogador = EncontrarJogadorNoTime(partida, gol.JogadorId);
+                if (jogador != null)
+                {
+                    jogador.Gols++;
+                }
+            }
+            partida.Gols = _mapper.Map<List<Models.Gol>>(gols);
+        }
+
+        private async Task PreencherAssistenciasAsync(Models.Partida partida)
+        {
+            var assistencias = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
+            foreach (var assistencia in assistencias)
+            {
+                var jogador = EncontrarJogadorNoTime(partida, assistencia.JogadorId);
+                if (jogador != null)
+                {
+                    jogador.Assistencias++;
+                }
+            }
+            partida.Assistencias = _mapper.Map<List<Models.Assistencia>>(assistencias);
+        }
+
+        private Models.Jogador EncontrarJogadorNoTime(Models.Partida partida, int jogadorId)
+        {
+            return partida.Time1.Jogadores.FirstOrDefault(j => j.Id == jogadorId) ??
+                   partida.Time2.Jogadores.FirstOrDefault(j => j.Id == jogadorId);
+        }
+
+
+        public async Task AddPartidaAsync(Models.Partida partida)
         {
             try
             {
@@ -105,7 +107,7 @@ namespace PlayMatch.Front.Services
                 partida.Time1Id = partida.Time1.Id;
                 partida.Time2Id = partida.Time2.Id;
 
-                await _partidaRepository.InsertAsync(partida);
+                await _partidaRepository.InsertAsync(_mapper.Map<Partida>(partida));
 
                 if (partida.Gols != null && partida.Gols.Any())
                 {
@@ -158,55 +160,37 @@ namespace PlayMatch.Front.Services
             }
         }
 
-        public async Task RemovePartidaAsync(Partida partida)
+        public async Task ExcluirPartidaAsync(int partidaId)
         {
-            try
-            {
-                if (partida.Gols?.Any() == true)
-                {
-                    foreach (var gol in partida.Gols)
-                    {
-                        await _golRepository.DeleteAsync(new PlayMatch.Core.Models.Gol
-                        {
-                            Id = gol.Id,
-                            PartidaId = gol.PartidaId,
-                            JogadorId = gol.JogadorId,
-                            MomentoGol = gol.MomentoGol,
-                            Partida = new PlayMatch.Core.Models.Partida { Id = partida.Id }
-                        });
-                    }
-                }
+            var partida = await _partidaRepository.GetByIdAsync(partidaId);
+            if (partida == null) return;
 
-                if (partida.Assistencias?.Any() == true)
-                {
-                    foreach (var assistencia in partida.Assistencias)
-                    {
-                        await _assistenciaRepository.DeleteAsync(new PlayMatch.Core.Models.Assistencia
-                        {
-                            Id = assistencia.Id,
-                            PartidaId = assistencia.PartidaId,
-                            JogadorId = assistencia.JogadorId,
-                            Partida = new PlayMatch.Core.Models.Partida { Id = partida.Id }
-                        });
-                    }
-                }
+            // Excluir gols e assistências
+            var gols = await _golRepository.GetByPartidaIdAsync(partidaId);
+            var assistencias = await _assistenciaRepository.GetByPartidaIdAsync(partidaId);
 
-                if (partida.Time1 != null)
-                {
-                    await _timeService.RemoveTimeAsync(partida.Time1);
-                }
+            await Task.WhenAll(
+                Task.WhenAll(gols.Select(g => _golRepository.DeleteAsync<Gol>(g.Id))),
+                Task.WhenAll(assistencias.Select(a => _assistenciaRepository.DeleteAsync<Assistencia>(a.Id)))
+            );
 
-                if (partida.Time2 != null)
-                {
-                    await _timeService.RemoveTimeAsync(partida.Time2);
-                }
+            // Remover jogadores dos times
+            var jogadoresTime1 = await _timeService.GetJogadoresDoTimeAsync(partida.Time1Id);
+            var jogadoresTime2 = await _timeService.GetJogadoresDoTimeAsync(partida.Time2Id);
 
-                await _partidaRepository.DeleteAsync(partida);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao remover a partida: {ex.Message}");
-            }
+            await Task.WhenAll(
+                Task.WhenAll(jogadoresTime1.Select(j => _timeService.RemoverJogadorDoTimeAsync(partida.Time1Id, j.Id))),
+                Task.WhenAll(jogadoresTime2.Select(j => _timeService.RemoverJogadorDoTimeAsync(partida.Time2Id, j.Id)))
+            );
+
+            // Excluir times
+            await Task.WhenAll(
+                _timeService.RemoveTimeAsync(partida.Time1Id),
+                _timeService.RemoveTimeAsync(partida.Time2Id)
+            );
+
+            // Excluir a partida
+            await _partidaRepository.DeleteAsync<Partida>(partida.Id);
         }
     }
 }

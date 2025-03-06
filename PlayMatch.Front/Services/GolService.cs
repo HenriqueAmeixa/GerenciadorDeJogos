@@ -24,7 +24,7 @@ namespace PlayMatch.Front.Services
 
         public async Task RemoveGolAsync(Gol gol)
         {
-            await _golRepository.DeleteAsync(gol);
+            await _golRepository.DeleteAsync<Gol>(gol.Id);
         }
     }
 }
