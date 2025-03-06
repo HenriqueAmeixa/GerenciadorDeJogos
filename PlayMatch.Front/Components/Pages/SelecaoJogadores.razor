@@ -3,6 +3,11 @@
 @inject JogadorService JogadorService
 @inject IJSRuntime JS
 
+<head>
+    <!-- Adicionando o Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
 <h3>Seleção de Jogadores</h3>
 
 <!-- Lista de Jogadores Disponíveis -->
@@ -12,7 +17,7 @@
     {
         <div class="jogador-item">
             <span>@jogador.Apelido</span>
-            <button class="btn btn-primary" @onclick="() => SelecionarJogador(jogador)">+</button>
+            <button class="btn btn-primary" @onclick="() => SelecionarJogador(jogador)"><i class="fa-solid fa-plus"></i></button>
         </div>
     }
 </div>
@@ -24,7 +29,7 @@
     {
         <div class="jogador-item">
             <span>@jogador.Apelido</span>
-            <button class="btn btn-danger" @onclick="() => RemoverJogador(jogador)">-</button>
+            <button class="btn btn-danger" @onclick="() => RemoverJogador(jogador)"><i class="fa-solid fa-minus"></i></button>
         </div>
     }
 </div>
