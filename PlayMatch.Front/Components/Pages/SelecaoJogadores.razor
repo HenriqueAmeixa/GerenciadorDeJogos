@@ -2,35 +2,72 @@
 @inject NavigationManager Navigation
 @inject JogadorService JogadorService
 @inject IJSRuntime JS
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/selecao-jogadores.css">
+</head>
 
-<h3>Seleção de Jogadores</h3>
+<h3 class="text-center text-primary"><i class="fas fa-users"></i> Seleção de Jogadores</h3>
 
-<!-- Lista de Jogadores Disponíveis -->
-<h4>Jogadores Disponíveis</h4>
-<div class="scroll-view">
-    @foreach (var jogador in JogadoresDisponiveis)
-    {
-        <div class="jogador-item">
-            <span>@jogador.Apelido</span>
-            <button class="btn btn-primary" @onclick="() => SelecionarJogador(jogador)">+</button>
+<div class="container">
+    <!-- Lista de Jogadores Disponíveis -->
+    <div class="card shadow-sm mb-3">
+        <div class="card-header text-center">
+            <h4><i class="fas fa-list"></i> Jogadores Disponíveis</h4>
         </div>
-    }
-</div>
-
-<!-- Lista de Jogadores Selecionados -->
-<h4>Jogadores Selecionados</h4>
-<div class="scroll-view">
-    @foreach (var jogador in JogadoresSelecionados)
-    {
-        <div class="jogador-item">
-            <span>@jogador.Apelido</span>
-            <button class="btn btn-danger" @onclick="() => RemoverJogador(jogador)">-</button>
+        <div class="card-body scroll-view">
+            @if (JogadoresDisponiveis.Any())
+            {
+                @foreach (var jogador in JogadoresDisponiveis)
+                {
+                    <div class="d-flex justify-content-between align-items-center border-bottom p-2">
+                        <span class="fw-bold text-dark"><i class="fas fa-user"></i> @jogador.Apelido</span>
+                        <button class="btn btn-icon" @onclick="() => SelecionarJogador(jogador)">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-muted text-center">Nenhum jogador disponível</p>
+            }
         </div>
-    }
-</div>
+    </div>
 
-<!-- Botão para Avançar -->
-<button class="btn btn-success" @onclick="AvancarParaSorteio">Avançar para Sorteio</button>
+    <!-- Lista de Jogadores Selecionados -->
+    <div class="card shadow-sm mb-3">
+        <div class="card-header text-center">
+            <h4><i class="fas fa-check-circle"></i> Jogadores Selecionados</h4>
+        </div>
+        <div class="card-body scroll-view">
+            @if (JogadoresSelecionados.Any())
+            {
+                @foreach (var jogador in JogadoresSelecionados)
+                {
+                    <div class="d-flex justify-content-between align-items-center border-bottom p-2">
+                        <span class="fw-bold text-dark"><i class="fas fa-user-check"></i> @jogador.Apelido</span>
+                        <button class="btn btn-icon" @onclick="() => RemoverJogador(jogador)">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-muted text-center">Nenhum jogador selecionado</p>
+            }
+        </div>
+    </div>
+
+    <!-- Botão para Avançar -->
+    <div class="avancar-container">
+        <button class="btn-avancar" @onclick="AvancarParaSorteio" disabled="@(!JogadoresSelecionados.Any())">
+            <i class="fas fa-arrow-right"></i> Avançar para Sorteio
+        </button>
+    </div>
+</div>
 
 @code {
     private List<Jogador> JogadoresDisponiveis = new();

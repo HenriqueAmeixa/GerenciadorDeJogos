@@ -1,4 +1,6 @@
-﻿namespace PlayMatch.Front
+﻿using PlayMatch.Front.Pages;
+
+namespace PlayMatch.Front
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new SplashPage();
         }
     }
 }
