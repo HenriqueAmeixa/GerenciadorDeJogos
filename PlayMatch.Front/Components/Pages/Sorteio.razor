@@ -2,63 +2,99 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 
-<h3>Sorteio de Times</h3>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-@if (JogadoresSelecionados.Any() && !TimesDefinidos)
-{
-    <h4>Jogadores Selecionados</h4>
-    <ul style="list-style: none; padding: 0;">
-        @foreach (var jogador in JogadoresSelecionados)
-        {
-            <li style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0;">
-                <span>@jogador.Apelido</span>
-                @if (ModoSelecaoManual)
-                {
-                    <div>
-                        <button style="margin-left: 5px; padding: 2px 6px;" @onclick="() => AdicionarAoTime(jogador, 1)">1</button>
-                        <button style="margin-left: 5px; padding: 2px 6px;" @onclick="() => AdicionarAoTime(jogador, 2)">2</button>
-                    </div>
-                }
-            </li>
-        }
-    </ul>
+<div class="sorteio-container">
+    <h3>Sorteio de Times</h3>
 
-    <button @onclick="SortearTimes" disabled="@ModoSelecaoManual">Sortear Times</button>
-    <button @onclick="SelecionarManualmente" disabled="@ModoSelecaoManual">Selecionar Manualmente</button>
-}
+    @if (JogadoresSelecionados.Any() && (!TimesDefinidos || ModoSelecaoManual))
+    {
+        <h4>Jogadores Selecionados</h4>
+        <ul class="jogadores-lista">
+            @foreach (var jogador in JogadoresSelecionados)
+            {
+                <li class="jogador-item">
+                    <span>@jogador.Apelido</span>
+                    @if (ModoSelecaoManual)
+                    {
+                        <div class="botao-grupo">
+                            <button class="btn-selecao" @onclick="() => AdicionarAoTime(jogador, 1)">
+                                <i class="fas fa-users"></i> 1
+                            </button>
+                            <button class="btn-selecao" @onclick="() => AdicionarAoTime(jogador, 2)">
+                                <i class="fas fa-users"></i> 2
+                            </button>
+                        </div>
+                    }
+                </li>
+            }
+        </ul>
+    }
 
-@if (TimesDefinidos || ModoSelecaoManual)
-{
-    <div style="display: flex; justify-content: space-between; gap: 20px; margin-top: 20px;">
-        <div>
-            <h4>Time 1</h4>
-            <ul style="list-style: none; padding: 0;">
-                @foreach (var jogador in Time1.Jogadores)
-                {
-                    <li>@jogador.Apelido</li>
-                }
-            </ul>
-        </div>
-
-        <div>
-            <h4>Time 2</h4>
-            <ul style="list-style: none; padding: 0;">
-                @foreach (var jogador in Time2.Jogadores)
-                {
-                    <li>@jogador.Apelido</li>
-                }
-            </ul>
-        </div>
+    <div class="botoes-container">
+        <button class="btn-acao" @onclick="SortearTimes">
+            <i class="fas fa-random"></i> @(TimesDefinidos ? "Resortear Times" : "Sortear Times")
+        </button>
+        <button class="btn-acao" @onclick="SelecionarManualmente">
+            <i class="fas fa-hand-pointer"></i> Manual
+        </button>
     </div>
-}
 
-@if (TimesDefinidos)
-{
-    <button @onclick="IrParaPartida">Ir para Partida</button>
-}
+    @if (TimesDefinidos || ModoSelecaoManual)
+    {
+        <div class="times-container">
+            <div class="time">
+                <h4><i class="fas fa-people-group"></i> Time 1</h4>
+                <ul class="time-lista">
+                    @foreach (var jogador in Time1.Jogadores)
+                    {
+                        <li class="time-item">
+                            @jogador.Apelido
+                            @if (ModoSelecaoManual)
+                            {
+                                <button class="btn-remover" @onclick="() => RemoverDoTime(jogador, 1)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="time">
+                <h4><i class="fas fa-people-group"></i> Time 2</h4>
+                <ul class="time-lista">
+                    @foreach (var jogador in Time2.Jogadores)
+                    {
+                        <li class="time-item">
+                            @jogador.Apelido
+                            @if (ModoSelecaoManual)
+                            {
+                                <button class="btn-remover" @onclick="() => RemoverDoTime(jogador, 2)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+
+    @if (TimesDefinidos)
+    {
+        <button class="btn-acao btn-partida" @onclick="IrParaPartida">
+            <i class="fas fa-play"></i> Ir para Partida
+        </button>
+    }
+</div>
+
+
+
 
 @code {
     private List<Jogador> JogadoresSelecionados = new();
+    private List<Jogador> JogadoresDisponiveis = new();
     private Time Time1 = new();
     private Time Time2 = new();
     private bool TimesDefinidos = false;
@@ -75,22 +111,44 @@
 
     private void SortearTimes()
     {
-        var random = new Random();
-        var jogadoresEmbaralhados = JogadoresSelecionados.OrderBy(j => random.Next()).ToList();
+        if (!TimesDefinidos)
+        {
+            JogadoresDisponiveis = new List<Jogador>(JogadoresSelecionados);
+        }
+        else
+        {
+            JogadoresDisponiveis = Time1.Jogadores.Concat(Time2.Jogadores).Concat(JogadoresSelecionados).ToList();
+        }
+
+        Time1.Jogadores.Clear();
+        Time2.Jogadores.Clear();
+
+        var jogadoresEmbaralhados = JogadoresDisponiveis.OrderBy(j => Guid.NewGuid()).ToList();
 
         Time1.Jogadores = jogadoresEmbaralhados.Take(jogadoresEmbaralhados.Count / 2).ToList();
         Time2.Jogadores = jogadoresEmbaralhados.Skip(jogadoresEmbaralhados.Count / 2).ToList();
 
+        JogadoresSelecionados.Clear();
+
         TimesDefinidos = true;
-        ModoSelecaoManual = false;
+
+        StateHasChanged();
     }
 
     private void SelecionarManualmente()
     {
+        ModoSelecaoManual = true;
+
+        if (TimesDefinidos)
+        {
+            JogadoresSelecionados = Time1.Jogadores.Concat(Time2.Jogadores).Concat(JogadoresSelecionados).ToList();
+        }
+
         Time1.Jogadores.Clear();
         Time2.Jogadores.Clear();
-        TimesDefinidos = false;
-        ModoSelecaoManual = true;
+
+        TimesDefinidos = true; 
+        StateHasChanged();
     }
 
     private void AdicionarAoTime(Jogador jogador, int time)
@@ -105,12 +163,22 @@
         }
 
         JogadoresSelecionados.Remove(jogador);
+        StateHasChanged();
+    }
 
-        if (!JogadoresSelecionados.Any())
+    private void RemoverDoTime(Jogador jogador, int time)
+    {
+        if (time == 1)
         {
-            TimesDefinidos = true;
-            ModoSelecaoManual = false;
+            Time1.Jogadores.Remove(jogador);
         }
+        else if (time == 2)
+        {
+            Time2.Jogadores.Remove(jogador);
+        }
+
+        JogadoresSelecionados.Add(jogador);
+        StateHasChanged();
     }
 
     private async void IrParaPartida()
@@ -119,4 +187,5 @@
         await JS.InvokeVoidAsync("sessionStorage.setItem", "Time2", System.Text.Json.JsonSerializer.Serialize(Time2));
         Navigation.NavigateTo("/gerenciar-partida");
     }
+
 }

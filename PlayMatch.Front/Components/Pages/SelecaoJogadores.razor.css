@@ -21,25 +21,19 @@ h4 {
     font-size: 1.5rem;
     margin-top: 20px;
     margin-bottom: 10px;
-}
-
-/* Descrição */
-p {
-    text-align: center;
     font-weight: bold;
-    color: #666;
-    font-size: 1rem;
+    text-transform: uppercase;
 }
 
-/* Contêiner das listas (Jogadores Disponíveis e Selecionados) */
+/* Contêiner das listas */
 .scroll-view {
-    max-height: 300px;
+    max-height: 350px;
     overflow-y: auto;
     margin: 10px 0;
-    padding: 10px;
+    padding: 15px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos para cada item da lista */
@@ -47,20 +41,66 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
-    margin-bottom: 8px;
-    background-color: #fafafa;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out;
 }
 
-/* Botões de ação */
-button {
+    .jogador-item:hover {
+        background-color: #e8e8e8;
+    }
+
+/* Botões minimalistas */
+.btn {
     border: none;
-    padding: 5px 12px;
+    padding: 6px 10px;
     border-radius: 5px;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background: none;
+    color: #333;
+    transition: transform 0.2s ease;
 }
+
+    .btn:hover {
+        transform: scale(1.1);
+    }
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: none;
+    font-size: 1.2rem;
+    color: #555;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+    .btn-icon:hover {
+        background: #e0e0e0;
+        transform: scale(1.1);
+    }
+
+.btn-avancar {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+    .btn-avancar:hover {
+        background: #218838;
+    }
 
 
 
@@ -74,24 +114,18 @@ button {
         font-size: 1.3rem;
     }
 
-    p {
-        font-size: 0.9rem;
-    }
-
     .scroll-view {
         max-height: 250px;
+        padding: 10px;
     }
 
     .jogador-item {
-        padding: 6px;
+        padding: 8px;
     }
 
-    .btn-primary, .btn-danger {
+    .btn-icon {
+        width: 28px;
+        height: 28px;
         font-size: 1rem;
-        padding: 4px 10px;
-    }
-
-    .btn-success {
-        padding: 12px;
     }
 }
