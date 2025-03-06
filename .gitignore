@@ -43,3 +43,7 @@
 /PlayMatch.Front/obj/.cache/com.BeWe.PlayMatch.flag
 /.gitignore
 /.gitignore
+/PlayMatch.Front/obj/project.nuget.cache
+/PlayMatch.Front/obj/project.assets.json
+/PlayMatch.Front/obj/PlayMatch.Front.csproj.nuget.g.props
+/PlayMatch.Front/obj/PlayMatch.Front.csproj.nuget.dgspec.json
