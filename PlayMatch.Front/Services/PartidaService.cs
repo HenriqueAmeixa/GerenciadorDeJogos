@@ -34,57 +34,58 @@ namespace PlayMatch.Front.Services
 
         public async Task<List<Partida>> GetPartidasAsync()
         {
-            try
+            var partidas = await _partidaRepository.GetAllAsync();
+
+            foreach (var partida in partidas)
             {
-                var partidas = await _partidaRepository.GetAllAsync();
-
-
-                foreach (var partida in partidas)
-                {
-                    var time1 = await _timeService.GetTimeByIdAsync(partida.Time1Id);
-                    var time2 = await _timeService.GetTimeByIdAsync(partida.Time2Id);
-                    partida.Time1 = _mapper.Map<Time>(time1);
-                    partida.Time2 = _mapper.Map<Time>(time2);
-
-                    var gols = await _golRepository.GetByPartidaIdAsync(partida.Id);
-                    foreach (var gol in gols)
-                    {
-                        var jogador = partida.Time1.Jogadores.FirstOrDefault(j => j.Id == gol.JogadorId) ??
-                                      partida.Time2.Jogadores.FirstOrDefault(j => j.Id == gol.JogadorId);
-
-                        if (jogador != null)
-                        {
-                            jogador.Gols++; 
-                        }
-                    }
-
-                    partida.Gols = _mapper.Map<List<Gol>>(gols);
-
-                    var assistencias = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
-                    foreach (var assistencia in assistencias)
-                    {
-                        var jogador = partida.Time1.Jogadores.FirstOrDefault(j => j.Id == assistencia.JogadorId) ??
-                                      partida.Time2.Jogadores.FirstOrDefault(j => j.Id == assistencia.JogadorId);
-
-                        if (jogador != null)
-                        {
-                            jogador.Assistencias++; // Atualiza a contagem de assistências do jogador no time
-                        }
-                    }
-                    partida.Assistencias = _mapper.Map<List<Assistencia>>(assistencias);
-
-
-
-                }
-
-                return partidas;
+                await PreencherTimesAsync(partida);
+                await PreencherGolsAsync(partida);
+                await PreencherAssistenciasAsync(partida);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao buscar partidas: {ex.Message}");
-                return new List<Partida>();
-            }
+
+            return partidas;
         }
+
+        private async Task PreencherTimesAsync(Partida partida)
+        {
+            partida.Time1 = _mapper.Map<Time>(await _timeService.GetTimeByIdAsync(partida.Time1Id));
+            partida.Time2 = _mapper.Map<Time>(await _timeService.GetTimeByIdAsync(partida.Time2Id));
+        }
+
+        private async Task PreencherGolsAsync(Partida partida)
+        {
+            var gols = await _golRepository.GetByPartidaIdAsync(partida.Id);
+            foreach (var gol in gols)
+            {
+                var jogador = EncontrarJogadorNoTime(partida, gol.JogadorId);
+                if (jogador != null)
+                {
+                    jogador.Gols++;
+                }
+            }
+            partida.Gols = _mapper.Map<List<Gol>>(gols);
+        }
+
+        private async Task PreencherAssistenciasAsync(Partida partida)
+        {
+            var assistencias = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
+            foreach (var assistencia in assistencias)
+            {
+                var jogador = EncontrarJogadorNoTime(partida, assistencia.JogadorId);
+                if (jogador != null)
+                {
+                    jogador.Assistencias++;
+                }
+            }
+            partida.Assistencias = _mapper.Map<List<Assistencia>>(assistencias);
+        }
+
+        private Jogador EncontrarJogadorNoTime(Partida partida, int jogadorId)
+        {
+            return partida.Time1.Jogadores.FirstOrDefault(j => j.Id == jogadorId) ??
+                   partida.Time2.Jogadores.FirstOrDefault(j => j.Id == jogadorId);
+        }
+
 
         public async Task AddPartidaAsync(Partida partida)
         {
