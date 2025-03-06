@@ -1,4 +1,8 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">PlayMatch.Front</a>
     </div>
@@ -9,19 +13,23 @@
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
+            <!-- Caso NavLink seja usado por um framework como React, continue com ele -->
+            <a class="nav-link" href="" Match="NavLinkMatch.All">
+                <!-- Ícone de casa do FontAwesome -->
+                <span class="fa-solid fa-house me-2" aria-hidden="true"></span> Home
+            </a>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Partidas">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Partidas
-            </NavLink>
+            <a class="nav-link" href="Partidas">
+                <!-- Ícone de jogo do FontAwesome -->
+                <span class="fa-solid fa-trophy me-2" aria-hidden="true"></span> Partidas
+            </a>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Jogadores">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Jogadores
-            </NavLink>
+            <a class="nav-link" href="Jogadores">
+                <!-- Ícone de usuário do FontAwesome -->
+                <span class="fa-solid fa-people-arrows me-2" aria-hidden="true"></span> Jogadores
+            </a>
         </div>
     </nav>
 </div>
