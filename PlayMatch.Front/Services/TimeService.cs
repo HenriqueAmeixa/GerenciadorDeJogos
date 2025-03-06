@@ -28,6 +28,12 @@ namespace PlayMatch.Front.Services
             }
             return _mapper.Map<Models.Time>(time);
         }
+        public async Task<List<Jogador>> GetJogadoresDoTimeAsync(int timeId)
+        {
+            var jogadores = await _timeJogadorRepository.GetJogadoresPorTimeAsync(timeId);
+            return _mapper.Map<List<Jogador>>(jogadores);
+        }
+
 
         public async Task<List<Models.Time>> GetTimesAsync()
         {
@@ -46,9 +52,9 @@ namespace PlayMatch.Front.Services
             return _mapper.Map<Models.Time>(entity);  
         }
 
-        public async Task RemoveTimeAsync(Models.Time time)
+        public async Task RemoveTimeAsync(int id)
         {
-            await _timeRepository.DeleteAsync(_mapper.Map<Time>(time));
+            await _timeRepository.DeleteAsync<Time>(id);
         }
 
         public async Task AdicionarJogadorAoTimeAsync(int timeId, int jogadorId)

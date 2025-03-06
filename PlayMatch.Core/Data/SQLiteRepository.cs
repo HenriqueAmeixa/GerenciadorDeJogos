@@ -34,9 +34,9 @@ namespace PlayMatch.Core.Data
             return entity;
         }
 
-        public async Task<int> DeleteAsync(T entity)
+        public async Task<int> DeleteAsync<T>(int id) where T : new()
         {
-            return await _database.DeleteAsync(entity);
+            return await _database.DeleteAsync<T>(id);
         }
     }
 }

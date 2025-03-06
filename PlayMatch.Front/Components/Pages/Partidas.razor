@@ -33,6 +33,11 @@
             var empate = partida.PlacarTime1 == partida.PlacarTime2;
 
             <div class="partida-item">
+                <!-- Botão de excluir no canto superior direito -->
+                <button class="btn-excluir" @onclick="() => ExcluirPartidaAsync(partida.Id)">
+                    <i class="fas fa-trash"></i>
+                </button>
+
                 <div class="time-container @(vencedorTime1 ? "vencedor" : empate ? "empate" : "")">
                     <h4>Time 1</h4>
                     <div class="tabela-jogadores">
@@ -52,7 +57,10 @@
                     }
                 </div>
 
-                <div class="tempo">@partida.TempoDeJogoFormatado</div>
+                <!-- Timer no centro -->
+                <div class="timer-container">
+                    <div class="tempo">@partida.TempoDeJogoFormatado</div>
+                </div>
 
                 <div class="time-container @(!vencedorTime1 ? "vencedor" : empate ? "empate" : "")">
                     <h4>Time 2</h4>
@@ -115,5 +123,14 @@
         }
 
         return sb.ToString();
+    }
+    private async Task ExcluirPartidaAsync(int partidaId)
+    {
+        var confirm = await JS.InvokeAsync<bool>("confirm", "Tem certeza que deseja excluir esta partida?");
+        if (confirm)
+        {
+            await PartidaService.ExcluirPartidaAsync(partidaId);
+            PartidasAnteriores.RemoveAll(p => p.Id == partidaId);
+        }
     }
 }

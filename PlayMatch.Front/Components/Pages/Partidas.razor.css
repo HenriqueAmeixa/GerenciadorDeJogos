@@ -66,6 +66,7 @@ h1 {
 
 /* Estilo de cada partida */
 .partida-item {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -187,6 +188,25 @@ html, body {
     margin-bottom: 10px;
 }
 
+/* Botão de excluir */
+.btn-excluir {
+    position: absolute;
+    top: -5px; /* Levanta o botão um pouco para não influenciar os times */
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #dc3545;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Garante que o botão fique sobre os outros elementos */
+}
 
-
-
+    .btn-excluir:hover {
+        color: #a71d2a;
+    }
