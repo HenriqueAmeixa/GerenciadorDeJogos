@@ -40,3 +40,6 @@
 /PlayMatch.Front/obj/Debug/net8.0-ios/iossimulator-x64/PlayMatch.Front.AssemblyInfo.cs
 /GerenciadorDeJogos/GerenciadorDeJogos.csproj.user
 /PlayMatch.Front/PlayMatch.Front.csproj.user
+/PlayMatch.Front/obj/.cache/com.BeWe.PlayMatch.flag
+/.gitignore
+/.gitignore
