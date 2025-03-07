@@ -87,7 +87,7 @@
         </div>
     </div>
 
-    <button class="btn-finalizar" @onclick="Partida.FinalizarPartidaAsync">
+    <button class="btn-finalizar" @onclick="FinalizarPartida">
         <i class="fas fa-flag-checkered"></i> Finalizar Partida
     </button>
 </div>
@@ -139,4 +139,22 @@
             await InvokeAsync(StateHasChanged);
         }
     }
+
+    private async Task FinalizarPartida()
+    {
+        PararTimer(); 
+        await Partida.FinalizarPartidaAsync(); 
+    }
+    private void PararTimer()
+    {
+        if (timer != null)
+        {
+            timer.Stop();
+            timer.Elapsed -= TimerElapsed;
+            timer.Dispose();
+            timer = null;
+        }
+        timerRodando = false;
+    }
+
 }
