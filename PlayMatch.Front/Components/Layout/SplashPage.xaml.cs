@@ -9,27 +9,44 @@ namespace PlayMatch.Front.Pages
         public SplashPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             StartLoading();
         }
 
         private async void StartLoading()
         {
-            // Inicia a animação de rotação infinita
+            // Inicia a rotação enquanto aguarda o Blazor carregar
             _ = AnimateRotation();
 
-            // Simula um carregamento de 3 segundos
-            await Task.Delay(3000);
+            // Aguarda o Blazor carregar antes de sair da Splash Screen
+            await WaitForBlazorToLoad();
 
-            // Muda para a tela principal com Blazor WebView
+            // Muda para a página principal
             Application.Current.MainPage = new MainPage();
+        }
+
+        private async Task WaitForBlazorToLoad()
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            // Inscreve-se no evento para saber quando o Blazor carregou
+            MainPage.BlazorCarregado += () => tcs.TrySetResult(true);
+
+            // Espera até o evento ser disparado (tempo limite de 10s para segurança)
+            await Task.WhenAny(tcs.Task, Task.Delay(10000));
         }
 
         private async Task AnimateRotation()
         {
-            while (true) // Roda infinitamente até a página ser trocada
+            while (true) // Mantém a rotação até o Blazor carregar
             {
-                await LoadingImage.RotateTo(360, 1000); // Roda 360° em 1s
-                LoadingImage.Rotation = 0; // Reseta a rotação para 0° e continua
+                await LoadingImage.RotateTo(360, 2000);
+                LoadingImage.Rotation = 0;
+                await Task.Delay(100);
             }
         }
     }
