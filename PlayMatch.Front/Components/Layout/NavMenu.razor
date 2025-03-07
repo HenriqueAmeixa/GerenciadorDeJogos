@@ -1,10 +1,18 @@
-﻿<head>
+﻿@inject NavigationManager Navigation
+
+<head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">PlayMatch.Front</a>
+        <!-- Condicional para exibir o botão de "voltar" nas páginas selecionadas -->
+        @if (ShouldShowBackButton)
+        {
+            <a class="navbar-brand" href="javascript:void(0);" onclick="window.history.back();">
+                <span class="fa-solid fa-arrow-left me-2" aria-hidden="true"></span>
+            </a>
+        }
     </div>
 </div>
 
@@ -13,23 +21,54 @@
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
         <div class="nav-item px-3">
-            <!-- Caso NavLink seja usado por um framework como React, continue com ele -->
-            <a class="nav-link" href="" Match="NavLinkMatch.All">
-                <!-- Ícone de casa do FontAwesome -->
+            <a class="nav-link" href="/" Match="NavLinkMatch.All">
                 <span class="fa-solid fa-house me-2" aria-hidden="true"></span> Home
             </a>
         </div>
         <div class="nav-item px-3">
-            <a class="nav-link" href="Partidas">
-                <!-- Ícone de jogo do FontAwesome -->
+            <a class="nav-link" href="/Partidas">
                 <span class="fa-solid fa-trophy me-2" aria-hidden="true"></span> Partidas
             </a>
         </div>
         <div class="nav-item px-3">
-            <a class="nav-link" href="Jogadores">
-                <!-- Ícone de usuário do FontAwesome -->
+            <a class="nav-link" href="/Jogadores">
                 <span class="fa-solid fa-people-arrows me-2" aria-hidden="true"></span> Jogadores
             </a>
         </div>
     </nav>
 </div>
+
+@code {
+    private bool ShouldShowBackButton { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Verifica a URL inicial
+        UpdateBackButtonVisibility();
+
+        // Registra um listener para mudanças na URL
+        Navigation.LocationChanged += (sender, args) =>
+        {
+            UpdateBackButtonVisibility();
+            StateHasChanged(); // Força a atualização do componente
+        };
+    }
+
+    private void UpdateBackButtonVisibility()
+    {
+        // Verifica se a URL atual é uma das páginas onde o botão "voltar" deve aparecer
+        ShouldShowBackButton = Navigation.Uri.Contains("/selecao-jogadores") ||
+                               Navigation.Uri.Contains("/sorteio") ||
+                               Navigation.Uri.Contains("/gerenciar-partida");
+    }
+
+    public void Dispose()
+    {
+        // Limpeza ao destruir o componente para evitar vazamento de memória
+        Navigation.LocationChanged -= (sender, args) =>
+        {
+            UpdateBackButtonVisibility();
+            StateHasChanged(); // Força a atualização do componente
+        };
+    }
+}
