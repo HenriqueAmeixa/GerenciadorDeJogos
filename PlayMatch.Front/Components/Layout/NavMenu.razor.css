@@ -98,3 +98,14 @@
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
 }
+
+/* Botão Voltar - Somente ícone */
+.btn-voltar {
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    padding: 0; /* Remove o padding */
+    padding-left: 10px; /*Deixa o ícone mais centralizado com o container abaixo dele*/
+    font-size: 1.5rem; /* Tamanho do ícone */
+    color: #007bff; /* Cor do ícone (pode ser ajustada conforme necessidade) */
+    transition: color 0.2s ease; /* Transição suave para mudança de cor */
+}

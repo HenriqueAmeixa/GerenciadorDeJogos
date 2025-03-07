@@ -87,6 +87,17 @@ h4 {
         transform: scale(1.1);
     }
 
+/* Botão Voltar - Somente ícone */
+.btn-voltar {
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    padding: 0; /* Remove o padding */
+    padding-left: 10px; /*Deixa o ícone mais centralizado com o container abaixo dele*/
+    font-size: 1.5rem; /* Tamanho do ícone */
+    color: #007bff; /* Cor do ícone (pode ser ajustada conforme necessidade) */
+    transition: color 0.2s ease; /* Transição suave para mudança de cor */
+}
+
 .btn-avancar {
     background: #28a745;
     color: white;
@@ -101,8 +112,6 @@ h4 {
     .btn-avancar:hover {
         background: #218838;
     }
-
-
 
 /* Ajustes responsivos */
 @media (max-width: 768px) {
