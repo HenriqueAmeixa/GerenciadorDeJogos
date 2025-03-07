@@ -144,8 +144,8 @@
 
     private async Task FinalizarPartida()
     {
-        PararTimer(); 
         await Partida.FinalizarPartidaAsync(); 
+        PararTimer();
     }
     private void PararTimer()
     {
