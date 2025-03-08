@@ -117,6 +117,7 @@ namespace PlayMatch.Front.Services
         {
             if (PartidaAtual == null) return;
 
+            PartidaAtual.TempoDeJogo -= TempoRestante;
             await SalvarTimesAsync();
             await SalvarPartidaAsync();
             await SalvarGolsEAssistenciasAsync();
