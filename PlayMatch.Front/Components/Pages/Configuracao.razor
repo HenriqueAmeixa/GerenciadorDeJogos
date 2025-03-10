@@ -1,0 +1,72 @@
+﻿@page "/Configuracoes"
+@inject NavigationManager Navigation
+@inject ConfiguracaoService ConfiguracaoService
+@inject IJSRuntime JS
+
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
+
+<PageTitle>Configurações</PageTitle>
+
+<div class="page-container">
+    <h1>Configurações</h1>
+
+    <!-- Lista de Configurações -->
+    <div class="config-container">
+        @foreach (var item in Configuracoes)
+        {
+            <div class="config-item">
+                <label>@item.Key</label>
+                @if (item.Value is bool)
+                {
+                    <input type="checkbox" @bind="@(ConfiguracoesBool[item.Key])" />
+                }
+                else if (item.Value is int || item.Value is string || item.Value is DateTime)
+                {
+                    <input type="text" @bind="@(ConfiguracoesTexto[item.Key])" />
+                }
+            </div>
+        }
+    </div>
+
+    <!-- Botão de Salvar -->
+    <div class="container-btn">
+        <button class="btn-salvar" @onclick="SalvarConfiguracoes">
+            <i class="fas fa-save"></i> Salvar Configurações
+        </button>
+    </div>
+</div>
+
+@code {
+    private Dictionary<string, object> Configuracoes = new();
+    private Dictionary<string, bool> ConfiguracoesBool = new();
+    private Dictionary<string, string> ConfiguracoesTexto = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Configuracoes = await ConfiguracaoService.GetTodasConfiguracoesAsync();
+
+        foreach (var item in Configuracoes)
+        {
+            if (item.Value is bool booleano)
+                ConfiguracoesBool[item.Key] = booleano;
+            else
+                ConfiguracoesTexto[item.Key] = item.Value.ToString();
+        }
+    }
+
+    private async Task SalvarConfiguracoes()
+    {
+        foreach (var item in Configuracoes)
+        {
+            if (item.Value is bool){}
+                //await ConfiguracaoService.AtualizarConfiguracao(item.Key, ConfiguracoesBool[item.Key]);
+            else{}
+                //await ConfiguracaoService.AtualizarConfiguracao(item.Key, ConfiguracoesTexto[item.Key]);
+        }
+
+        await JS.InvokeVoidAsync("alert", "Configurações salvas com sucesso!");
+    }
+}
