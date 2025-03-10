@@ -105,6 +105,7 @@
     protected override async Task OnInitializedAsync()
     {
         await Partida.CarregarTimesAsync();
+        await Partida.InicializarConfiguracoesAsync();
     }
     public void IniciarOuPausarTimer()
     {

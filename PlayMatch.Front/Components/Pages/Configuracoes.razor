@@ -1,0 +1,83 @@
+﻿@page "/Configuracoes"
+@inject NavigationManager Navigation
+@inject ConfiguracaoService ConfiguracaoService
+@inject IJSRuntime JS
+
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
+
+<PageTitle>Configurações</PageTitle>
+
+<div class="page-container">
+    <h1>Configurações</h1>
+
+    <!-- Lista de Configurações -->
+    <div class="config-container">
+        @foreach (var config in ConfiguracoesList)
+        {
+            <div class="config-item">
+                <label>@config.Chave</label>
+
+                @if (config.Tipo == "bool")
+                {
+                    <input type="checkbox" @bind="config.Valor" @bind:event="onchange" />
+                }
+                else if (config.Tipo == "timespan")
+                {
+                    <input type="text" @bind="config.Valor" placeholder="hh:mm:ss" />
+                }
+                else
+                {
+                    <input type="text" @bind="config.Valor" />
+                }
+            </div>
+        }
+    </div>
+
+    <!-- Botão de Salvar -->
+    <div class="container-btn">
+        <button class="btn-salvar" @onclick="SalvarConfiguracoes">
+            <i class="fas fa-save"></i> Salvar Configurações
+        </button>
+    </div>
+</div>
+
+@code {
+    private List<Configuracao> ConfiguracoesList = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        ConfiguracoesList = await ConfiguracaoService.GetTodasConfiguracoesAsync();
+    }
+
+    private async Task SalvarConfiguracoes()
+    {
+        foreach (var config in ConfiguracoesList)
+        {
+            // Converte bool para string "true" ou "false"
+            if (config.Tipo == "bool")
+            {
+                config.Valor = config.Valor.ToLower() == "true" ? "true" : "false";
+            }
+            // Converte TimeSpan para formato "hh:mm:ss"
+            else if (config.Tipo == "timespan")
+            {
+                if (TimeSpan.TryParse(config.Valor, out TimeSpan ts))
+                {
+                    config.Valor = ts.ToString();
+                }
+                else
+                {
+                    await JS.InvokeVoidAsync("alert", $"Formato inválido para {config.Chave}. Use hh:mm:ss");
+                    return;
+                }
+            }
+
+            await ConfiguracaoService.AtualizarConfiguracaoAsync(config);
+        }
+
+        await JS.InvokeVoidAsync("alert", "Configurações salvas com sucesso!");
+    }
+}
