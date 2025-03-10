@@ -1,54 +1,37 @@
-﻿using PlayMatch.Core.Data.Interfaces;
+﻿using PlayMatch.Core.Data;
 using PlayMatch.Core.Models;
 using SQLite;
-using System.Threading.Tasks;
 
-namespace PlayMatch.Core.Data.Repositories
+public class ConfiguracaoRepository : SQLiteRepository<Configuracao>, IConfiguracaoRepository
 {
-    public class ConfiguracaoRepository : SQLiteRepository<Configuracao>, IConfiguracaoRepository
+    private readonly SQLiteAsyncConnection _database;
+
+    public ConfiguracaoRepository(PlayMatchDbContext dbContext) : base(dbContext)
     {
-        private readonly SQLiteAsyncConnection _database;
+        _database = dbContext.Database;
+    }
 
-        public ConfiguracaoRepository(PlayMatchDbContext dbContext) : base(dbContext)
+    public async Task<List<Configuracao>> GetTodasConfiguracoesAsync()
+    {
+        return await _database.Table<Configuracao>().ToListAsync();
+    }
+    public async Task<Configuracao> GetConfiguracaoAsync(string chave)
+    {
+        return await _database.Table<Configuracao>()
+            .FirstOrDefaultAsync(c => c.Chave == chave);
+    }
+    public async Task AtualizarConfiguracaoAsync(Configuracao configuracao)
+    {
+        var configExistente = await GetConfiguracaoAsync(configuracao.Chave);
+
+        if (configExistente != null)
         {
-            _database = dbContext.Database;
+            configExistente.Valor = configuracao.Valor; // Apenas o valor é atualizado
+            await _database.UpdateAsync(configExistente);
         }
-
-        public async Task<T> GetConfiguracao<T>(string chave)
+        else
         {
-            var config = await _database.Table<Configuracao>().FirstOrDefaultAsync(c => c.Chave == chave);
-            if (config == null) throw new Exception($"Configuração '{chave}' não encontrada.");
-
-            return config.Tipo switch
-            {
-                "int" => (T)Convert.ChangeType(int.Parse(config.Valor), typeof(T)),
-                "bool" => (T)Convert.ChangeType(bool.Parse(config.Valor), typeof(T)),
-                "datetime" => (T)Convert.ChangeType(DateTime.Parse(config.Valor), typeof(T)),
-                _ => (T)Convert.ChangeType(config.Valor, typeof(T))
-            };
-        }
-
-        public async Task<Dictionary<string, object>> GetTodasConfiguracoesAsync()
-        {
-            var listaConfiguracoes = await _database.Table<Configuracao>().ToListAsync();
-
-            var configuracoes = new Dictionary<string, object>();
-
-            foreach (var config in listaConfiguracoes)
-            {
-                object valorConvertido = config.Tipo switch
-                {
-                    "int" => int.Parse(config.Valor),
-                    "bool" => bool.Parse(config.Valor),
-                    "datetime" => DateTime.Parse(config.Valor),
-                    _ => config.Valor // String padrão
-                };
-
-                configuracoes[config.Chave] = valorConvertido;
-            }
-
-            return configuracoes;
+            throw new KeyNotFoundException($"Configuração '{configuracao.Chave}' não encontrada.");
         }
     }
 }
-

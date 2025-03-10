@@ -30,6 +30,9 @@ namespace PlayMatch.Front.Mappers
 
             CreateMap<Time, Models.Time>();
             CreateMap<Models.Time, Time>();
+
+            CreateMap<Configuracao, Models.Configuracao>();
+            CreateMap<Models.Configuracao, Configuracao>();
         }
     }
 }

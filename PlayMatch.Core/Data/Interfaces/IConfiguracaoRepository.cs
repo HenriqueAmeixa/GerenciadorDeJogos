@@ -1,10 +1,8 @@
 ﻿using PlayMatch.Core.Models;
 
-namespace PlayMatch.Core.Data.Interfaces
+public interface IConfiguracaoRepository
 {
-    public interface IConfiguracaoRepository : IGenericRepository<Configuracao>
-    {
-        Task<T> GetConfiguracao<T>(string chave);
-        Task<Dictionary<string, object>> GetTodasConfiguracoesAsync();
-    }
+    Task<List<Configuracao>> GetTodasConfiguracoesAsync();
+    Task<Configuracao> GetConfiguracaoAsync(string chave);
+    Task AtualizarConfiguracaoAsync(Configuracao configuracao);
 }
