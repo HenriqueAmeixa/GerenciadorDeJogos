@@ -34,6 +34,7 @@ namespace PlayMatch.Front
             builder.Services.AddScoped<JogadorService>();
             builder.Services.AddScoped<TimeService>();
             builder.Services.AddScoped<PartidaService>();
+            builder.Services.AddScoped<SelecaoJogadoresService>();
             builder.Services.AddScoped<GolService>();
             builder.Services.AddScoped<ConfiguracaoService>();
             builder.Services.AddScoped(typeof(IConfiguracaoRepository), typeof(ConfiguracaoRepository));

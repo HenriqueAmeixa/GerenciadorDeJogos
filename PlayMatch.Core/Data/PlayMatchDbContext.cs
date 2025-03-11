@@ -51,7 +51,7 @@ namespace PlayMatch.Core.Data
                     {
                         Chave = "manter_vencedores",
                         Valor = "false",
-                        Tipo = "boolean"
+                        Tipo = "bool"
                     });
                 }
             }

@@ -28,10 +28,10 @@ namespace PlayMatch.Front.Services
             }
             return _mapper.Map<Models.Time>(time);
         }
-        public async Task<List<Jogador>> GetJogadoresDoTimeAsync(int timeId)
+        public async Task<List<Models.Jogador>> GetJogadoresDoTimeAsync(int timeId)
         {
             var jogadores = await _timeJogadorRepository.GetJogadoresPorTimeAsync(timeId);
-            return _mapper.Map<List<Jogador>>(jogadores);
+            return _mapper.Map<List<Models.Jogador>>(jogadores);
         }
 
 
