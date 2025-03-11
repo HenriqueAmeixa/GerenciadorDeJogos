@@ -63,8 +63,7 @@
     {
         // Verifica se a URL atual é uma das páginas onde o botão "voltar" deve aparecer
         ShouldShowBackButton = Navigation.Uri.Contains("/selecao-jogadores") ||
-                               Navigation.Uri.Contains("/sorteio") ||
-                               Navigation.Uri.Contains("/gerenciar-partida");
+                               Navigation.Uri.Contains("/sorteio");
     }
 
     public void Dispose()

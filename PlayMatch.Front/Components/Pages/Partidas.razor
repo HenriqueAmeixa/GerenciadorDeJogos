@@ -122,7 +122,7 @@
             string time2 = $"{string.Join(", ", partida.Time2.Jogadores.Select(j => $"{j.Apelido} {(j.Gols > 0 ? j.Gols + "G" : "")} {(j.Assistencias > 0 ? j.Assistencias + "A" : "")}"))} {(!vencedorTime1 && !empate ? "V" : "")}";
 
             sb.AppendLine($"Jogo {jogoNumero}");
-            sb.AppendLine(time1.Trim()); // Trim() evita espaços extras caso não tenha "V"
+            sb.AppendLine(time1.Trim());
             sb.AppendLine("X");
             sb.AppendLine(time2.Trim());
             sb.AppendLine();
