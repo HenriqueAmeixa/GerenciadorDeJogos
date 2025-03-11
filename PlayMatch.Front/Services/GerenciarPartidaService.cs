@@ -155,6 +155,7 @@ namespace PlayMatch.Front.Services
         }
         private async Task SalvarPartidaAsync()
         {
+            PartidaAtual.DataHora = DateTime.Now;
             var entity = await _partidaRepository.InsertAsync(_mapper.Map<Partida>(PartidaAtual));
             PartidaAtual.Id = entity.Id;
         }

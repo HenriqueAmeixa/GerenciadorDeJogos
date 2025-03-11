@@ -22,7 +22,7 @@
 
                 @if (config.Tipo == "bool")
                 {
-                    <input type="checkbox" @bind="config.Valor" @bind:event="onchange" />
+                    <input type="checkbox" @bind="config.ValorBool" @bind:event="onchange" />
                 }
                 else if (config.Tipo == "timespan")
                 {

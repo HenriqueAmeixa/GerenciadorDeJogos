@@ -1,6 +1,6 @@
 ﻿@page "/selecao-jogadores"
 @inject NavigationManager Navigation
-@inject JogadorService JogadorService
+@inject SelecaoJogadoresService JogadorService
 @inject IJSRuntime JS
 <head>
     <!-- Font Awesome -->
@@ -77,7 +77,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        JogadoresDisponiveis = await JogadorService.GetJogadoresAsync();
+        JogadoresDisponiveis = await JogadorService.ObterJogadoresDisponiveisAsync();
+        JogadoresSelecionados = await JogadorService.ObterJogadoresSelecionadosAsync();
     }
 
     private void SelecionarJogador(Jogador jogador)
