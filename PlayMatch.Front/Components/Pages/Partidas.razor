@@ -38,7 +38,7 @@
                     <i class="fas fa-trash"></i>
                 </button>
 
-                <div class="time-container @(vencedorTime1 ? "vencedor" : empate ? "empate" : "")">
+                <div class="time-container @(vencedorTime1 ? "vencedor" : (empate ? "empate" : ""))">
                     <h4>Time 1</h4>
                     <div class="tabela-jogadores">
                         <span><i class="fas fa-user"></i></span>
@@ -62,7 +62,7 @@
                     <div class="tempo">@partida.TempoDeJogoFormatado</div>
                 </div>
 
-                <div class="time-container @(!vencedorTime1 ? "vencedor" : empate ? "empate" : "")">
+                <div class="time-container @(!vencedorTime1 && !empate ? "vencedor" : (empate ? "empate" : ""))">
                     <h4>Time 2</h4>
                     <div class="tabela-jogadores">
                         <span><i class="fas fa-user"></i></span>
@@ -79,6 +79,7 @@
                     {
                         <span class="vencedor-icon">✔</span>
                     }
+
                 </div>
             </div>
         }
@@ -110,20 +111,29 @@
     {
         var sb = new System.Text.StringBuilder();
 
-
         int jogoNumero = 1;
         foreach (var partida in PartidasAnteriores)
         {
+            bool vencedorTime1 = partida.PlacarTime1 > partida.PlacarTime2;
+            bool empate = partida.PlacarTime1 == partida.PlacarTime2;
+
+            string time1 = $"{string.Join(", ", partida.Time1.Jogadores.Select(j => $"{j.Apelido} {(j.Gols > 0 ? j.Gols + "G" : "")} {(j.Assistencias > 0 ? j.Assistencias + "A" : "")}"))} {(vencedorTime1 ? "V" : "")}";
+
+            string time2 = $"{string.Join(", ", partida.Time2.Jogadores.Select(j => $"{j.Apelido} {(j.Gols > 0 ? j.Gols + "G" : "")} {(j.Assistencias > 0 ? j.Assistencias + "A" : "")}"))} {(!vencedorTime1 && !empate ? "V" : "")}";
+
             sb.AppendLine($"Jogo {jogoNumero}");
-            sb.AppendLine($"{string.Join(", ", partida.Time1.Jogadores.Select(j => $"{j.Apelido} {(j.Gols > 0 ? j.Gols + "G" : "")} {(j.Assistencias > 0 ? j.Assistencias + "A" : "")}"))}");
+            sb.AppendLine(time1.Trim()); // Trim() evita espaços extras caso não tenha "V"
             sb.AppendLine("X");
-            sb.AppendLine($"{string.Join(", ", partida.Time2.Jogadores.Select(j => $"{j.Apelido} {(j.Gols > 0 ? j.Gols + "G" : "")} {(j.Assistencias > 0 ? j.Assistencias + "A" : "")}"))} V");
+            sb.AppendLine(time2.Trim());
             sb.AppendLine();
+
             jogoNumero++;
         }
 
         return sb.ToString();
     }
+
+
     private async Task ExcluirPartidaAsync(int partidaId)
     {
         var confirm = await JS.InvokeAsync<bool>("confirm", "Tem certeza que deseja excluir esta partida?");
