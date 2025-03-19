@@ -1,0 +1,98 @@
+﻿/* Estilo para o título */
+h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 1rem;
+}
+
+/* Container de configurações */
+.config-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Cada configuração */
+.config-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .config-item label {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #343a40;
+    }
+
+    /* Inputs */
+    .config-item input[type="text"] {
+        width: 60%;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+    }
+
+    .config-item input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+/* Botão de salvar */
+.container-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-salvar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-salvar i {
+        font-size: 1.2rem;
+    }
+
+    .btn-salvar:hover {
+        background-color: #0056b3;
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .config-item {
+        width: 95%;
+        font-size: 0.9rem;
+    }
+
+        .config-item input[type="text"] {
+            width: 50%;
+        }
+
+    .btn-salvar {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}

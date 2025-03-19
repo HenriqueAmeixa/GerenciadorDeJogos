@@ -27,6 +27,33 @@ namespace PlayMatch.Core.Data
                 await _database.CreateTableAsync<Gol>();
                 await _database.CreateTableAsync<Assistencia>();
                 await _database.CreateTableAsync<TimeJogador>();
+                await _database.CreateTableAsync<Configuracao>();
+
+                var configExistente = await _database.Table<Configuracao>()
+                .FirstOrDefaultAsync(c => c.Chave == "tempo_partida");
+
+                if (configExistente == null)
+                {
+                    await _database.InsertAsync(new Configuracao
+                    {
+                        Chave = "tempo_partida",
+                        Valor = TimeSpan.FromMinutes(7).ToString(),
+                        Tipo = "timespan"
+                    });
+                }
+
+                var configManterVencedores = await _database.Table<Configuracao>()
+                .FirstOrDefaultAsync(c => c.Chave == "manter_vencedores");
+
+                if (configManterVencedores == null)
+                {
+                    await _database.InsertAsync(new Configuracao
+                    {
+                        Chave = "manter_vencedores",
+                        Valor = "false",
+                        Tipo = "bool"
+                    });
+                }
             }
             catch (Exception ex)
             {

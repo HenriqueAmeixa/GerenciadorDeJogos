@@ -192,5 +192,40 @@ namespace PlayMatch.Front.Services
             // Excluir a partida
             await _partidaRepository.DeleteAsync<Partida>(partida.Id);
         }
+        public async Task<List<Models.Jogador>> GetVencedoresUltimaPartidaAsync()
+        {
+            // Busca o ID do último time vencedor
+            var timeVencedorId = await GetUltimoTimeVencedorAsync();
+
+            // Se não houver vencedor, retorna lista vazia
+            if (timeVencedorId == null)
+                return new List<Models.Jogador>();
+
+            // Usa o TimeService para buscar os jogadores do time vencedor
+            return await _timeService.GetJogadoresDoTimeAsync(timeVencedorId.Value);
+        }
+
+
+
+        public async Task<int?> GetUltimoTimeVencedorAsync()
+        {
+            var partidas = await GetPartidasAsync();
+
+            var ultimaPartida = partidas
+                .OrderByDescending(p => p.DataHora)
+                .FirstOrDefault();
+
+            if (ultimaPartida == null)
+                return null;
+
+            if (ultimaPartida.PlacarTime1 > ultimaPartida.PlacarTime2)
+                return ultimaPartida.Time1Id;
+            else if (ultimaPartida.PlacarTime2 > ultimaPartida.PlacarTime1)
+                return ultimaPartida.Time2Id;
+            return null;
+        }
+
+
+
     }
 }

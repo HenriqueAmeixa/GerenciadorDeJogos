@@ -20,7 +20,6 @@ namespace PlayMatch.Core.Data.Repositories
             }
             catch (Exception ex)
             {
-                // Log the exception (you can replace this with your logging mechanism)
                 Console.WriteLine($"Error fetching goals for PartidaId {partidaId}: {ex.Message}");
                 return new List<Gol>();
             }

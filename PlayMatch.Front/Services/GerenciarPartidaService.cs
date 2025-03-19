@@ -5,6 +5,7 @@ using AutoMapper;
 using PlayMatch.Core.Data.Interfaces;
 using PlayMatch.Core.Data;
 using PlayMatch.Core.Models;
+using System.Diagnostics;
 
 namespace PlayMatch.Front.Services
 {
@@ -15,13 +16,14 @@ namespace PlayMatch.Front.Services
 
         public Models.Time Time1 { get; private set; } = new Models.Time { Jogadores = new List<Models.Jogador>() };
         public Models.Time Time2 { get; private set; } = new Models.Time { Jogadores = new List<Models.Jogador>() };
-        public TimeSpan TempoRestante { get;  set; } = TimeSpan.FromMinutes(7);
+        public TimeSpan TempoRestante { get; set; }
         private Models.Partida PartidaAtual;
         private readonly IMapper _mapper;
         private readonly IGolRepository _golRepository;
         private readonly IAssistenciaRepository _assistenciaRepository;
         private readonly IGenericRepository<Partida> _partidaRepository;
         private readonly TimeService _timeService;
+        private readonly ConfiguracaoService _configuracaoService;
 
 
         public GerenciarPartidaService(
@@ -31,13 +33,13 @@ namespace PlayMatch.Front.Services
             IGolRepository golRepository,
             IAssistenciaRepository assistenciaRepository,
             IGenericRepository<Partida> partidaRepository,
-            TimeService timeService
+            TimeService timeService,
+            ConfiguracaoService configuracaoService
 
             )
         {
             PartidaAtual = new Models.Partida
             {
-                TempoDeJogo = TimeSpan.FromMinutes(7),
                 Gols = new List<Models.Gol>(),
                 Assistencias = new List<Models.Assistencia>()
             };
@@ -49,7 +51,24 @@ namespace PlayMatch.Front.Services
             _assistenciaRepository = assistenciaRepository;
             _partidaRepository = partidaRepository;
             _timeService = timeService;
+            _configuracaoService = configuracaoService;
         }
+
+        public async Task InicializarConfiguracoesAsync()
+        {
+            try
+            {
+                var tempoConfigurado = await  _configuracaoService.GetConfiguracaoAsync("tempo_partida");
+
+                TempoRestante = TimeSpan.Parse(tempoConfigurado.Valor);
+                PartidaAtual.TempoDeJogo = TempoRestante;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Erro ao carregar configuração de tempo de partida: {ex.Message}");
+            }
+        }
+
 
         public async Task CarregarTimesAsync()
         {
@@ -117,6 +136,7 @@ namespace PlayMatch.Front.Services
         {
             if (PartidaAtual == null) return;
 
+            PartidaAtual.TempoDeJogo -= TempoRestante;
             await SalvarTimesAsync();
             await SalvarPartidaAsync();
             await SalvarGolsEAssistenciasAsync();
@@ -135,6 +155,7 @@ namespace PlayMatch.Front.Services
         }
         private async Task SalvarPartidaAsync()
         {
+            PartidaAtual.DataHora = DateTime.Now;
             var entity = await _partidaRepository.InsertAsync(_mapper.Map<Partida>(PartidaAtual));
             PartidaAtual.Id = entity.Id;
         }
