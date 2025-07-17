@@ -5,6 +5,7 @@ using PlayMatch.Front.Mappers;
 using PlayMatch.Front.Components.Pages;
 using PlayMatch.Core.Data.Interfaces;
 using PlayMatch.Core.Data.Repositories;
+using Plugin.MauiMTAdmob;
 
 namespace PlayMatch.Front
 {
@@ -15,6 +16,7 @@ namespace PlayMatch.Front
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiMTAdmob()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

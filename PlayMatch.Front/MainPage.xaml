@@ -2,12 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PlayMatch.Front"
-             x:Class="PlayMatch.Front.MainPage">
+             x:Class="PlayMatch.Front.MainPage"
+             xmlns:ads="clr-namespace:Plugin.MauiMTAdmob.Controls;assembly=Plugin.MauiMTAdmob"
+             BackgroundColor="White">
 
-    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app" ComponentType="{x:Type local:Components.Routes}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
+    <Grid RowDefinitions="*,Auto">
 
+        <!-- Conteúdo Blazor -->
+        <BlazorWebView x:Name="blazorWebView"
+                       HostPage="wwwroot/index.html"
+                       Grid.Row="0">
+            <BlazorWebView.RootComponents>
+                <RootComponent ComponentType="{x:Type local:Components.Routes}" Selector="#app" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+
+        <!-- Espaço reservado para o banner AdMob -->
+        <ads:AdMMTAdView x:Name="AdView"
+                     Grid.Row="1"
+                     HeightRequest="50"
+                     BackgroundColor="Transparent" />
+
+    </Grid>
 </ContentPage>
