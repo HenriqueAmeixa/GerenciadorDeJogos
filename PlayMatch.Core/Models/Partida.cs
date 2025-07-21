@@ -28,5 +28,8 @@ namespace PlayMatch.Core.Models
         public List<Gol> Gols { get; set; } = new List<Gol>();
         [Ignore]
         public List<Assistencia> Assistencias { get; set; } = new List<Assistencia>();
+        public int RodadaId { get; set; }
+        [Ignore]
+        public Rodada Rodada { get; set; }
     }
 }

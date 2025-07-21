@@ -28,6 +28,8 @@ namespace PlayMatch.Core.Data
                 await _database.CreateTableAsync<Assistencia>();
                 await _database.CreateTableAsync<TimeJogador>();
                 await _database.CreateTableAsync<Configuracao>();
+                await _database.CreateTableAsync<Campeonato>();
+                await _database.CreateTableAsync<Rodada>();
 
                 var configExistente = await _database.Table<Configuracao>()
                 .FirstOrDefaultAsync(c => c.Chave == "tempo_partida");
