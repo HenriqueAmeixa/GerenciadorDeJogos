@@ -31,9 +31,16 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
       <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+		<AndroidPackageFormat>aab</AndroidPackageFormat>
+	    <AndroidKeyStore>true</AndroidKeyStore>
+	    <AndroidSigningKeyStore>PlayMatch.keystore</AndroidSigningKeyStore>
+	    <AndroidSigningStorePass>He33192644</AndroidSigningStorePass>
+	    <AndroidSigningKeyAlias>playmatchkey</AndroidSigningKeyAlias>
+	    <AndroidSigningKeyPass>He33192644</AndroidSigningKeyPass>
     </PropertyGroup>
 
     <ItemGroup>
+
         <!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\appicon.svg" />
 

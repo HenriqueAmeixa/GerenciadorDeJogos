@@ -1,0 +1,964 @@
+/* /Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-9a392iulc6] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-9a392iulc6] {
+    flex: 1;
+}
+
+.sidebar[b-9a392iulc6] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-9a392iulc6] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-9a392iulc6]  a, .top-row[b-9a392iulc6]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+        .top-row[b-9a392iulc6]  a:hover, .top-row[b-9a392iulc6]  .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        .top-row[b-9a392iulc6]  a:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+@media (max-width: 640.98px) {
+    .top-row[b-9a392iulc6] {
+        justify-content: space-between;
+    }
+
+        .top-row[b-9a392iulc6]  a, .top-row[b-9a392iulc6]  .btn-link {
+            margin-left: 0;
+        }
+}
+
+@media (min-width: 641px) {
+    .page[b-9a392iulc6] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-9a392iulc6] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-9a392iulc6] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+        .top-row.auth[b-9a392iulc6]  a:first-child {
+            flex: 1;
+            text-align: right;
+            width: 0;
+        }
+
+    .top-row[b-9a392iulc6], article[b-9a392iulc6] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* /Components/Layout/NavMenu.razor.rz.scp.css */
+.nav-scrollable[b-5l0l7t8jiq] {
+    opacity: 0;
+    visibility: hidden; /* Inicialmente o menu estar� invis�vel */
+    max-height: 0; /* Inicialmente o menu estar� comprimido */
+    overflow: hidden;
+    transition: max-height 0.2s ease-out, opacity 0.2s ease-out, visibility 0s 0.5s; /* Anima��o suave */
+}
+
+/* Quando o toggle � ativado, a transi��o � aplicada */
+.navbar-toggler:checked ~ .nav-scrollable[b-5l0l7t8jiq] {
+    opacity: 1;
+    visibility: visible; /* Torna o menu vis�vel */
+    max-height: 500px; /* Defina um valor grande o suficiente para o seu conte�do */
+    transition: max-height 0.3s ease-in, opacity 0.2s ease-in; /* Transi��o suave */
+}
+
+.nav-item[b-5l0l7t8jiq] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-5l0l7t8jiq] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-5l0l7t8jiq] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-5l0l7t8jiq]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+        .nav-item[b-5l0l7t8jiq]  a.active {
+            background-color: rgba(255,255,255,0.37);
+            color: white;
+        }
+
+        .nav-item[b-5l0l7t8jiq]  a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+.navbar-toggler[b-5l0l7t8jiq] {
+    appearance: none;
+    cursor: pointer;
+    width: 3.5rem;
+    height: 2.5rem;
+    color: white;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
+}
+
+    .navbar-toggler:checked[b-5l0l7t8jiq] {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+.top-row[b-5l0l7t8jiq] {
+    height: 3.5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand[b-5l0l7t8jiq] {
+    font-size: 1.1rem;
+}
+
+.bi[b-5l0l7t8jiq] {
+    display: inline-block;
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.75rem;
+    top: -1px;
+    background-size: cover;
+}
+
+.bi-house-door-fill-nav-menu[b-5l0l7t8jiq] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-house-door-fill' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z'/%3E%3C/svg%3E");
+}
+
+.bi-plus-square-fill-nav-menu[b-5l0l7t8jiq] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-plus-square-fill' viewBox='0 0 16 16'%3E%3Cpath d='M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z'/%3E%3C/svg%3E");
+}
+
+.bi-list-nested-nav-menu[b-5l0l7t8jiq] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-list-nested' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
+}
+
+.nav-item[b-5l0l7t8jiq] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Bot�o Voltar - Somente �cone */
+.btn-voltar[b-5l0l7t8jiq] {
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    padding: 0; /* Remove o padding */
+    padding-left: 10px; /*Deixa o �cone mais centralizado com o container abaixo dele*/
+    font-size: 1.5rem; /* Tamanho do �cone */
+    color: #007bff; /* Cor do �cone (pode ser ajustada conforme necessidade) */
+    transition: color 0.2s ease; /* Transi��o suave para mudan�a de cor */
+}
+/* /Components/Pages/Configuracoes.razor.rz.scp.css */
+/* Estilo para o título */
+h1[b-aioh0g3e2w] {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 1rem;
+}
+
+/* Container de configurações */
+.config-container[b-aioh0g3e2w] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Cada configuração */
+.config-item[b-aioh0g3e2w] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .config-item label[b-aioh0g3e2w] {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #343a40;
+    }
+
+    /* Inputs */
+    .config-item input[type="text"][b-aioh0g3e2w] {
+        width: 60%;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+    }
+
+    .config-item input[type="checkbox"][b-aioh0g3e2w] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+/* Botão de salvar */
+.container-btn[b-aioh0g3e2w] {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-salvar[b-aioh0g3e2w] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-salvar i[b-aioh0g3e2w] {
+        font-size: 1.2rem;
+    }
+
+    .btn-salvar:hover[b-aioh0g3e2w] {
+        background-color: #0056b3;
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .config-item[b-aioh0g3e2w] {
+        width: 95%;
+        font-size: 0.9rem;
+    }
+
+        .config-item input[type="text"][b-aioh0g3e2w] {
+            width: 50%;
+        }
+
+    .btn-salvar[b-aioh0g3e2w] {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
+/* /Components/Pages/GerenciarPartida.razor.rz.scp.css */
+/* Estilos gerais */
+body[b-w8684t58o7] {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container principal */
+.container[b-w8684t58o7] {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Layout dos times e timer */
+.partida-container[b-w8684t58o7] {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Time Card */
+.time-card[b-w8684t58o7] {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+    .time-card h4[b-w8684t58o7] {
+        align-self: flex-start;
+        font-size: 22px;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+/* Tabela de jogadores */
+.tabela-jogadores[b-w8684t58o7] {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    text-align: right;
+}
+
+    .tabela-jogadores span[b-w8684t58o7] {
+        font-weight: bold;
+    }
+
+.nome[b-w8684t58o7] {
+    text-align: left;
+}
+
+/* Estatísticas */
+.estatistica[b-w8684t58o7] {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+/* Botão Voltar - Somente ícone */
+.btn-voltar[b-w8684t58o7] {
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    padding: 0; /* Remove o padding */
+    padding-left: 10px; /*Deixa o ícone mais centralizado com o container abaixo dele*/
+    font-size: 1.5rem; /* Tamanho do ícone */
+    color: #007bff; /* Cor do ícone (pode ser ajustada conforme necessidade) */
+    transition: color 0.2s ease; /* Transição suave para mudança de cor */
+}
+
+/* Botões de ação */
+.btn-acao[b-w8684t58o7] {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+    .btn-acao i[b-w8684t58o7] {
+        color: #007bff;
+    }
+
+    .btn-acao:hover[b-w8684t58o7] {
+        transform: scale(1.2);
+    }
+
+/* Timer no centro */
+.timer-container[b-w8684t58o7] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer[b-w8684t58o7] {
+    font-size: 28px;
+    font-weight: bold;
+    color: red;
+}
+
+.btn-timer[b-w8684t58o7] {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+    .btn-timer:hover[b-w8684t58o7] {
+        transform: scale(1.2);
+    }
+
+/* Botão de finalizar partida */
+.btn-finalizar[b-w8684t58o7] {
+    background: #dc3545;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+    .btn-finalizar i[b-w8684t58o7] {
+        font-size: 22px;
+    }
+
+    .btn-finalizar:hover[b-w8684t58o7] {
+        background: #c82333;
+        transform: scale(1.05);
+    }
+/* Responsividade */
+@media (max-width: 768px) {
+    .partida-container[b-w8684t58o7] {
+        flex-direction: column;
+    }
+
+    .tabela-jogadores span i[b-w8684t58o7] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+/* /Components/Pages/Jogadores.razor.rz.scp.css */
+/* Estilos espec�ficos para a p�gina Jogadores */
+
+.form-group[b-zqbc7gc22s] {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center;
+}
+
+.form-control[b-zqbc7gc22s] {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-success[b-zqbc7gc22s] {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.btn-deletar[b-zqbc7gc22s] {
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    align-self: center; /* Faz o bot�o alinhar-se com a largura do form-control */
+}
+
+.list-group-item[b-zqbc7gc22s] {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 0.75rem;
+    margin: 5px 0; /* Adiciona espa�o entre os itens */
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+/* /Components/Pages/Partidas.razor.rz.scp.css */
+/* Estilo para o t�tulo */
+h1[b-0q13jyzdlz] {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 1rem;
+}
+
+/* Bot�o de iniciar partida */
+.container-btn[b-0q13jyzdlz] {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.btn-iniciar[b-0q13jyzdlz] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-iniciar i[b-0q13jyzdlz] {
+        font-size: 1.2rem;
+    }
+
+    .btn-iniciar:hover[b-0q13jyzdlz] {
+        background-color: #218838;
+    }
+
+/* Controles superiores */
+.controls[b-0q13jyzdlz] {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+/* Bot�o copiar */
+.btn-icon[b-0q13jyzdlz] {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+    .btn-icon:hover[b-0q13jyzdlz] {
+        color: #0056b3;
+    }
+
+/* Lista de partidas */
+.scroll-view[b-0q13jyzdlz] {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+/* Estilo de cada partida */
+.partida-item[b-0q13jyzdlz] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 5px 0;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Time container */
+.time-container[b-0q13jyzdlz] {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Destacar vencedor */
+.vencedor[b-0q13jyzdlz] {
+    background-color: #d4edda;
+}
+
+.empate[b-0q13jyzdlz] {
+    background-color: #f8f9fa;
+}
+
+/* �cone de vencedor */
+.vencedor-icon[b-0q13jyzdlz] {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #28a745;
+    margin-left: 5px;
+}
+
+/* Tempo no centro */
+.tempo[b-0q13jyzdlz] {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    min-width: 70px;
+    background: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+/* Tabela de jogadores */
+.tabela-jogadores[b-0q13jyzdlz] {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 5px;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 5px 0;
+}
+
+    .tabela-jogadores span[b-0q13jyzdlz] {
+        padding: 3px 0;
+    }
+
+    /* �cones fixos */
+    .tabela-jogadores i[b-0q13jyzdlz] {
+        color: #007bff;
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .partida-item[b-0q13jyzdlz] {
+        font-size: 0.7rem;
+    }
+
+    .tempo[b-0q13jyzdlz] {
+        font-size: 0.8rem;
+    }
+
+    .btn-iniciar[b-0q13jyzdlz] {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .tabela-jogadores[b-0q13jyzdlz] {
+        font-size: 0.7rem;
+    }
+}
+
+/* Garante que a tela ocupe 100% da altura dispon�vel */
+html[b-0q13jyzdlz], body[b-0q13jyzdlz] {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Ajusta a estrutura para ocupar toda a tela */
+.page-container[b-0q13jyzdlz] {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* A �rea que cont�m a lista de partidas precisa crescer para ocupar o espa�o dispon�vel */
+.scroll-view[b-0q13jyzdlz] {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px); /* Ajuste o valor conforme necess�rio */
+}
+
+/* Garantir que os cards de partida fiquem bem distribu�dos */
+.partida-item[b-0q13jyzdlz] {
+    flex: 1;
+    min-height: 120px; /* Ajuste conforme o tamanho desejado */
+}
+
+/* Ajusta o container do bot�o para n�o afetar a altura dispon�vel */
+.container-btn[b-0q13jyzdlz] {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Bot�o de excluir */
+.btn-excluir[b-0q13jyzdlz] {
+    position: absolute;
+    top: -5px; /* Levanta o bot�o um pouco para n�o influenciar os times */
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #dc3545;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Garante que o bot�o fique sobre os outros elementos */
+}
+
+    .btn-excluir:hover[b-0q13jyzdlz] {
+        color: #a71d2a;
+    }
+/* /Components/Pages/SelecaoJogadores.razor.rz.scp.css */
+/* Estilos Gerais */
+body[b-jfypzbyfxu] {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* T�tulos */
+h3[b-jfypzbyfxu] {
+    text-align: center;
+    color: #4caf50;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+/* Subt�tulos */
+h4[b-jfypzbyfxu] {
+    color: #333;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Cont�iner das listas */
+.scroll-view[b-jfypzbyfxu] {
+    max-height: 350px;
+    overflow-y: auto;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para cada item da lista */
+.jogador-item[b-jfypzbyfxu] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+    .jogador-item:hover[b-jfypzbyfxu] {
+        background-color: #e8e8e8;
+    }
+
+/* Bot�es minimalistas */
+.btn[b-jfypzbyfxu] {
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: none;
+    color: #333;
+    transition: transform 0.2s ease;
+}
+
+    .btn:hover[b-jfypzbyfxu] {
+        transform: scale(1.1);
+    }
+
+.btn-icon[b-jfypzbyfxu] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: none;
+    font-size: 1.2rem;
+    color: #555;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+    .btn-icon:hover[b-jfypzbyfxu] {
+        background: #e0e0e0;
+        transform: scale(1.1);
+    }
+
+/* Bot�o Voltar - Somente �cone */
+.btn-voltar[b-jfypzbyfxu] {
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    padding: 0; /* Remove o padding */
+    padding-left: 10px; /*Deixa o �cone mais centralizado com o container abaixo dele*/
+    font-size: 1.5rem; /* Tamanho do �cone */
+    color: #007bff; /* Cor do �cone (pode ser ajustada conforme necessidade) */
+    transition: color 0.2s ease; /* Transi��o suave para mudan�a de cor */
+}
+
+.btn-avancar[b-jfypzbyfxu] {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+    .btn-avancar:hover[b-jfypzbyfxu] {
+        background: #218838;
+    }
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    h3[b-jfypzbyfxu] {
+        font-size: 1.8rem;
+    }
+
+    h4[b-jfypzbyfxu] {
+        font-size: 1.3rem;
+    }
+
+    .scroll-view[b-jfypzbyfxu] {
+        max-height: 250px;
+        padding: 10px;
+    }
+
+    .jogador-item[b-jfypzbyfxu] {
+        padding: 8px;
+    }
+
+    .btn-icon[b-jfypzbyfxu] {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+}
+/* /Components/Pages/Sorteio.razor.rz.scp.css */
+.sorteio-container[b-11uacl9td6] {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.jogadores-lista[b-11uacl9td6] {
+    list-style: none;
+    padding: 0;
+}
+
+.jogador-item[b-11uacl9td6] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.botao-grupo[b-11uacl9td6] {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-selecao[b-11uacl9td6] {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    .btn-selecao:hover[b-11uacl9td6] {
+        background: #0056b3;
+    }
+
+.botoes-container[b-11uacl9td6] {
+    margin-top: 15px;
+}
+
+/* Botão Voltar - Somente ícone */
+.btn-voltar[b-11uacl9td6] {
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    padding: 0; /* Remove o padding */
+    padding-left: 10px; /*Deixa o ícone mais centralizado com o container abaixo dele*/
+    font-size: 1.5rem; /* Tamanho do ícone */
+    color: #007bff; /* Cor do ícone (pode ser ajustada conforme necessidade) */
+    transition: color 0.2s ease; /* Transição suave para mudança de cor */
+}
+
+.btn-acao[b-11uacl9td6] {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+    .btn-acao:hover[b-11uacl9td6] {
+        background: #218838;
+    }
+
+.btn-partida[b-11uacl9td6] {
+    background: #dc3545;
+}
+
+    .btn-partida:hover[b-11uacl9td6] {
+        background: #c82333;
+    }
+
+.times-container[b-11uacl9td6] {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.time[b-11uacl9td6] {
+    flex: 1;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.time-lista[b-11uacl9td6] {
+    list-style: none;
+    padding: 0;
+}
+
+.time-item[b-11uacl9td6] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.btn-remover[b-11uacl9td6] {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+    .btn-remover:hover[b-11uacl9td6] {
+        background: #c82333;
+    }

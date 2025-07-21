@@ -1,0 +1,212 @@
+/* Estilo para o t�tulo */
+h1[b-0q13jyzdlz] {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 1rem;
+}
+
+/* Bot�o de iniciar partida */
+.container-btn[b-0q13jyzdlz] {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.btn-iniciar[b-0q13jyzdlz] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-iniciar i[b-0q13jyzdlz] {
+        font-size: 1.2rem;
+    }
+
+    .btn-iniciar:hover[b-0q13jyzdlz] {
+        background-color: #218838;
+    }
+
+/* Controles superiores */
+.controls[b-0q13jyzdlz] {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+/* Bot�o copiar */
+.btn-icon[b-0q13jyzdlz] {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+    .btn-icon:hover[b-0q13jyzdlz] {
+        color: #0056b3;
+    }
+
+/* Lista de partidas */
+.scroll-view[b-0q13jyzdlz] {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+/* Estilo de cada partida */
+.partida-item[b-0q13jyzdlz] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 5px 0;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Time container */
+.time-container[b-0q13jyzdlz] {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Destacar vencedor */
+.vencedor[b-0q13jyzdlz] {
+    background-color: #d4edda;
+}
+
+.empate[b-0q13jyzdlz] {
+    background-color: #f8f9fa;
+}
+
+/* �cone de vencedor */
+.vencedor-icon[b-0q13jyzdlz] {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #28a745;
+    margin-left: 5px;
+}
+
+/* Tempo no centro */
+.tempo[b-0q13jyzdlz] {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    min-width: 70px;
+    background: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+/* Tabela de jogadores */
+.tabela-jogadores[b-0q13jyzdlz] {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 5px;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 5px 0;
+}
+
+    .tabela-jogadores span[b-0q13jyzdlz] {
+        padding: 3px 0;
+    }
+
+    /* �cones fixos */
+    .tabela-jogadores i[b-0q13jyzdlz] {
+        color: #007bff;
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .partida-item[b-0q13jyzdlz] {
+        font-size: 0.7rem;
+    }
+
+    .tempo[b-0q13jyzdlz] {
+        font-size: 0.8rem;
+    }
+
+    .btn-iniciar[b-0q13jyzdlz] {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .tabela-jogadores[b-0q13jyzdlz] {
+        font-size: 0.7rem;
+    }
+}
+
+/* Garante que a tela ocupe 100% da altura dispon�vel */
+html[b-0q13jyzdlz], body[b-0q13jyzdlz] {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Ajusta a estrutura para ocupar toda a tela */
+.page-container[b-0q13jyzdlz] {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* A �rea que cont�m a lista de partidas precisa crescer para ocupar o espa�o dispon�vel */
+.scroll-view[b-0q13jyzdlz] {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px); /* Ajuste o valor conforme necess�rio */
+}
+
+/* Garantir que os cards de partida fiquem bem distribu�dos */
+.partida-item[b-0q13jyzdlz] {
+    flex: 1;
+    min-height: 120px; /* Ajuste conforme o tamanho desejado */
+}
+
+/* Ajusta o container do bot�o para n�o afetar a altura dispon�vel */
+.container-btn[b-0q13jyzdlz] {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Bot�o de excluir */
+.btn-excluir[b-0q13jyzdlz] {
+    position: absolute;
+    top: -5px; /* Levanta o bot�o um pouco para n�o influenciar os times */
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #dc3545;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Garante que o bot�o fique sobre os outros elementos */
+}
+
+    .btn-excluir:hover[b-0q13jyzdlz] {
+        color: #a71d2a;
+    }

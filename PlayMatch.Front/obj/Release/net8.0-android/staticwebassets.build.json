@@ -1,0 +1,743 @@
+{
+  "Version": 1,
+  "Hash": "5bOiMamP6rsqA1KuxXLRiKbCucXrUR/QQ0y7qiBRgfE=",
+  "Source": "PlayMatch.Front",
+  "BasePath": "/",
+  "Mode": "Root",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "PlayMatch.Front\\wwwroot",
+      "Source": "PlayMatch.Front",
+      "ContentRoot": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\",
+      "BasePath": "/",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\bundle\\PlayMatch.Front.styles.css",
+      "SourceId": "PlayMatch.Front",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\bundle\\",
+      "BasePath": "/",
+      "RelativePath": "PlayMatch.Front#[.{fingerprint}]?.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "Fingerprint": "hq1dxvymnb",
+      "Integrity": "93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\bundle\\PlayMatch.Front.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\projectbundle\\PlayMatch.Front.bundle.scp.css",
+      "SourceId": "PlayMatch.Front",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\projectbundle\\",
+      "BasePath": "/",
+      "RelativePath": "PlayMatch.Front#[.{fingerprint}]!.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "Fingerprint": "hq1dxvymnb",
+      "Integrity": "93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\projectbundle\\PlayMatch.Front.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\app.css",
+      "SourceId": "PlayMatch.Front",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/app#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wi1a36d2m0",
+      "Integrity": "ODHqBX7kE2ReIyq9dqMddkBdBK9gtGx/bBCr1aYsyfE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\app.css"
+    },
+    {
+      "Identity": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "SourceId": "PlayMatch.Front",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/bootstrap/bootstrap.min#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "oyur3vkxif",
+      "Integrity": "gBScEOwT6yg7bJb5NiVMcWVRpw7OuBj2547k6v63zt0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "SourceId": "PlayMatch.Front",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3q6bztelvw",
+      "Integrity": "NVIlaarWcxi2ppCV+srnDfsCXcT9zm8ZNn8nRL/4F04=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\favicon.png",
+      "SourceId": "PlayMatch.Front",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "favicon#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ifv42okdf2",
+      "Integrity": "4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\index.html",
+      "SourceId": "PlayMatch.Front",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i8lyievqrq",
+      "Integrity": "Alqz+WE9XGotAPKImgdUkEKR8QktGnkqvbBtQf+XZGQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/app.css",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3394"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ODHqBX7kE2ReIyq9dqMddkBdBK9gtGx/bBCr1aYsyfE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Mar 2025 11:52:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ODHqBX7kE2ReIyq9dqMddkBdBK9gtGx/bBCr1aYsyfE="
+        }
+      ]
+    },
+    {
+      "Route": "css/app.wi1a36d2m0.css",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3394"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ODHqBX7kE2ReIyq9dqMddkBdBK9gtGx/bBCr1aYsyfE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Mar 2025 11:52:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wi1a36d2m0"
+        },
+        {
+          "Name": "label",
+          "Value": "css/app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ODHqBX7kE2ReIyq9dqMddkBdBK9gtGx/bBCr1aYsyfE="
+        }
+      ]
+    },
+    {
+      "Route": "css/bootstrap/bootstrap.min.css",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161314"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBScEOwT6yg7bJb5NiVMcWVRpw7OuBj2547k6v63zt0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Mar 2025 11:52:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBScEOwT6yg7bJb5NiVMcWVRpw7OuBj2547k6v63zt0="
+        }
+      ]
+    },
+    {
+      "Route": "css/bootstrap/bootstrap.min.css.3q6bztelvw.map",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "447207"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NVIlaarWcxi2ppCV+srnDfsCXcT9zm8ZNn8nRL/4F04=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Mar 2025 11:52:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3q6bztelvw"
+        },
+        {
+          "Name": "label",
+          "Value": "css/bootstrap/bootstrap.min.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NVIlaarWcxi2ppCV+srnDfsCXcT9zm8ZNn8nRL/4F04="
+        }
+      ]
+    },
+    {
+      "Route": "css/bootstrap/bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "447207"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NVIlaarWcxi2ppCV+srnDfsCXcT9zm8ZNn8nRL/4F04=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Mar 2025 11:52:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NVIlaarWcxi2ppCV+srnDfsCXcT9zm8ZNn8nRL/4F04="
+        }
+      ]
+    },
+    {
+      "Route": "css/bootstrap/bootstrap.min.oyur3vkxif.css",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161314"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBScEOwT6yg7bJb5NiVMcWVRpw7OuBj2547k6v63zt0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Mar 2025 11:52:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oyur3vkxif"
+        },
+        {
+          "Name": "label",
+          "Value": "css/bootstrap/bootstrap.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBScEOwT6yg7bJb5NiVMcWVRpw7OuBj2547k6v63zt0="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ifv42okdf2.png",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Mar 2025 12:29:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ifv42okdf2"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.png",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Mar 2025 12:29:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "887"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Alqz+WE9XGotAPKImgdUkEKR8QktGnkqvbBtQf+XZGQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Mar 2025 12:29:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Alqz+WE9XGotAPKImgdUkEKR8QktGnkqvbBtQf+XZGQ="
+        }
+      ]
+    },
+    {
+      "Route": "index.i8lyievqrq.html",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "887"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Alqz+WE9XGotAPKImgdUkEKR8QktGnkqvbBtQf+XZGQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Mar 2025 12:29:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i8lyievqrq"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Alqz+WE9XGotAPKImgdUkEKR8QktGnkqvbBtQf+XZGQ="
+        }
+      ]
+    },
+    {
+      "Route": "PlayMatch.Front.bundle.scp.css",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\projectbundle\\PlayMatch.Front.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23634"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 17 Jul 2025 15:46:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg="
+        }
+      ]
+    },
+    {
+      "Route": "PlayMatch.Front.hq1dxvymnb.bundle.scp.css",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\projectbundle\\PlayMatch.Front.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23634"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 17 Jul 2025 15:46:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hq1dxvymnb"
+        },
+        {
+          "Name": "label",
+          "Value": "PlayMatch.Front.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg="
+        }
+      ]
+    },
+    {
+      "Route": "PlayMatch.Front.hq1dxvymnb.styles.css",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\bundle\\PlayMatch.Front.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23634"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 17 Jul 2025 15:46:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hq1dxvymnb"
+        },
+        {
+          "Name": "label",
+          "Value": "PlayMatch.Front.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg="
+        }
+      ]
+    },
+    {
+      "Route": "PlayMatch.Front.styles.css",
+      "AssetFile": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\bundle\\PlayMatch.Front.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23634"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 17 Jul 2025 15:46:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-93gyLMVG5ibXxgH390ep62MImYIzF6YKs3w9454AkQg="
+        }
+      ]
+    }
+  ]
+}

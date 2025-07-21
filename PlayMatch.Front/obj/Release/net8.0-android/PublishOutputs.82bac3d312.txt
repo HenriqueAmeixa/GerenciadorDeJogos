@@ -1,0 +1,4 @@
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Front\bin\Release\net8.0-android\publish\com.BeWe.PlayMatch-Signed.aab
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Front\bin\Release\net8.0-android\publish\com.BeWe.PlayMatch.aab
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Front\bin\Release\net8.0-android\publish\com.BeWe.PlayMatch-Signed.apk
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Front\bin\Release\net8.0-android\publish\_Microsoft.Android.Resource.Designer.dll

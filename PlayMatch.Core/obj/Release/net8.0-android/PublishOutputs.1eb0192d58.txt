@@ -1,0 +1,1 @@
+C:\Users\henrique.ameixa\source\repos\GerenciadorDeJogos\PlayMatch.Core\bin\Release\net8.0-android\publish\_Microsoft.Android.Resource.Designer.dll

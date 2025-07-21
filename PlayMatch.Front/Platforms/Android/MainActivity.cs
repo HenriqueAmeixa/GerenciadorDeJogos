@@ -16,8 +16,8 @@ namespace PlayMatch.Front
                 activity: this,
                 appId: "ca-app-pub-9624517469952283~9221155916",
                 testDeviceId: "e82c00e6-e7bc-4825-abc5-c40553119f46",
-                forceTesting: true,
-                debugMode: true
+                forceTesting: false,
+                debugMode: false
             );
         }
     }

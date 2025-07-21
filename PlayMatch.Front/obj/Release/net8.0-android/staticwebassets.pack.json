@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\obj\\Release\\net8.0-android\\scopedcss\\bundle\\PlayMatch.Front.styles.css",
+      "PackagePath": "staticwebassets\\PlayMatch.Front.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\henrique.ameixa\\source\\repos\\GerenciadorDeJogos\\PlayMatch.Front\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Release\\net8.0-android\\staticwebassets\\msbuild.PlayMatch.Front.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0-android\\staticwebassets\\msbuild.PlayMatch.Front.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0-android\\staticwebassets\\msbuild.build.PlayMatch.Front.props",
+      "PackagePath": "build\\PlayMatch.Front.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0-android\\staticwebassets\\msbuild.buildMultiTargeting.PlayMatch.Front.props",
+      "PackagePath": "buildMultiTargeting\\PlayMatch.Front.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0-android\\staticwebassets\\msbuild.buildTransitive.PlayMatch.Front.props",
+      "PackagePath": "buildTransitive\\PlayMatch.Front.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
