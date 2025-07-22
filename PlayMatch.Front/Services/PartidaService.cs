@@ -7,15 +7,16 @@ namespace PlayMatch.Front.Services
 {
     public class PartidaService
     {
-        private readonly IGenericRepository<Partida> _partidaRepository;
+        //private readonly IGenericRepository<Partida> _partidaRepository;
         private readonly IGolRepository _golRepository;
         private readonly IGenericRepository<Jogador> _jogadorRepository;
         private readonly IAssistenciaRepository _assistenciaRepository;
+        private readonly IPartidaRepository _partidaRepository;
         private readonly TimeService _timeService;
         private readonly IMapper _mapper;
 
         public PartidaService(
-            IGenericRepository<Partida> partidaRepository,
+            IPartidaRepository partidaRepository,
             IGolRepository golRepository,
             IAssistenciaRepository assistenciaRepository,
             IGenericRepository<Jogador> jogadorRepository,
@@ -30,6 +31,19 @@ namespace PlayMatch.Front.Services
             _timeService = timeService;
             _mapper = mapper;
 
+        }
+        public async Task<List<Models.Partida>> GetPartidasPorRodadaIdAsync(int rodadaId)
+        {
+            var partidasCore = await _partidaRepository.ObterPorRodadaIdAsync(rodadaId);
+            var partidas = _mapper.Map<List<Models.Partida>>(partidasCore);
+            foreach (var partida in _mapper.Map<List<Models.Partida>>(partidas))
+            {
+                await PreencherTimesAsync(partida);
+                await PreencherGolsAsync(partida);
+                await PreencherAssistenciasAsync(partida);
+            }
+
+            return partidas;
         }
 
         public async Task<List<Models.Partida>> GetPartidasAsync()

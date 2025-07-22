@@ -1,0 +1,28 @@
+﻿.page-container {
+    padding: 1rem;
+}
+
+.container-btn {
+    margin-bottom: 1rem;
+}
+
+.scroll-view {
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+.partida-item {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.btn-excluir {
+    background: transparent;
+    border: none;
+    color: #dc3545;
+    font-size: 1rem;
+    cursor: pointer;
+}
