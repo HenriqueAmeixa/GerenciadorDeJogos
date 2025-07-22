@@ -26,3 +26,16 @@
     font-size: 1rem;
     cursor: pointer;
 }
+
+.btn-iniciar {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    color: #007bff;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+    .btn-iniciar:hover {
+        transform: scale(1.2);
+    }

@@ -99,7 +99,7 @@
 
     private void IrParaSelecao()
     {
-        Navigation.NavigateTo("/selecao-jogadores");
+        Navigation.NavigateTo($"/selecao-jogadores?rodadaId={rodadaId}");
     }
 
     private async Task CopiarPartidas()

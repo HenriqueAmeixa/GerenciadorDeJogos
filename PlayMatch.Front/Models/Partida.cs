@@ -24,6 +24,8 @@ namespace PlayMatch.Front.Models
 
         public List<Jogador> JogadoresSelecionados { get; set; } = new List<Jogador>();
 
+        public int RodadaId { get; set; }
+        public Rodada Rodada { get; set; }
 
         public string DataFormatada => DataHora.ToString("dd/MM/yyyy HH:mm");
 
