@@ -5,21 +5,24 @@ using SQLite;
 
 namespace PlayMatch.Core.Data.Repositories
 {
-    public class CampeonatoRepository:SQLiteRepository<Campeonato>, ICampeonatoRepository
+    public class CampeonatoRepository : SQLiteRepository<Campeonato>, ICampeonatoRepository
     {
         private readonly SQLiteAsyncConnection _database;
         public CampeonatoRepository(PlayMatchDbContext dbContext) : base(dbContext)
         {
             _database = dbContext.Database;
         }
-        public Task<List<Campeonato>> ObterTodosAsync()
+        public Task<List<Campeonato>> ObterAllAsync()
           => _database.Table<Campeonato>().ToListAsync();
 
         public Task<Campeonato?> ObterPorIdAsync(int id)
             => _database.Table<Campeonato>().Where(c => c.Id == id).FirstOrDefaultAsync();
 
-        public Task InserirAsync(Campeonato campeonato)
-            => _database.InsertAsync(campeonato);
+        public async Task<Campeonato> InserirAsync(Campeonato campeonato)
+        {
+            await _database.InsertAsync(campeonato);
+            return campeonato;
+        }
 
         public Task AtualizarAsync(Campeonato campeonato)
             => _database.UpdateAsync(campeonato);

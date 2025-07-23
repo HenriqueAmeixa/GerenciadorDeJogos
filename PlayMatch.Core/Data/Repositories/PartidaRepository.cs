@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PlayMatch.Core.Data.Interfaces;
+﻿using PlayMatch.Core.Data.Interfaces;
 using PlayMatch.Core.Models;
 using SQLite;
 
@@ -19,6 +18,16 @@ namespace PlayMatch.Core.Data.Repositories
             return _database.Table<Partida>()
                       .Where(p => p.RodadaId == rodadaId)
                       .ToListAsync();
+        }
+        public async Task<List<Partida>> GetByRodadasAsync(List<int> rodadaIds)
+        {
+            if (rodadaIds == null || !rodadaIds.Any())
+                return new List<Partida>();
+
+            return await _database
+                .Table<Partida>()
+                .Where(p => rodadaIds.Contains(p.RodadaId))
+                .ToListAsync();
         }
     }
 }

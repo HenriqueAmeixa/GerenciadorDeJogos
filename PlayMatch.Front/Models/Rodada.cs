@@ -6,6 +6,7 @@
         public int CampeonatoId { get; set; }
         public int Numero { get; set; }
         public Campeonato Campeonato { get; set; }
+        public DateTime Data { get; set; }
         public List<Partida> Partidas { get; set; } = new();
     }
 }

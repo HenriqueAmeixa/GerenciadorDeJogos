@@ -1,115 +1,83 @@
-﻿@page "/campeonatos"
+﻿@page "/campeonatos/{campeonatoId:int}"
 @inject CampeonatoService CampeonatoService
+@inject RodadaService RodadaService
 @inject NavigationManager Navigation
-@inject IJSRuntime JS
 
-<head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
-</head>
+@using PlayMatch.Front.Models
 
-<PageTitle>Campeonatos</PageTitle>
+<h3 class="titulo">@detalhes?.Nome</h3>
 
-<div class="page-container">
-    <h1>🏆 Campeonatos</h1>
-
-    <!-- Botão criar campeonato -->
-    <div class="container-btn">
-        <button class="btn-iniciar" @onclick="MostrarFormulario">
-            <i class="fas fa-plus"></i> Novo Campeonato
-        </button>
+@if (detalhes == null)
+{
+        <p>Carregando informações do campeonato...</p>
+}
+else
+{
+    <div class="card-detalhes">
+        <div class="grid-detalhes">
+            <div class="item-detalhe"><i class="fas fa-calendar-alt text-primary"></i> <strong>Período:</strong> @detalhes.Periodo</div>
+            <div class="item-detalhe"><i class="fas fa-futbol text-success"></i> <strong>Partidas:</strong> @detalhes.TotalPartidas</div>
+            <div class="item-detalhe"><i class="fas fa-bullseye text-danger"></i> <strong>Gols:</strong> @detalhes.TotalGols</div>
+            <div class="item-detalhe"><i class="fas fa-handshake text-info"></i> <strong>Assistências:</strong> @detalhes.TotalAssistencias</div>
+            <div class="item-detalhe"><i class="fas fa-shield-alt text-warning"></i> <strong>Artilheiro:</strong> @detalhes.Artilheiro</div>
+            <div class="item-detalhe"><i class="fas fa-magic text-secondary"></i> <strong>Assist. Líder:</strong> @detalhes.LiderAssistencias</div>
+            <div class="item-detalhe"><i class="fas fa-trophy text-primary"></i> <strong>Mais Vitórias:</strong> @detalhes.MaisVitorias</div>
+        </div>
     </div>
 
-    @if (mostrarFormulario)
-    {
-            <div class="formulario-novo mt-3">
-                <input class="form-control" placeholder="Nome do campeonato" @bind="novoCampeonato.Nome" />
-                <input type="date" class="form-control mt-2" @bind="dataInicioString" />
-                <div class="d-flex gap-2 mt-2">
-                    <button class="btn btn-success" @onclick="CriarCampeonato"><i class="fas fa-save"></i> Salvar</button>
-                    <button class="btn btn-secondary" @onclick="() => mostrarFormulario = false">Cancelar</button>
-                </div>
-            </div>
-    }
 
-    <div class="scroll-view mt-4">
-        @if (campeonatos.Count == 0)
+    <h4>Rodadas</h4>
+    <div class="scroll-view mt-2">
+        @if (detalhes.Rodadas.Count == 0)
         {
-                <p>Nenhum campeonato cadastrado ainda.</p>
+            <p>Nenhuma rodada cadastrada ainda.</p>
         }
         else
         {
-            @foreach (var campeonato in campeonatos)
+            @foreach (var rodada in detalhes.Rodadas)
             {
-                        <div class="partida-item d-flex justify-content-between align-items-center">
-                            <!-- Título -->
-                            <div>
-                                <strong>@campeonato.Nome</strong><br />
-                                <span class="text-muted small">Início: @campeonato.DataInicio.ToShortDateString()</span>
-                            </div>
-
-                            <!-- Ações -->
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-sm btn-outline-primary" @onclick="() => VerRodadas(campeonato.Id)">
-                                    <i class="fas fa-list-ol"></i> Rodadas
-                                </button>
-
-                                <button class="btn-excluir" @onclick="() => ExcluirCampeonatoAsync(campeonato.Id)">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
+                <div class="partida-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>Rodada @rodada.Numero</strong>
+                        <div class="text-muted small">@rodada.Data.ToString("dd/MM/yyyy")</div>
+                        <div class="text-muted small">Partidas: @rodada.TotalPartidas</div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary" @onclick="@(() => VerPartidas(rodada.Id))">
+                        <i class="fas fa-futbol"></i> Ver Partidas
+                    </button>
+                </div>
             }
         }
     </div>
-</div>
+
+}
+
+<button class="btn-flutuante" @onclick="NovaRodada">
+    <i class="fas fa-plus"></i>
+</button>
 
 @code {
-    private List<Models.Campeonato> campeonatos = new();
-    private Models.Campeonato novoCampeonato = new();
-    private DateTime dataInicioString = DateTime.Now;
-    private bool mostrarFormulario = false;
+    [Parameter] public int campeonatoId { get; set; }
+
+    private CampeonatoDetalhado? detalhes;
 
     protected override async Task OnInitializedAsync()
     {
-        await CarregarCampeonatos();
+        detalhes = await CampeonatoService.ObterDetalhesCampeonatoAsync(campeonatoId);
+    }
+    private void VerPartidas(int rodadaId)
+    {
+        Navigation.NavigateTo($"/rodadas/{rodadaId}/partidas");
     }
 
-    private async Task CarregarCampeonatos()
+    private void IrParaRodada(int rodadaId)
     {
-        campeonatos = await CampeonatoService.ObterTodosAsync();
+        Navigation.NavigateTo($"/campeonatos/{rodadaId}/rodadas");
     }
 
-    private void MostrarFormulario()
+    private async void NovaRodada()
     {
-        novoCampeonato = new Models.Campeonato();
-        dataInicioString = DateTime.Now;
-        mostrarFormulario = true;
-    }
-
-    private async Task CriarCampeonato()
-    {
-        if (string.IsNullOrWhiteSpace(novoCampeonato.Nome))
-            return;
-
-        novoCampeonato.DataInicio = dataInicioString;
-        await CampeonatoService.InserirAsync(novoCampeonato);
-
-        mostrarFormulario = false;
-        await CarregarCampeonatos();
-    }
-
-    private async Task ExcluirCampeonatoAsync(int id)
-    {
-        var confirm = await JS.InvokeAsync<bool>("confirm", "Tem certeza que deseja excluir este campeonato?");
-        if (confirm)
-        {
-            await CampeonatoService.RemoverAsync(id);
-            campeonatos.RemoveAll(c => c.Id == id);
-        }
-    }
-
-    private void VerRodadas(int campeonatoId)
-    {
-        Navigation.NavigateTo($"/campeonatos/{campeonatoId}/rodadas");
+        var nova = await RodadaService.CriarRodadaAutomaticaAsync(campeonatoId);
+        Navigation.NavigateTo($"/rodadas/{nova.Id}/partidas");
     }
 }

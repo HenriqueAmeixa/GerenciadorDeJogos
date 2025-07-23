@@ -1,0 +1,37 @@
+﻿@page "/novo-campeonato"
+@using PlayMatch.Front.Services
+@inject CampeonatoService CampeonatoService
+@inject NavigationManager Navigation
+
+<h3 class="titulo">Novo Campeonato</h3>
+
+<div class="form-campeonato">
+    <input type="text" class="form-control" placeholder="Nome do Campeonato" @bind="campeonato.Nome" />
+
+    <label>Data de Início</label>
+    <input type="date" class="form-control" @bind="dataInicio" />
+
+    <label>Data de Fim (opcional)</label>
+    <input type="date" class="form-control" @bind="dataFim" />
+
+    <button class="btn-salvar" @onclick="CriarCampeonato">
+        <i class="fas fa-save"></i> Criar Campeonato
+    </button>
+</div>
+
+@code {
+    private Models.Campeonato campeonato = new();
+    private DateTime dataInicio = DateTime.Now;
+    private DateTime? dataFim = null;
+
+
+
+    private async Task CriarCampeonato()
+    {
+        campeonato.DataInicio = dataInicio;
+        campeonato.DataFim = dataFim; ;
+
+        var criado = await CampeonatoService.InserirAsync(campeonato);
+        Navigation.NavigateTo($"/campeonatos/{criado.Id}");
+    }
+}

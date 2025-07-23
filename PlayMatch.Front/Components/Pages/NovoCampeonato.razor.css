@@ -1,0 +1,39 @@
+﻿.titulo {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.form-campeonato {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+}
+
+.form-control {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.btn-salvar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+    .btn-salvar:hover {
+        background-color: #218838;
+    }

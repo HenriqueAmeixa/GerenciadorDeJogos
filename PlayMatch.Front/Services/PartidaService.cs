@@ -61,13 +61,13 @@ namespace PlayMatch.Front.Services
             return partidas;
         }
 
-        private async Task PreencherTimesAsync(Models.Partida partida)
+        public async Task PreencherTimesAsync(Models.Partida partida)
         {
             partida.Time1 = _mapper.Map<Models.Time>(await _timeService.GetTimeByIdAsync(partida.Time1Id));
             partida.Time2 = _mapper.Map<Models.Time>(await _timeService.GetTimeByIdAsync(partida.Time2Id));
         }
 
-        private async Task PreencherGolsAsync(Models.Partida partida)
+        public async Task PreencherGolsAsync(Models.Partida partida)
         {
             var gols = await _golRepository.GetByPartidaIdAsync(partida.Id);
             foreach (var gol in gols)
@@ -81,7 +81,7 @@ namespace PlayMatch.Front.Services
             partida.Gols = _mapper.Map<List<Models.Gol>>(gols);
         }
 
-        private async Task PreencherAssistenciasAsync(Models.Partida partida)
+        public async Task PreencherAssistenciasAsync(Models.Partida partida)
         {
             var assistencias = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
             foreach (var assistencia in assistencias)
@@ -95,7 +95,7 @@ namespace PlayMatch.Front.Services
             partida.Assistencias = _mapper.Map<List<Models.Assistencia>>(assistencias);
         }
 
-        private Models.Jogador EncontrarJogadorNoTime(Models.Partida partida, int jogadorId)
+        public Models.Jogador EncontrarJogadorNoTime(Models.Partida partida, int jogadorId)
         {
             return partida.Time1.Jogadores.FirstOrDefault(j => j.Id == jogadorId) ??
                    partida.Time2.Jogadores.FirstOrDefault(j => j.Id == jogadorId);
@@ -238,8 +238,10 @@ namespace PlayMatch.Front.Services
                 return ultimaPartida.Time2Id;
             return null;
         }
-
-
-
+        public async Task<List<Models.Partida>> GetPartidasPorRodadaIdAsync(List<int> rodadaIds)
+        {
+            var partidas = await _partidaRepository.GetByRodadasAsync(rodadaIds);
+            return _mapper.Map<List<Models.Partida>>(partidas);
+        }
     }
 }
