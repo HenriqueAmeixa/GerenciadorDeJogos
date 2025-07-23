@@ -1,0 +1,58 @@
+﻿@page "/visao-geral"
+@inject CampeonatoService CampeonatoService
+@inject NavigationManager Navigation
+
+<PageTitle>Visão Geral dos Campeonatos</PageTitle>
+
+<h3 class="titulo">Visão Geral dos Campeonatos</h3>
+
+@if (campeonatos == null)
+{
+    <p>Carregando campeonatos...</p>
+}
+else if (!campeonatos.Any())
+{
+    <p>Nenhum campeonato cadastrado.</p>
+}
+else
+{
+    <div class="lista-campeonatos">
+        @foreach (var campeonato in campeonatos)
+        {
+            <div class="card-campeonato">
+                <div class="info">
+                    <h4>@campeonato.Nome</h4>
+                    <p><strong>Rodadas:</strong> @campeonato.TotalRodadas</p>
+                    <p><strong>Partidas:</strong> @campeonato.TotalPartidas</p>
+                    <p><strong>Última Rodada:</strong> @(campeonato.DataUltimaRodada?.ToString("dd/MM/yyyy") ?? "N/A")</p>
+                </div>
+                <button class="btn-detalhes" @onclick="() => IrParaDetalhes(campeonato.Id)">
+                    Ver Detalhes
+                </button>
+            </div>
+        }
+    </div>
+}
+
+<button class="btn-flutuante" @onclick="NovoCampeonato">
+    <i class="fas fa-plus"></i>
+</button>
+
+@code {
+    private List<CampeonatoResumo> campeonatos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        campeonatos = await CampeonatoService.ObterCampeonatosResumoAsync();
+    }
+
+    private void IrParaDetalhes(int id)
+    {
+        Navigation.NavigateTo($"/campeonatos/{id}");
+    }
+
+    private void NovoCampeonato()
+    {
+        Navigation.NavigateTo("/novo-campeonato");
+    }
+}

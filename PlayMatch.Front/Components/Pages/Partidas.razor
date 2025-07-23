@@ -1,4 +1,4 @@
-﻿@page "/Partidas"
+﻿@page "/rodadas/{rodadaId:int}/partidas"
 @inject NavigationManager Navigation
 @inject PartidaService PartidaService
 @inject IJSRuntime JS
@@ -89,16 +89,17 @@
 
 
 @code {
+    [Parameter] public int rodadaId { get; set; }
     private List<Partida> PartidasAnteriores = new List<Partida>();
 
     protected override async Task OnInitializedAsync()
     {
-        PartidasAnteriores = await PartidaService.GetPartidasAsync();
+        PartidasAnteriores = await PartidaService.GetPartidasPorRodadaIdAsync(rodadaId);
     }
 
     private void IrParaSelecao()
     {
-        Navigation.NavigateTo("/selecao-jogadores");
+        Navigation.NavigateTo($"/selecao-jogadores?rodadaId={rodadaId}");
     }
 
     private async Task CopiarPartidas()

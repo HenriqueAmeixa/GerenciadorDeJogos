@@ -74,6 +74,9 @@
 @code {
     private List<Jogador> JogadoresDisponiveis = new();
     private List<Jogador> JogadoresSelecionados = new();
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public int? rodadaId { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -99,6 +102,6 @@
     private async Task AvancarParaSorteio()
     {
         await JS.InvokeVoidAsync("sessionStorage.setItem", "jogadoresSelecionados", System.Text.Json.JsonSerializer.Serialize(JogadoresSelecionados));
-        Navigation.NavigateTo("/sorteio");
+        Navigation.NavigateTo($"/sorteio?rodadaId={rodadaId}");
     }
 }
