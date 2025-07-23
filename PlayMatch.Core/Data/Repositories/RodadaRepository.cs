@@ -17,8 +17,12 @@ namespace PlayMatch.Core.Data.Repositories
         public Task<Rodada?> ObterPorIdAsync(int id)
             => _database.Table<Rodada>().Where(r => r.Id == id).FirstOrDefaultAsync();
 
-        public Task InserirAsync(Rodada rodada)
-            => _database.InsertAsync(rodada);
+        public async Task<Rodada> InserirAsync(Rodada rodada)
+        {
+            await _database.InsertAsync(rodada);
+            return rodada;
+        }
+
 
         public Task AtualizarAsync(Rodada rodada)
             => _database.UpdateAsync(rodada);

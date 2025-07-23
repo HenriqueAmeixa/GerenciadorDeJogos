@@ -6,7 +6,7 @@ namespace PlayMatch.Core.Data.Interfaces
     {
         Task<List<Rodada>> ObterPorCampeonatoIdAsync(int campeonatoId);
         Task<Rodada?> ObterPorIdAsync(int id);
-        Task InserirAsync(Rodada rodada);
+        Task<Rodada> InserirAsync(Rodada rodada);
         Task AtualizarAsync(Rodada rodada);
         Task RemoverAsync(int id);
     }

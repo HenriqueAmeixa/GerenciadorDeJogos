@@ -76,8 +76,8 @@ namespace PlayMatch.Front.Services
                 Data = DateTime.Now
             };
 
-            await _rodadaRepository.InserirAsync(_mapper.Map<Rodada>(novaRodada));
-            return novaRodada;
+            var rodadaRepository = await _rodadaRepository.InserirAsync(_mapper.Map<Rodada>(novaRodada));
+            return _mapper.Map<Models.Rodada>(rodadaRepository);
         }
     }
 }
