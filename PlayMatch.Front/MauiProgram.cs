@@ -41,6 +41,8 @@ namespace PlayMatch.Front
             builder.Services.AddScoped<ConfiguracaoService>();
             builder.Services.AddScoped<RodadaService>();
             builder.Services.AddScoped<CampeonatoService>();
+            builder.Services.AddScoped<RelatorioService>();
+            builder.Services.AddScoped<IRelatorioRepository,RelatorioRepository>();
             builder.Services.AddScoped<IRodadaRepository, RodadaRepository>();
             builder.Services.AddScoped<ICampeonatoRepository, CampeonatoRepository>();
             builder.Services.AddScoped<IPartidaRepository, PartidaRepository>();
