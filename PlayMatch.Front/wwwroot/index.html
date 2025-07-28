@@ -28,3 +28,16 @@
 </body>
 
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    window.html2canvasAndDownload = async function (selector) {
+        const element = document.querySelector(selector);
+        if (!element) return;
+
+        const canvas = await html2canvas(element);
+        const link = document.createElement("a");
+        link.download = "relatorio-campeonato.png";
+        link.href = canvas.toDataURL();
+        link.click();
+    };
+</script>

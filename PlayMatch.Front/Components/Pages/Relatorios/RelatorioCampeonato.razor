@@ -1,0 +1,73 @@
+﻿@page "/campeonatos/{campeonatoId:int}/relatorio"
+@inject RelatorioService RelatorioService
+@inject NavigationManager Navigation
+
+@using PlayMatch.Front.Models.Relatorios
+
+<PageTitle>Relatório do Campeonato</PageTitle>
+
+@if (relatorioJogadores == null)
+{
+        <p>Carregando relatório...</p>
+}
+else if (!relatorioJogadores.Any())
+{
+        <p>Nenhum dado encontrado para este campeonato.</p>
+}
+else
+{
+        <div class="relatorio-container" id="relatorio-campeonato">
+            <h3 class="text-primary">Relatório do Campeonato</h3>
+            <button class="btn btn-outline-secondary mb-3" @onclick="ExportarImagem">
+                <i class="fas fa-image"></i> Baixar como Imagem
+            </button>
+
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Jogador</th>
+                        <th>Vitórias</th>
+                        <th>Gols</th>
+                        <th>Assistências</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var jogador in relatorioJogadores)
+                {
+                            <tr>
+                                <td>@jogador.Apelido</td>
+                                <td>@jogador.Vitorias</td>
+                                <td>@jogador.Gols</td>
+                                <td>@jogador.Assistencias</td>
+                            </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+}
+
+<button class="btn btn-secondary mt-3" @onclick="Voltar">
+    <i class="fas fa-arrow-left"></i> Voltar para o Campeonato
+</button>
+
+@code {
+    [Parameter] public int campeonatoId { get; set; }
+    private List<CampeonatoRelatorioJogador>? relatorioJogadores;
+
+    protected override async Task OnInitializedAsync()
+    {
+        relatorioJogadores = await RelatorioService.GerarRelatorioCampeonatoAsync(campeonatoId, CancellationToken.None);
+    }
+
+    private void Voltar()
+    {
+        Navigation.NavigateTo($"/campeonatos/{campeonatoId}");
+    }
+
+    private async Task ExportarImagem()
+    {
+        await JS.InvokeVoidAsync("html2canvasAndDownload", "#relatorio-campeonato");
+    }
+
+    [Inject] private IJSRuntime JS { get; set; } = default!;
+}
