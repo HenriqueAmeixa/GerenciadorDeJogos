@@ -1,6 +1,8 @@
 ﻿@page "/rodadas/{rodadaId:int}/partidas"
 @inject NavigationManager Navigation
 @inject PartidaService PartidaService
+@inject RodadaService RodadaService
+
 @inject IJSRuntime JS
 
 <head>
@@ -11,7 +13,13 @@
 <PageTitle>Gerenciar Partida</PageTitle>
 
 <div class="page-container">
-    <h1>Partidas</h1>
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h1 class="m-0">Partidas - Rodada @numeroRodada</h1>
+        <button class="btn-icon" @onclick="IrParaRelatorio" title="Ver Relatório da Rodada">
+            <i class="fas fa-chart-bar"></i>
+        </button>
+    </div>
+
 
     <div class="container-btn">
         <button class="btn-iniciar" @onclick="IrParaSelecao">
@@ -91,10 +99,14 @@
 @code {
     [Parameter] public int rodadaId { get; set; }
     private List<Partida> PartidasAnteriores = new List<Partida>();
+    private int numeroRodada;
+
 
     protected override async Task OnInitializedAsync()
     {
         PartidasAnteriores = await PartidaService.GetPartidasPorRodadaIdAsync(rodadaId);
+        var rodada = await RodadaService.ObterPorIdAsync(rodadaId);
+        numeroRodada = rodada?.Numero ?? 0;
     }
 
     private void IrParaSelecao()
@@ -123,7 +135,7 @@
             string time2 = $"{string.Join(", ", partida.Time2.Jogadores.Select(j => $"{j.Apelido} {(j.Gols > 0 ? j.Gols + "G" : "")} {(j.Assistencias > 0 ? j.Assistencias + "A" : "")}"))} {(!vencedorTime1 && !empate ? "V" : "")}";
 
             sb.AppendLine($"Jogo {jogoNumero}");
-            sb.AppendLine(time1.Trim()); // Trim() evita espaços extras caso não tenha "V"
+            sb.AppendLine(time1.Trim());
             sb.AppendLine("X");
             sb.AppendLine(time2.Trim());
             sb.AppendLine();
@@ -143,5 +155,10 @@
             await PartidaService.ExcluirPartidaAsync(partidaId);
             PartidasAnteriores.RemoveAll(p => p.Id == partidaId);
         }
+    }
+
+    private void IrParaRelatorio()
+    {
+        Navigation.NavigateTo($"/rodadas/{rodadaId}/relatorio");
     }
 }

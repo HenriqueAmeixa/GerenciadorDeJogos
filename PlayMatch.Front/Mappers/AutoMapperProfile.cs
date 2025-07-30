@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using PlayMatch.Core.Models;
 using PlayMatch.Core.Models.Relatórios;
+using PlayMatch.Core.Models.Relatorios;
 
 namespace PlayMatch.Front.Mappers
 {
@@ -43,6 +44,7 @@ namespace PlayMatch.Front.Mappers
             CreateMap<Models.Campeonato, Campeonato>();
 
             CreateMap<CampeonatoRelatorioJogador, Models.Relatorios.CampeonatoRelatorioJogador>();
+            CreateMap<RodadaRelatorioJogador , Models.Relatorios.RodadaRelatorioJogador>();
         }
     }
 }

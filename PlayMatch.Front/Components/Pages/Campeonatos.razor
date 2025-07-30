@@ -20,17 +20,65 @@
 }
 else
 {
-    <div class="card-detalhes">
-        <div class="grid-detalhes">
-            <div class="item-detalhe"><i class="fas fa-calendar-alt text-primary"></i> <strong>Período:</strong> @detalhes.Periodo</div>
-            <div class="item-detalhe"><i class="fas fa-futbol text-success"></i> <strong>Partidas:</strong> @detalhes.TotalPartidas</div>
-            <div class="item-detalhe"><i class="fas fa-bullseye text-danger"></i> <strong>Gols:</strong> @detalhes.TotalGols</div>
-            <div class="item-detalhe"><i class="fas fa-handshake text-info"></i> <strong>Assistências:</strong> @detalhes.TotalAssistencias</div>
-            <div class="item-detalhe"><i class="fas fa-shield-alt text-warning"></i> <strong>Artilheiro:</strong> @detalhes.Artilheiro</div>
-            <div class="item-detalhe"><i class="fas fa-magic text-secondary"></i> <strong>Assist. Líder:</strong> @detalhes.LiderAssistencias</div>
-            <div class="item-detalhe"><i class="fas fa-trophy text-primary"></i> <strong>Mais Vitórias:</strong> @detalhes.MaisVitorias</div>
+    <div class="card-detalhes-formatado">
+        <div class="linha-periodo">
+            <i class="fas fa-calendar-alt text-primary"></i>
+            <strong>Período:</strong> @detalhes.Periodo
+        </div>
+
+        <div class="linha-metricas">
+            <div class="info-metrica">
+                <i class="fas fa-futbol text-success"></i>
+                <div>
+                    <div class="label">Partidas:</div>
+                    <div class="valor">@detalhes.TotalPartidas</div>
+                </div>
+            </div>
+            <div class="info-metrica">
+                <i class="fas fa-bullseye text-danger"></i>
+                <div>
+                    <div class="label">Gols:</div>
+                    <div class="valor">@detalhes.TotalGols</div>
+                </div>
+            </div>
+            <div class="info-metrica">
+                <i class="fas fa-handshake text-info"></i>
+                <div>
+                    <div class="label">Assistências:</div>
+                    <div class="valor">@detalhes.TotalAssistencias</div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="linha-divisao" />
+
+        <div class="linha-dupla">
+            <div class="info-horizontal">
+                <i class="fas fa-shield-alt text-warning"></i>
+                <div>
+                    <div class="label">Artilheiro:</div>
+                    <div class="valor">@detalhes.Artilheiro</div>
+                </div>
+            </div>
+            <div class="info-horizontal">
+                <i class="fas fa-magic text-secondary"></i>
+                <div>
+                    <div class="label">Assist. Líder:</div>
+                    <div class="valor">@detalhes.LiderAssistencias</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="linha-unica">
+            <i class="fas fa-trophy text-primary"></i>
+            <div>
+                <div class="label">Mais Vitórias:</div>
+                <div class="valor">@detalhes.MaisVitorias</div>
+            </div>
         </div>
     </div>
+
+
 
 
     <h4>Rodadas</h4>
