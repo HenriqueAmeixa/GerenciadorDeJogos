@@ -11,6 +11,9 @@
     <button class="btn btn-sm btn-outline-primary" title="Relatório de Jogadores" @onclick="IrParaRelatorio">
         <i class="fas fa-chart-bar"></i>
     </button>
+    <button class="btn btn-sm btn-outline-success ms-2" title="Avaliação Técnica" @onclick="IrParaAvaliacaoTecnica">
+        <i class="fas fa-clipboard-check"></i>
+    </button>
 </div>
 
 
@@ -143,6 +146,10 @@ else
     private void IrParaRelatorio()
     {
         Navigation.NavigateTo($"/campeonatos/{campeonatoId}/relatorio");
+    }
+    private void IrParaAvaliacaoTecnica()
+    {
+        Navigation.NavigateTo($"/campeonatos/{campeonatoId}/avaliacoes");
     }
 
 }
