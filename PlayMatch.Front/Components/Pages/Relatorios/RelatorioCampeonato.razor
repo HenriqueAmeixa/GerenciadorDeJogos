@@ -1,54 +1,58 @@
 ﻿@page "/campeonatos/{campeonatoId:int}/relatorio"
 @inject RelatorioService RelatorioService
 @inject NavigationManager Navigation
+@inject IJSRuntime JS
 
 @using PlayMatch.Front.Models.Relatorios
 
-<PageTitle>Relatório do Campeonato</PageTitle>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="relatorio-campeonato.css" />
+</head>
 
-@if (relatorioJogadores == null)
-{
-        <p>Carregando relatório...</p>
-}
-else if (!relatorioJogadores.Any())
-{
-        <p>Nenhum dado encontrado para este campeonato.</p>
-}
-else
-{
-        <div class="relatorio-container" id="relatorio-campeonato">
-            <h3 class="text-primary">Relatório do Campeonato</h3>
-            <button class="btn btn-outline-secondary mb-3" @onclick="ExportarImagem">
-                <i class="fas fa-image"></i> Baixar como Imagem
-            </button>
+<div class="container">
+    <button class="btn-voltar" @onclick="Voltar" title="Voltar">
+        <i class="fas fa-arrow-left"></i>
+    </button>
 
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Jogador</th>
-                        <th>Vitórias</th>
-                        <th>Gols</th>
-                        <th>Assistências</th>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach (var jogador in relatorioJogadores)
-                {
-                            <tr>
-                                <td>@jogador.Apelido</td>
-                                <td>@jogador.Vitorias</td>
-                                <td>@jogador.Gols</td>
-                                <td>@jogador.Assistencias</td>
-                            </tr>
-                }
-                </tbody>
-            </table>
-        </div>
-}
+    <h3 class="text-primary">Relatório de Jogadores</h3>
 
-<button class="btn btn-secondary mt-3" @onclick="Voltar">
-    <i class="fas fa-arrow-left"></i> Voltar para o Campeonato
-</button>
+    @if (relatorioJogadores == null)
+    {
+            <p>Carregando relatório...</p>
+    }
+    else if (!relatorioJogadores.Any())
+    {
+            <p>Nenhum dado encontrado para este campeonato.</p>
+    }
+    else
+    {
+            <div class="relatorio-container" id="relatorio-campeonato">
+
+                <table class="tabela-relatorio">
+                    <thead>
+                        <tr>
+                            <th>Jogador</th>
+                            <th><i class="fas fa-trophy text-warning"></i> Vitórias</th>
+                            <th><i class="fas fa-futbol text-success"></i> Gols</th>
+                            <th><i class="fas fa-handshake text-info"></i> Assistências</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var jogador in relatorioJogadores)
+                    {
+                                <tr>
+                                    <td class="nome">@jogador.Apelido</td>
+                                    <td>@jogador.Vitorias</td>
+                                    <td>@jogador.Gols</td>
+                                    <td>@jogador.Assistencias</td>
+                                </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+    }
+</div>
 
 @code {
     [Parameter] public int campeonatoId { get; set; }
@@ -63,11 +67,4 @@ else
     {
         Navigation.NavigateTo($"/campeonatos/{campeonatoId}");
     }
-
-    private async Task ExportarImagem()
-    {
-        await JS.InvokeVoidAsync("html2canvasAndDownload", "#relatorio-campeonato");
-    }
-
-    [Inject] private IJSRuntime JS { get; set; } = default!;
 }

@@ -210,3 +210,18 @@ html, body {
     .btn-excluir:hover {
         color: #a71d2a;
     }
+
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    color: #007bff;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: transform 0.2s;
+}
+
+    .btn-icon:hover {
+        transform: scale(1.2);
+    }
+

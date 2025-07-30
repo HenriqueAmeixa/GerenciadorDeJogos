@@ -1,4 +1,5 @@
 ﻿using PlayMatch.Core.Models;
+using PlayMatch.Core.Models.Jogadores;
 using SQLite;
 using System.Diagnostics;
 
@@ -30,6 +31,7 @@ namespace PlayMatch.Core.Data
                 await _database.CreateTableAsync<Configuracao>();
                 await _database.CreateTableAsync<Campeonato>();
                 await _database.CreateTableAsync<Rodada>();
+                await _database.CreateTableAsync<AvaliacaoTecnica>();
 
                 var configExistente = await _database.Table<Configuracao>()
                 .FirstOrDefaultAsync(c => c.Chave == "tempo_partida");

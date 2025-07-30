@@ -2,6 +2,7 @@
 using PlayMatch.Core.Models.Relatórios;
 using PlayMatch.Core.Models;
 using SQLite;
+using PlayMatch.Core.Models.Relatorios;
 
 
 namespace PlayMatch.Core.Data.Repositories
@@ -98,5 +99,47 @@ namespace PlayMatch.Core.Data.Repositories
                 return new List<CampeonatoRelatorioJogador>();
             }
         }
+        public async Task<List<RodadaRelatorioJogador>> GerarRelatorioRodadaAsync(int rodadaId, CancellationToken ct)
+        {
+            try
+            {
+                var partidas = await _database.Table<Partida>()
+                    .Where(p => p.RodadaId == rodadaId)
+                    .ToListAsync();
+
+                var partidaIds = partidas.Select(p => p.Id).ToList();
+
+                var gols = await _database.Table<Gol>()
+                    .Where(g => partidaIds.Contains(g.PartidaId))
+                    .ToListAsync();
+
+                var assistencias = await _database.Table<Assistencia>()
+                    .Where(a => partidaIds.Contains(a.PartidaId))
+                    .ToListAsync();
+
+                var jogadores = await _database.Table<Jogador>().ToListAsync();
+
+                var relatorio = jogadores
+                    .Select(jogador => new RodadaRelatorioJogador
+                    {
+                        JogadorId = jogador.Id,
+                        Apelido = jogador.Apelido,
+                        Gols = gols.Count(g => g.JogadorId == jogador.Id),
+                        Assistencias = assistencias.Count(a => a.JogadorId == jogador.Id)
+                    })
+                    .Where(r => r.Gols > 0 || r.Assistencias > 0)
+                    .OrderByDescending(r => r.Gols)
+                    .ThenByDescending(r => r.Assistencias)
+                    .ToList();
+
+                return relatorio;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao gerar relatório da rodada {rodadaId}: {ex.Message}");
+                return new List<RodadaRelatorioJogador>();
+            }
+        }
+
     }
 }

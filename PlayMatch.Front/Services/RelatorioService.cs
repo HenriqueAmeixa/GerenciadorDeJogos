@@ -19,5 +19,11 @@ namespace PlayMatch.Front.Services
             var relatorio = await _relatorioRepository.GerarRelatorioCampeonatoAsync(campeonatoId, ct);
             return _mapper.Map<List<CampeonatoRelatorioJogador>>(relatorio);
         }
+        public async Task<List<RodadaRelatorioJogador>> GerarRelatorioRodadaAsync(int rodadaId, CancellationToken ct)
+        {
+            var relatorio = await _relatorioRepository.GerarRelatorioRodadaAsync(rodadaId, ct);
+            return _mapper.Map<List<RodadaRelatorioJogador>>(relatorio);
+        }
+
     }
 }

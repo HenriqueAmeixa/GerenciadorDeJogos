@@ -145,3 +145,91 @@
     .item-detalhe i {
         font-size: 1rem;
     }
+
+
+.card-detalhes-formatado {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+    .card-detalhes-formatado i {
+        margin-right: 8px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+.linha-periodo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.linha-metricas {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.info-metrica {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+    .info-metrica .label {
+        font-size: 13px;
+    }
+
+    .info-metrica .valor {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+.linha-divisao {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 8px 0;
+}
+
+.linha-dupla {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.info-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+    .info-horizontal .label {
+        font-size: 13px;
+    }
+
+    .info-horizontal .valor {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+.linha-unica {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+    .linha-unica .label {
+        font-size: 13px;
+    }
+
+    .linha-unica .valor {
+        font-size: 15px;
+        font-weight: bold;
+    }
