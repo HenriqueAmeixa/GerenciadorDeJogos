@@ -1,0 +1,69 @@
+﻿/* Container principal */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Botão voltar (ícone) */
+.btn-voltar {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #007bff;
+    transition: color 0.2s ease;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+/* Título principal */
+h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Tabela de relatório */
+.tabela-relatorio {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .tabela-relatorio th,
+    .tabela-relatorio td {
+        padding: 12px 16px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tabela-relatorio thead {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .tabela-relatorio tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .tabela-relatorio .nome {
+        text-align: left;
+        font-weight: bold;
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .tabela-relatorio th,
+    .tabela-relatorio td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+}

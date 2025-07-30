@@ -98,6 +98,9 @@
 
 
 @code {
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public int rodadaId { get; set; }
     private System.Timers.Timer? timer;
     private bool timerRodando;
     private string TextoBotaoTimer => timerRodando ? "Pausar" : "Iniciar";
@@ -145,7 +148,7 @@
 
     private async Task FinalizarPartida()
     {
-        await Partida.FinalizarPartidaAsync(); 
+        await Partida.FinalizarPartidaAsync(rodadaId);
         PararTimer();
     }
     private void PararTimer()

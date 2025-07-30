@@ -17,8 +17,8 @@ namespace PlayMatch.Front
         private void SetBannerId()
         {
 #if __ANDROID__
-            AdView.AdsId = "ca-app-pub-9624517469952283/9810019717";
-            //AdView.AdsId = "ca-app-pub-3940256099942544/6300978111";
+            //AdView.AdsId = "ca-app-pub-9624517469952283/9810019717";
+            AdView.AdsId = "ca-app-pub-3940256099942544/6300978111";
 
 #endif
         }

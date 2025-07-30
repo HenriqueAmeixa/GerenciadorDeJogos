@@ -1,0 +1,95 @@
+﻿.page-container {
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.btn-iniciar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+    .btn-iniciar:hover {
+        background-color: #0056b3;
+    }
+
+.scroll-view {
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+.partida-item {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .partida-item strong {
+        font-size: 1.1rem;
+    }
+
+.btn-excluir {
+    background: transparent;
+    border: none;
+    color: #dc3545;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+    .btn-excluir:hover {
+        color: #a71d2a;
+    }
+
+.formulario-novo {
+    margin-bottom: 1.5rem;
+}
+
+    .formulario-novo input {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+.text-muted {
+    color: #6c757d;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}

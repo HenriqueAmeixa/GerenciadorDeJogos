@@ -1,0 +1,70 @@
+﻿@page "/campeonatos/{campeonatoId:int}/relatorio"
+@inject RelatorioService RelatorioService
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+@using PlayMatch.Front.Models.Relatorios
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="relatorio-campeonato.css" />
+</head>
+
+<div class="container">
+    <button class="btn-voltar" @onclick="Voltar" title="Voltar">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <h3 class="text-primary">Relatório de Jogadores</h3>
+
+    @if (relatorioJogadores == null)
+    {
+            <p>Carregando relatório...</p>
+    }
+    else if (!relatorioJogadores.Any())
+    {
+            <p>Nenhum dado encontrado para este campeonato.</p>
+    }
+    else
+    {
+            <div class="relatorio-container" id="relatorio-campeonato">
+
+                <table class="tabela-relatorio">
+                    <thead>
+                        <tr>
+                            <th>Jogador</th>
+                            <th><i class="fas fa-trophy text-warning"></i> Vitórias</th>
+                            <th><i class="fas fa-futbol text-success"></i> Gols</th>
+                            <th><i class="fas fa-handshake text-info"></i> Assistências</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var jogador in relatorioJogadores)
+                    {
+                                <tr>
+                                    <td class="nome">@jogador.Apelido</td>
+                                    <td>@jogador.Vitorias</td>
+                                    <td>@jogador.Gols</td>
+                                    <td>@jogador.Assistencias</td>
+                                </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+    }
+</div>
+
+@code {
+    [Parameter] public int campeonatoId { get; set; }
+    private List<CampeonatoRelatorioJogador>? relatorioJogadores;
+
+    protected override async Task OnInitializedAsync()
+    {
+        relatorioJogadores = await RelatorioService.GerarRelatorioCampeonatoAsync(campeonatoId, CancellationToken.None);
+    }
+
+    private void Voltar()
+    {
+        Navigation.NavigateTo($"/campeonatos/{campeonatoId}");
+    }
+}

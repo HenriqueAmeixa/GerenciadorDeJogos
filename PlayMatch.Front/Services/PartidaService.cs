@@ -7,15 +7,16 @@ namespace PlayMatch.Front.Services
 {
     public class PartidaService
     {
-        private readonly IGenericRepository<Partida> _partidaRepository;
+        //private readonly IGenericRepository<Partida> _partidaRepository;
         private readonly IGolRepository _golRepository;
         private readonly IGenericRepository<Jogador> _jogadorRepository;
         private readonly IAssistenciaRepository _assistenciaRepository;
+        private readonly IPartidaRepository _partidaRepository;
         private readonly TimeService _timeService;
         private readonly IMapper _mapper;
 
         public PartidaService(
-            IGenericRepository<Partida> partidaRepository,
+            IPartidaRepository partidaRepository,
             IGolRepository golRepository,
             IAssistenciaRepository assistenciaRepository,
             IGenericRepository<Jogador> jogadorRepository,
@@ -30,6 +31,19 @@ namespace PlayMatch.Front.Services
             _timeService = timeService;
             _mapper = mapper;
 
+        }
+        public async Task<List<Models.Partida>> GetPartidasPorRodadaIdAsync(int rodadaId)
+        {
+            var partidasCore = await _partidaRepository.ObterPorRodadaIdAsync(rodadaId);
+            var partidas = _mapper.Map<List<Models.Partida>>(partidasCore);
+            foreach (var partida in _mapper.Map<List<Models.Partida>>(partidas))
+            {
+                await PreencherTimesAsync(partida);
+                await PreencherGolsAsync(partida);
+                await PreencherAssistenciasAsync(partida);
+            }
+
+            return partidas;
         }
 
         public async Task<List<Models.Partida>> GetPartidasAsync()
@@ -47,13 +61,13 @@ namespace PlayMatch.Front.Services
             return partidas;
         }
 
-        private async Task PreencherTimesAsync(Models.Partida partida)
+        public async Task PreencherTimesAsync(Models.Partida partida)
         {
             partida.Time1 = _mapper.Map<Models.Time>(await _timeService.GetTimeByIdAsync(partida.Time1Id));
             partida.Time2 = _mapper.Map<Models.Time>(await _timeService.GetTimeByIdAsync(partida.Time2Id));
         }
 
-        private async Task PreencherGolsAsync(Models.Partida partida)
+        public async Task PreencherGolsAsync(Models.Partida partida)
         {
             var gols = await _golRepository.GetByPartidaIdAsync(partida.Id);
             foreach (var gol in gols)
@@ -67,7 +81,7 @@ namespace PlayMatch.Front.Services
             partida.Gols = _mapper.Map<List<Models.Gol>>(gols);
         }
 
-        private async Task PreencherAssistenciasAsync(Models.Partida partida)
+        public async Task PreencherAssistenciasAsync(Models.Partida partida)
         {
             var assistencias = await _assistenciaRepository.GetByPartidaIdAsync(partida.Id);
             foreach (var assistencia in assistencias)
@@ -81,7 +95,7 @@ namespace PlayMatch.Front.Services
             partida.Assistencias = _mapper.Map<List<Models.Assistencia>>(assistencias);
         }
 
-        private Models.Jogador EncontrarJogadorNoTime(Models.Partida partida, int jogadorId)
+        public Models.Jogador EncontrarJogadorNoTime(Models.Partida partida, int jogadorId)
         {
             return partida.Time1.Jogadores.FirstOrDefault(j => j.Id == jogadorId) ??
                    partida.Time2.Jogadores.FirstOrDefault(j => j.Id == jogadorId);
@@ -224,8 +238,10 @@ namespace PlayMatch.Front.Services
                 return ultimaPartida.Time2Id;
             return null;
         }
-
-
-
+        public async Task<List<Models.Partida>> GetPartidasPorRodadaIdAsync(List<int> rodadaIds)
+        {
+            var partidas = await _partidaRepository.GetByRodadasAsync(rodadaIds);
+            return _mapper.Map<List<Models.Partida>>(partidas);
+        }
     }
 }

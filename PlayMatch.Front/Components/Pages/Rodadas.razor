@@ -1,0 +1,115 @@
+﻿@page "/campeonatos/{campeonatoId:int}/rodadas"
+@inject RodadaService RodadaService
+@inject CampeonatoService CampeonatoService
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
+
+<PageTitle>Rodadas</PageTitle>
+
+<div class="page-container">
+    <h1>Rodadas - <span class="text-primary">@nomeCampeonato</span></h1>
+
+    <!-- Botão nova rodada -->
+    <div class="container-btn">
+        <button class="btn-iniciar" @onclick="MostrarFormulario">
+            <i class="fas fa-plus"></i> Nova Rodada
+        </button>
+    </div>
+
+    @if (mostrarFormulario)
+    {
+        <div class="formulario-novo mt-3">
+            <input class="form-control" placeholder="Número da rodada" type="number" @bind="novaRodada.Numero" />
+            <div class="d-flex gap-2 mt-2">
+                <button class="btn btn-success" @onclick="CriarRodada"><i class="fas fa-save"></i> Salvar</button>
+                <button class="btn btn-secondary" @onclick="() => mostrarFormulario = false">Cancelar</button>
+            </div>
+        </div>
+    }
+
+    <div class="scroll-view mt-4">
+        @if (rodadas.Count == 0)
+        {
+            <p>Nenhuma rodada cadastrada ainda.</p>
+        }
+        else
+        {
+            @foreach (var rodada in rodadas)
+            {
+                <div class="partida-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>Rodada @rodada.Numero</strong>
+                        <div class="text-muted small">Código: @rodada.Id</div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-primary" @onclick="@(() => VerPartidas(rodada.Id))">
+                            <i class="fas fa-futbol"></i> Partidas
+                        </button>
+                        <button class="btn-excluir" @onclick="() => ExcluirRodadaAsync(rodada.Id)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public int campeonatoId { get; set; }
+
+    private string nomeCampeonato = string.Empty;
+    private List<Models.Rodada> rodadas = new();
+    private Models.Rodada novaRodada = new();
+    private bool mostrarFormulario = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CarregarDados();
+    }
+
+    private async Task CarregarDados()
+    {
+        var campeonato = await CampeonatoService.ObterPorIdAsync(campeonatoId);
+        if (campeonato is not null)
+            nomeCampeonato = campeonato.Nome;
+
+        rodadas = await RodadaService.ObterPorCampeonatoIdAsync(campeonatoId);
+        novaRodada = new Models.Rodada { CampeonatoId = campeonatoId };
+    }
+
+    private void MostrarFormulario()
+    {
+        novaRodada = new Models.Rodada { CampeonatoId = campeonatoId };
+        mostrarFormulario = true;
+    }
+
+    private async Task CriarRodada()
+    {
+        if (novaRodada.Numero <= 0)
+            return;
+
+        await RodadaService.InserirAsync(novaRodada);
+        mostrarFormulario = false;
+        await CarregarDados();
+    }
+
+    private async Task ExcluirRodadaAsync(int rodadaId)
+    {
+        var confirm = await JS.InvokeAsync<bool>("confirm", "Deseja realmente excluir esta rodada?");
+        if (confirm)
+        {
+            await RodadaService.RemoverAsync(rodadaId);
+            rodadas.RemoveAll(r => r.Id == rodadaId);
+        }
+    }
+
+    private void VerPartidas(int rodadaId)
+    {
+        Navigation.NavigateTo($"/rodadas/{rodadaId}/partidas");
+    }
+}

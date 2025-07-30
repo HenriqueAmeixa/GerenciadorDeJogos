@@ -1,0 +1,148 @@
+﻿@page "/campeonatos/{campeonatoId:int}"
+@inject CampeonatoService CampeonatoService
+@inject RodadaService RodadaService
+@inject NavigationManager Navigation
+@inject RelatorioService RelatorioService
+@using PlayMatch.Front.Models
+@using PlayMatch.Front.Models.Relatorios
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <h3 class="titulo m-0">@detalhes?.Nome</h3>
+    <button class="btn btn-sm btn-outline-primary" title="Relatório de Jogadores" @onclick="IrParaRelatorio">
+        <i class="fas fa-chart-bar"></i>
+    </button>
+</div>
+
+
+@if (detalhes == null)
+{
+        <p>Carregando informações do campeonato...</p>
+}
+else
+{
+    <div class="card-detalhes-formatado">
+        <div class="linha-periodo">
+            <i class="fas fa-calendar-alt text-primary"></i>
+            <strong>Período:</strong> @detalhes.Periodo
+        </div>
+
+        <div class="linha-metricas">
+            <div class="info-metrica">
+                <i class="fas fa-futbol text-success"></i>
+                <div>
+                    <div class="label">Partidas:</div>
+                    <div class="valor">@detalhes.TotalPartidas</div>
+                </div>
+            </div>
+            <div class="info-metrica">
+                <i class="fas fa-bullseye text-danger"></i>
+                <div>
+                    <div class="label">Gols:</div>
+                    <div class="valor">@detalhes.TotalGols</div>
+                </div>
+            </div>
+            <div class="info-metrica">
+                <i class="fas fa-handshake text-info"></i>
+                <div>
+                    <div class="label">Assistências:</div>
+                    <div class="valor">@detalhes.TotalAssistencias</div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="linha-divisao" />
+
+        <div class="linha-dupla">
+            <div class="info-horizontal">
+                <i class="fas fa-shield-alt text-warning"></i>
+                <div>
+                    <div class="label">Artilheiro:</div>
+                    <div class="valor">@detalhes.Artilheiro</div>
+                </div>
+            </div>
+            <div class="info-horizontal">
+                <i class="fas fa-magic text-secondary"></i>
+                <div>
+                    <div class="label">Assist. Líder:</div>
+                    <div class="valor">@detalhes.LiderAssistencias</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="linha-unica">
+            <i class="fas fa-trophy text-primary"></i>
+            <div>
+                <div class="label">Mais Vitórias:</div>
+                <div class="valor">@detalhes.MaisVitorias</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <h4>Rodadas</h4>
+    <div class="scroll-view mt-2">
+        @if (detalhes.Rodadas.Count == 0)
+        {
+            <p>Nenhuma rodada cadastrada ainda.</p>
+        }
+        else
+        {
+            @foreach (var rodada in detalhes.Rodadas)
+            {
+                <div class="partida-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>Rodada @rodada.Numero</strong>
+                        <div class="text-muted small">@rodada.Data.ToString("dd/MM/yyyy")</div>
+                        <div class="text-muted small">Partidas: @rodada.TotalPartidas</div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary" @onclick="@(() => VerPartidas(rodada.Id))">
+                        <i class="fas fa-futbol"></i> Ver Partidas
+                    </button>
+                </div>
+            }
+        }
+    </div>
+
+}
+
+
+
+
+<button class="btn-flutuante" @onclick="NovaRodada">
+    <i class="fas fa-plus"></i>
+</button>
+
+@code {
+    [Parameter] public int campeonatoId { get; set; }
+    private List<CampeonatoRelatorioJogador>? relatorioJogadores;
+
+
+    private CampeonatoDetalhado? detalhes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        detalhes = await CampeonatoService.ObterDetalhesCampeonatoAsync(campeonatoId);
+    }
+    private void VerPartidas(int rodadaId)
+    {
+        Navigation.NavigateTo($"/rodadas/{rodadaId}/partidas");
+    }
+
+    private void IrParaRodada(int rodadaId)
+    {
+        Navigation.NavigateTo($"/campeonatos/{rodadaId}/rodadas");
+    }
+
+    private async void NovaRodada()
+    {
+        var nova = await RodadaService.CriarRodadaAutomaticaAsync(campeonatoId);
+        Navigation.NavigateTo($"/rodadas/{nova.Id}/partidas");
+    }
+    private void IrParaRelatorio()
+    {
+        Navigation.NavigateTo($"/campeonatos/{campeonatoId}/relatorio");
+    }
+
+}

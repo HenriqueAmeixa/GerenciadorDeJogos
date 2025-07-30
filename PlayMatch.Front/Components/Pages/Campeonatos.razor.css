@@ -1,0 +1,235 @@
+﻿.titulo {
+    text-align: center;
+    margin: 16px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.bloco-info {
+    background-color: #f9f9f9;
+    padding: 16px;
+    border-radius: 12px;
+    margin: 10px 16px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+    .bloco-info p {
+        margin: 6px 0;
+        font-size: 14px;
+    }
+
+.lista-rodadas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 16px 70px;
+}
+
+.card-rodada {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-detalhes {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+    .btn-detalhes:hover {
+        background-color: #0056b3;
+    }
+
+.btn-flutuante {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #28a745;
+    color: white;
+    font-size: 24px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+    .btn-flutuante:hover {
+        background-color: #218838;
+    }
+
+.scroll-rodadas {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    gap: 12px;
+}
+
+.card-rodada-scroll {
+    flex: 0 0 auto;
+    width: 160px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+    .card-rodada-scroll p {
+        margin: 4px 0;
+        font-size: 14px;
+    }
+
+.btn-ver-partidas {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .btn-ver-partidas:hover {
+        background-color: #0056b3;
+    }
+
+
+.scroll-view {
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+.partida-item {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-detalhes {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.grid-detalhes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.item-detalhe {
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+    .item-detalhe i {
+        font-size: 1rem;
+    }
+
+
+.card-detalhes-formatado {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+    .card-detalhes-formatado i {
+        margin-right: 8px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+.linha-periodo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.linha-metricas {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.info-metrica {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+    .info-metrica .label {
+        font-size: 13px;
+    }
+
+    .info-metrica .valor {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+.linha-divisao {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 8px 0;
+}
+
+.linha-dupla {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.info-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+    .info-horizontal .label {
+        font-size: 13px;
+    }
+
+    .info-horizontal .valor {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+.linha-unica {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+    .linha-unica .label {
+        font-size: 13px;
+    }
+
+    .linha-unica .valor {
+        font-size: 15px;
+        font-weight: bold;
+    }

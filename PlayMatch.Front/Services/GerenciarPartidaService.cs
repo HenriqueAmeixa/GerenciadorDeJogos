@@ -132,18 +132,17 @@ namespace PlayMatch.Front.Services
             }
         }
 
-        public async Task FinalizarPartidaAsync()
+        public async Task FinalizarPartidaAsync(int rodadaId)
         {
             if (PartidaAtual == null) return;
-
+            PartidaAtual.RodadaId = rodadaId;
             PartidaAtual.TempoDeJogo -= TempoRestante;
             await SalvarTimesAsync();
             await SalvarPartidaAsync();
             await SalvarGolsEAssistenciasAsync();
-            await AdicionarJogadoresAosTimesAsync();
-
+            await AdicionarJogadoresAosTimesAsync();            
             ResetarEstadoDaPartida();
-            _navigation.NavigateTo("/partidas");
+            _navigation.NavigateTo($"/rodadas/{rodadaId}/partidas");
         }
         private async Task SalvarTimesAsync()
         {

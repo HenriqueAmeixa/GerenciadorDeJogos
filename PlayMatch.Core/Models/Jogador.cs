@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using PlayMatch.Core.Models.Jogadores;
+using SQLite;
 
 namespace PlayMatch.Core.Models
 {
@@ -8,5 +9,7 @@ namespace PlayMatch.Core.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Apelido { get; set; }
+        [Ignore]
+        public List<AvaliacaoTecnica> Avaliacoes { get; set; } = new();
     }
 }

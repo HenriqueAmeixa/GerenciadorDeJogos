@@ -99,6 +99,9 @@
     private Time Time2 = new();
     private bool TimesDefinidos = false;
     private bool ModoSelecaoManual = false;
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public int? rodadaId { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -185,6 +188,7 @@
     {
         await JS.InvokeVoidAsync("sessionStorage.setItem", "Time1", System.Text.Json.JsonSerializer.Serialize(Time1));
         await JS.InvokeVoidAsync("sessionStorage.setItem", "Time2", System.Text.Json.JsonSerializer.Serialize(Time2));
-        Navigation.NavigateTo("/gerenciar-partida");
+        Navigation.NavigateTo($"/gerenciar-partida?rodadaId={rodadaId}");
+
     }
 }
