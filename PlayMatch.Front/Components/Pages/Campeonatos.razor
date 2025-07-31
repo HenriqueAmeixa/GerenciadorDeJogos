@@ -8,12 +8,14 @@
 
 <div class="d-flex justify-content-between align-items-center mb-2">
     <h3 class="titulo m-0">@detalhes?.Nome</h3>
-    <button class="btn btn-sm btn-outline-primary" title="Relatório de Jogadores" @onclick="IrParaRelatorio">
-        <i class="fas fa-chart-bar"></i>
-    </button>
-    <button class="btn btn-sm btn-outline-success ms-2" title="Avaliação Técnica" @onclick="IrParaAvaliacaoTecnica">
-        <i class="fas fa-clipboard-check"></i>
-    </button>
+    <div class="d-flex gap-2">
+        <button class="btn btn-sm btn-outline-primary" title="Relatório de Jogadores" @onclick="IrParaRelatorio">
+            <i class="fas fa-chart-bar"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-success" title="Avaliação Técnica" @onclick="IrParaAvaliacaoTecnica">
+            <i class="fas fa-clipboard-check"></i>
+        </button>
+    </div>
 </div>
 
 

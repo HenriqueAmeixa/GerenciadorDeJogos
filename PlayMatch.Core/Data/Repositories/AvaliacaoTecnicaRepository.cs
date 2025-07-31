@@ -34,6 +34,14 @@ namespace PlayMatch.Core.Data.Repositories
                 .Where(a => a.CampeonatoId == campeonatoId)
                 .ToListAsync();
         }
+        public async Task<AvaliacaoTecnica?> ObterUltimaPorJogadorECampeonatoAsync(int jogadorId, int campeonatoId)
+        {
+            return await _database.Table<AvaliacaoTecnica>()
+                .Where(a => a.JogadorId == jogadorId && a.CampeonatoId == campeonatoId)
+                .OrderByDescending(a => a.DataAvaliacao)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task DeletarAsync(int avaliacaoId)
         {
             await _database.DeleteAsync<AvaliacaoTecnica>(avaliacaoId);

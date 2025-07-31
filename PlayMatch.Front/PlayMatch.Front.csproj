@@ -90,8 +90,4 @@
       </MauiXaml>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Components\Pages\Jogadores\" />
-    </ItemGroup>
-
 </Project>

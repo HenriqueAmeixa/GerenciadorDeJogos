@@ -26,10 +26,12 @@ namespace PlayMatch.Front.Services
             return  _mapper.Map<List<AvaliacaoTecnicaDto>>(await _avaliacaoRepository.ObterPorJogadorAsync(jogadorId));
         }
 
-        public async Task<AvaliacaoTecnicaDto?> ObterUltimaAvaliacaoAsync(int jogadorId)
+        public async Task<AvaliacaoTecnicaDto?> ObterUltimaAvaliacaoAsync(int jogadorId, int campeonatoId)
         {
-            return  _mapper.Map<AvaliacaoTecnicaDto>(await _avaliacaoRepository.ObterUltimaPorJogadorAsync(jogadorId));
+            var avaliacao = await _avaliacaoRepository.ObterUltimaPorJogadorECampeonatoAsync(jogadorId, campeonatoId);
+            return avaliacao != null ? _mapper.Map<AvaliacaoTecnicaDto>(avaliacao) : null;
         }
+
 
         public async Task<List<AvaliacaoTecnicaDto>> ObterPorCampeonatoAsync(int campeonatoId)
         {

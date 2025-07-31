@@ -28,5 +28,95 @@
 </body>
 
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    window.graficosRadar = {};
+
+    window.inicializarGraficosRadar = (json) => {
+        console.log("Conteúdo bruto recebido:", json);
+        const dados = JSON.parse(json);
+        console.log("Renderizando gráficos com:", dados);
+        console.dir(dados);
+
+        setTimeout(() => {
+            const grupos = {
+                graficoPatinacao: {
+                    labels: ["Curvas", "Estamina", "Aceleração", "Frenagem", "Transição"],
+                    data: [
+                        dados.curvas, dados.estamina, dados.aceleracao,
+                        dados.frenagem, dados.transicao
+                    ]
+                },
+                graficoAtaque: {
+                    labels: ["Chute", "StickHandle", "Proteção", "Condução", "Finalização"],
+                    data: [
+                        dados.chute, dados.stickHandle, dados.protecao,
+                        dados.conducao, dados.finalizacao
+                    ]
+                },
+                graficoDefesa: {
+                    labels: ["Marcação", "DefesaGol", "Antecipação", "Desarme", "Recuperação"],
+                    data: [
+                        dados.marcacao, dados.defesaGol, dados.antecipacao,
+                        dados.desarme, dados.recuperacao
+                    ]
+                },
+                graficoArticulacao: {
+                    labels: ["Passe", "Estratégia", "Fator Decisivo", "Comunicação", "Posicionamento"],
+                    data: [
+                        dados.passe, dados.estrategia, dados.fatorDecisivo,
+                        dados.comunicacao, dados.posicionamento
+                    ]
+                }
+            };
+
+            if (!window.graficosRadar) {
+                window.graficosRadar = {};
+            }
+
+            for (const [id, config] of Object.entries(grupos)) {
+                const canvas = document.getElementById(id);
+                if (!canvas) {
+                    console.warn(`Canvas ${id} não encontrado`);
+                    continue;
+                }
+
+                if (window.graficosRadar[id]) {
+                    window.graficosRadar[id].destroy();
+                }
+
+                window.graficosRadar[id] = new Chart(canvas, {
+                    type: 'radar',
+                    data: {
+                        labels: config.labels,
+                        datasets: [{
+                            label: 'Pontuação',
+                            data: config.data,
+                            backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                            borderColor: 'rgba(0, 123, 255, 1)',
+                            pointBackgroundColor: 'rgba(0, 123, 255, 1)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        animation: true,
+                        scales: {
+                            r: {
+                                min: 0,
+                                max: 10,
+                                ticks: { stepSize: 1 }
+                            }
+                        }
+                    }
+                });
+            }
+        }, 200);
+    };
+
+</script>
+
+
 
 

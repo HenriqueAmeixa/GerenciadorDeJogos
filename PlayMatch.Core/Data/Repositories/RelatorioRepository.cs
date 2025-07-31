@@ -1,5 +1,4 @@
 ﻿using PlayMatch.Core.Data.Interfaces;
-using PlayMatch.Core.Models.Relatórios;
 using PlayMatch.Core.Models;
 using SQLite;
 using PlayMatch.Core.Models.Relatorios;

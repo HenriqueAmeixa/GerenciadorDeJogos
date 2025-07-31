@@ -1,15 +1,17 @@
 ﻿using AutoMapper;
 using PlayMatch.Core.Data;
+using PlayMatch.Core.Data.Interfaces;
 using PlayMatch.Core.Models;
+using PlayMatch.Front.Models.Jogadores;
 
 namespace PlayMatch.Front.Services
 {
     public class JogadorService
     {
-        private readonly IGenericRepository<Jogador> _jogadorRepository;
+        private readonly IJogadorRepository _jogadorRepository;
         private readonly IMapper _mapper;
 
-        public JogadorService(IGenericRepository<Jogador> jogadorRepository, IMapper mapper)
+        public JogadorService(IJogadorRepository jogadorRepository, IMapper mapper)
         {
             _jogadorRepository = jogadorRepository;
             _mapper = mapper;
@@ -40,6 +42,15 @@ namespace PlayMatch.Front.Services
             var jogador = await _jogadorRepository.GetByIdAsync(id);
             return _mapper.Map<Models.Jogador>(jogador);
         }
-        
+        public async Task<List<JogadorResumoDto>> ObterJogadoresPorCampeonatoAsync(int campeonatoId)
+        {
+            var jogadores = await _jogadorRepository.GetByCampeonatoAsync(campeonatoId);
+            return _mapper.Map<List<JogadorResumoDto>>(jogadores);
+        }
+        public async Task<List<JogadorResumoDto>> ObterJogadoresPorCampeonatoAsync()
+        {
+            var jogadores = await _jogadorRepository.GetAllAsync();
+            return _mapper.Map<List<JogadorResumoDto>>(jogadores);
+        }
     }
 }

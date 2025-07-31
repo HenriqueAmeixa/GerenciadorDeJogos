@@ -48,6 +48,7 @@ namespace PlayMatch.Front.Mappers
             CreateMap<RodadaRelatorioJogador , Models.Relatorios.RodadaRelatorioJogador>();
             CreateMap<AvaliacaoTecnica, AvaliacaoTecnicaDto>();
             CreateMap<AvaliacaoTecnicaDto, AvaliacaoTecnica>();
+            CreateMap<Jogador, JogadorResumoDto>();
         }
     }
 }
