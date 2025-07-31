@@ -1,0 +1,253 @@
+﻿@page "/campeonatos/{campeonatoId:int}/avaliacoes"
+@inject NavigationManager Navigation
+@inject AvaliacaoTecnicaService AvaliacaoService
+@inject JogadorService JogadorService
+@inject IJSRuntime JS
+
+@using PlayMatch.Front.Models.Jogadores
+@using System.Text.Json
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="avaliacao-tecnica.css" />
+</head>
+
+<div class="container">
+    <h3>Avaliação Técnica</h3>
+
+    <select class="form-select mb-3" @onchange="OnSelecionarJogador">
+        <option value="">Selecione um jogador</option>
+        @foreach (var jogador in Jogadores)
+        {
+            <option value="@jogador.Id">@jogador.Apelido</option>
+        }
+    </select>
+
+    @if (JogadorSelecionado != null)
+    {
+        <!-- Carteirinha do Jogador -->
+        <div class="card card-jogador mb-3">
+            <div class="d-flex align-items-center">
+                <div class="foto-jogador"></div>
+                <div class="info-jogador ms-3">
+                    <div><strong>Nome:</strong> @JogadorSelecionado.Nome</div>
+                    <div><strong>Apelido:</strong> @JogadorSelecionado.Apelido</div>
+                </div>
+            </div>
+        </div>
+
+        @if (criandoNovaAvaliacao)
+        {
+            <!-- Formulário de Avaliação Técnica em Carrossel -->
+            <div class="card p-3">
+                <h5 class="text-center mb-3">@nomeStackAtual</h5>
+
+                <div class="form-stack">
+                    @foreach (var campo in CamposPorStack[nomeStackAtual])
+                    {
+                        <div class="campo">
+                            <label>@campo</label>
+                            <input type="number" class="form-control"
+                                   value="@ObterValorCampo(campo)"
+                                   @oninput="e => DefinirValorCampo(campo, int.TryParse(e.Value?.ToString(), out var v) ? v : 0)" />
+                        </div>
+                    }
+                </div>
+
+                <div class="botoes-stack mt-3">
+                    <button class="btn btn-secondary me-2" @onclick="AnteriorStack" disabled="@(indiceStackAtual == 0)">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="btn btn-secondary me-2" @onclick="ProximaStack" disabled="@(indiceStackAtual == stacks.Count - 1)">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-success" @onclick="SalvarAvaliacao">
+                        <i class="fas fa-check"></i> Salvar Avaliação
+                    </button>
+                </div>
+            </div>
+        }
+        else if (AvaliacaoSelecionada != null)
+        {
+            <!-- Gráficos de Radar por Stack -->
+            <div class="card p-3">
+                <div id="carouselRadar" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <h5 class="text-center">Patinação</h5>
+                            <canvas id="graficoPatinacao"></canvas>
+                        </div>
+                        <div class="carousel-item">
+                            <h5 class="text-center">Ataque</h5>
+                            <canvas id="graficoAtaque"></canvas>
+                        </div>
+                        <div class="carousel-item">
+                            <h5 class="text-center">Defesa</h5>
+                            <canvas id="graficoDefesa"></canvas>
+                        </div>
+                        <div class="carousel-item">
+                            <h5 class="text-center">Articulação</h5>
+                            <canvas id="graficoArticulacao"></canvas>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselRadar" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselRadar" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        }
+    }
+
+    @if (JogadorSelecionado != null && !criandoNovaAvaliacao)
+    {
+        <button class="btn-flutuante" title="@(AvaliacaoSelecionada != null ? "Editar Avaliação" : "Nova Avaliação")"
+                @onclick="EditarOuCriarAvaliacao">
+            <i class="fas @(AvaliacaoSelecionada != null ? "fa-edit" : "fa-plus")"></i>
+        </button>
+    }
+
+</div>
+
+@code {
+    [Parameter] public int campeonatoId { get; set; }
+
+    private List<JogadorResumoDto> Jogadores = new();
+    private JogadorResumoDto? JogadorSelecionado;
+    private AvaliacaoTecnicaDto? AvaliacaoSelecionada;
+    private AvaliacaoTecnicaDto novaAvaliacao = new();
+    private bool criandoNovaAvaliacao = false;
+
+    private int indiceStackAtual = 0;
+    private string nomeStackAtual => stacks[indiceStackAtual];
+
+    private List<string> stacks = new() { "Patinação", "Ataque", "Defesa", "Articulação" };
+
+    private Dictionary<string, List<string>> CamposPorStack = new()
+        {
+            ["Patinação"] = new() { "Curvas", "Estamina", "Aceleracao", "Frenagem", "Transicao" },
+            ["Ataque"] = new() { "Chute", "StickHandle", "Protecao", "Conducao", "Finalizacao" },
+            ["Defesa"] = new() { "Marcacao", "DefesaGol", "Antecipacao", "Desarme", "Recuperacao" },
+            ["Articulação"] = new() { "Passe", "Estrategia", "FatorDecisivo", "Comunicacao", "Posicionamento" },
+        };
+
+    protected override async Task OnInitializedAsync()
+    {
+        Jogadores = await JogadorService.ObterJogadoresPorCampeonatoAsync();
+    }
+
+    private async Task OnSelecionarJogador(ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out int id))
+        {
+            JogadorSelecionado = Jogadores.FirstOrDefault(j => j.Id == id);
+            AvaliacaoSelecionada = await AvaliacaoService.ObterUltimaAvaliacaoAsync(id, campeonatoId);
+            criandoNovaAvaliacao = false;
+            novaAvaliacao = new AvaliacaoTecnicaDto();
+
+            if (AvaliacaoSelecionada != null)
+            {
+                var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+                var json = JsonSerializer.Serialize(AvaliacaoSelecionada, options);
+                await JS.InvokeVoidAsync("inicializarGraficosRadar", json);
+
+            }
+        }
+    }
+
+    private void ProximaStack()
+    {
+        if (indiceStackAtual < stacks.Count - 1)
+            indiceStackAtual++;
+    }
+
+    private void AnteriorStack()
+    {
+        if (indiceStackAtual > 0)
+            indiceStackAtual--;
+    }
+
+    private int ObterValorCampo(string nomeCampo)
+    {
+        var prop = typeof(AvaliacaoTecnicaDto).GetProperty(nomeCampo);
+        return prop != null ? (int)(prop.GetValue(novaAvaliacao) ?? 0) : 0;
+    }
+
+    private void DefinirValorCampo(string nomeCampo, int valor)
+    {
+        var prop = typeof(AvaliacaoTecnicaDto).GetProperty(nomeCampo);
+        if (prop != null && prop.CanWrite)
+            prop.SetValue(novaAvaliacao, valor);
+    }
+
+    private async Task SalvarAvaliacao()
+    {
+        novaAvaliacao.JogadorId = JogadorSelecionado!.Id;
+        novaAvaliacao.CampeonatoId = campeonatoId;
+        await AvaliacaoService.SalvarAvaliacaoAsync(novaAvaliacao);
+        criandoNovaAvaliacao = false;
+        AvaliacaoSelecionada = await AvaliacaoService.ObterUltimaAvaliacaoAsync(JogadorSelecionado.Id, campeonatoId);
+
+        var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+        var json = JsonSerializer.Serialize(AvaliacaoSelecionada, options);
+        await JS.InvokeVoidAsync("inicializarGraficosRadar", json);
+
+    }
+
+    private void EditarOuCriarAvaliacao()
+    {
+        criandoNovaAvaliacao = true;
+
+        if (AvaliacaoSelecionada != null)
+        {
+            // Preenche os dados da avaliação existente
+            novaAvaliacao = new AvaliacaoTecnicaDto
+                {
+                    Id = AvaliacaoSelecionada.Id,
+                    JogadorId = AvaliacaoSelecionada.JogadorId,
+                    CampeonatoId = AvaliacaoSelecionada.CampeonatoId,
+
+                // Patinação
+                    Curvas = AvaliacaoSelecionada.Curvas,
+                    Estamina = AvaliacaoSelecionada.Estamina,
+                    Aceleracao = AvaliacaoSelecionada.Aceleracao,
+                    Frenagem = AvaliacaoSelecionada.Frenagem,
+                    Transicao = AvaliacaoSelecionada.Transicao,
+
+                // Ataque
+                    Chute = AvaliacaoSelecionada.Chute,
+                    StickHandle = AvaliacaoSelecionada.StickHandle,
+                    Protecao = AvaliacaoSelecionada.Protecao,
+                    Conducao = AvaliacaoSelecionada.Conducao,
+                    Finalizacao = AvaliacaoSelecionada.Finalizacao,
+
+                // Defesa
+                    Marcacao = AvaliacaoSelecionada.Marcacao,
+                    DefesaGol = AvaliacaoSelecionada.DefesaGol,
+                    Antecipacao = AvaliacaoSelecionada.Antecipacao,
+                    Desarme = AvaliacaoSelecionada.Desarme,
+                    Recuperacao = AvaliacaoSelecionada.Recuperacao,
+
+                // Articulação
+                    Passe = AvaliacaoSelecionada.Passe,
+                    Estrategia = AvaliacaoSelecionada.Estrategia,
+                    FatorDecisivo = AvaliacaoSelecionada.FatorDecisivo,
+                    Comunicacao = AvaliacaoSelecionada.Comunicacao,
+                    Posicionamento = AvaliacaoSelecionada.Posicionamento
+                };
+        }
+        else
+        {
+            novaAvaliacao = new AvaliacaoTecnicaDto
+                {
+                    JogadorId = JogadorSelecionado!.Id,
+                    CampeonatoId = campeonatoId
+                };
+        }
+
+        indiceStackAtual = 0;
+    }
+
+}

@@ -8,6 +8,7 @@ namespace PlayMatch.Core.Data.Interfaces
         Task<List<AvaliacaoTecnica>> ObterPorJogadorAsync(int jogadorId);
         Task<AvaliacaoTecnica?> ObterUltimaPorJogadorAsync(int jogadorId);
         Task<List<AvaliacaoTecnica>> ObterPorCampeonatoAsync(int campeonatoId);
+        Task<AvaliacaoTecnica?> ObterUltimaPorJogadorECampeonatoAsync(int jogadorId, int campeonatoId);
         Task DeletarAsync(int avaliacaoId);
     }
 }

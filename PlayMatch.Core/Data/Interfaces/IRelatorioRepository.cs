@@ -1,5 +1,4 @@
-﻿using PlayMatch.Core.Models.Relatórios;
-using PlayMatch.Core.Models.Relatorios;
+﻿using PlayMatch.Core.Models.Relatorios;
 
 namespace PlayMatch.Core.Data.Interfaces
 {
