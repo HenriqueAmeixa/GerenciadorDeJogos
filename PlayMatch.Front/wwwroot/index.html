@@ -37,6 +37,7 @@
     window.inicializarGraficosRadar = (json) => {
         console.log("Conteúdo bruto recebido:", json);
         const dados = JSON.parse(json);
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         console.log("Renderizando gráficos com:", dados);
         console.dir(dados);
 
@@ -99,6 +100,7 @@
                             pointBackgroundColor: 'rgba(0, 123, 255, 1)'
                         }]
                     },
+
                     options: {
                         responsive: true,
                         animation: true,
@@ -106,10 +108,30 @@
                             r: {
                                 min: 0,
                                 max: 10,
-                                ticks: { stepSize: 1 }
+                                ticks: {
+                                    stepSize: 1,
+                                    color: isDark ? '#fff' : '#000'
+                                },
+                                pointLabels: {
+                                    color: isDark ? '#fff' : '#000'
+                                },
+                                grid: {
+                                    color: isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'
+                                },
+                                angleLines: {
+                                    color: isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.2)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: isDark ? '#fff' : '#000'
+                                }
                             }
                         }
                     }
+
                 });
             }
         }, 200);

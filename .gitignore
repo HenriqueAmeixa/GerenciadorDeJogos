@@ -53,3 +53,4 @@ PlayMatch.Core/obj/
 /PlayMatch.Front/obj/PlayMatch.Front.csproj.nuget.g.props
 /PlayMatch.Front/obj/PlayMatch.Front.csproj.nuget.dgspec.json
 *.flag
+/PlayMatch.Front/obj/PlayMatch.Front.mobile.props
